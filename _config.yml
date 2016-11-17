@@ -69,7 +69,7 @@ pagination_dir: page
 plugins:
   hexo-generator-sitemap
 ## Themes: https://hexo.io/themes/
-theme: next2
+theme: next
 
 duoshuo_shortname: x8087
 baidu_analytics: db3298e9568f60ef1f92511a86e7a270
