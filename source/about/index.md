@@ -1,5 +1,6 @@
 date: 2015-07-28 17:09:24
 type: about
+comments: false
 ---
 <div class="tag-cloud"> <div class="tag-cloud-title">-- 称号 --</div> <div class="tag-cloud-tags"> <a style="font-size: 12px; color: #ccc">as3程序员</a> <a style="font-size: 12px; color: #ccc">flash</a> <a style="font-size: 12px; color: #ccc">游戏工作者</a> <a style="font-size: 12px; color: #ccc">游戏设计师</a> <a style="font-size: 12px; color: #ccc">游戏爱好者</a> <a style="font-size: 12px; color: #ccc">程序员</a> <a style="font-size: 12px; color: #ccc">软件设计师</a> <a style="font-size: 12px; color: #ccc">机神</a> </div></div>
 <div class="tag-cloud"><div class="tag-cloud-title">-- 爱好 --</div><div class="tag-cloud-tags"><a style="font-size: 12px; color: #ccc">传统文化</a><a style="font-size: 12px; color: #ccc">前沿技术</a><a style="font-size: 12px; color: #ccc">游戏</a><a style="font-size: 12px; color: #ccc">看书</a><a style="font-size: 12px; color: #ccc">电影</a><a style="font-size: 12px; color: #ccc">旅行</a><a style="font-size: 12px; color: #ccc">足球</a><a style="font-size: 12px; color: #ccc">摄影</a><a style="font-size: 12px; color: #ccc">设计</a><a style="font-size: 12px; color: #ccc">手工</a></div></div>

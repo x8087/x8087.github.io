@@ -71,8 +71,8 @@ plugins:
 ## Themes: https://hexo.io/themes/
 theme: next
 
-duoshuo_shortname: x8087
-baidu_analytics: db3298e9568f60ef1f92511a86e7a270
+#duoshuo_shortname: x8087
+#baidu_analytics: db3298e9568f60ef1f92511a86e7a270
 baidu_tonji: ly2Fk3kgrRjYrpgm
 feed:
   type: atom
