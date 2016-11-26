@@ -1,0 +1,1005 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vim,笔记,技巧,帮助," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="假如上帝不是程序员" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="vim参考文档内自动命令事件的翻译整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim自动命令事件整理">
+<meta property="og:url" content="http://x8087.github.io/2016/11/12/vim自动命令事件/index.html">
+<meta property="og:site_name" content="假如上帝不是程序员">
+<meta property="og:description" content="vim参考文档内自动命令事件的翻译整理。">
+<meta property="og:updated_time" content="2016-11-26T03:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim自动命令事件整理">
+<meta name="twitter:description" content="vim参考文档内自动命令事件的翻译整理。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '12948511',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://x8087.github.io/2016/11/12/vim自动命令事件/"/>
+
+
+
+
+
+  <title> vim自动命令事件整理 | 假如上帝不是程序员 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?9d2df6bea6a5f9af49a265803692cb1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=59604490";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">假如上帝不是程序员</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">--存在就是最大的bug</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2016/11/12/vim自动命令事件/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="x8087">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="假如上帝不是程序员">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="假如上帝不是程序员" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vim自动命令事件整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-12T15:09:00+08:00">
+                2016-11-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-11-26T11:15:10+08:00">
+                2016-11-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/12/vim自动命令事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/vim自动命令事件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/12/vim自动命令事件/" class="leancloud_visitors" data-flag-title="vim自动命令事件整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>vim参考文档内自动命令事件的翻译整理。</p>
+<a id="more"></a>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h3 id="读取-Reading"><a href="#读取-Reading" class="headerlink" title="读取(Reading)"></a>读取(Reading)</h3><h4 id="BufNewFile"><a href="#BufNewFile" class="headerlink" title="BufNewFile"></a>BufNewFile</h4><p>starting to edit a file that doesn’t exist<br>开始编辑不存在的文件。<br>Can be used to read in a skeleton file.<br>能用在一个构架文件读取。</p>
+<h4 id="BufReadPre"><a href="#BufReadPre" class="headerlink" title="BufReadPre"></a>BufReadPre</h4><p>starting to edit a new buffer, before reading the file<br>开始编辑一个新的缓存，读取文件之前。<br>Not used if the file doesn’t exist.<br>文件如果不存在不能使用</p>
+<h4 id="BufRead-or-BufReadPost"><a href="#BufRead-or-BufReadPost" class="headerlink" title="BufRead or BufReadPost"></a>BufRead or BufReadPost</h4><p>starting to edit a new buffer, after reading the file<br>开始编辑一个新的缓存，读取文件之后。</p>
+<p>When starting to edit a new buffer, after reading the file into the buffer, before executing the modelines.  See |BufWinEnter|<br>当开始编辑一个新的缓存，读取文件进入缓存之后，执行模式行之前。参考|BufWinEnter|<br>for when you need to do something after processing the modelines.<br>为了当你需要在处理模式行之后做操作。<br>This does NOT work for “:r file”.<br>变个对于”:r file”不工作<br>Not used when the file doesn’t exist.<br>当文件不存在时不可用。<br>Also used after successfully recovering a file.<br>也用在成功覆盖文件之后。<br>Also triggered for the filetypedetect group when executing “:filetype detect” and when writing an unnamed buffer in a way that the buffer gets a name.<br>同时当执行”:filetype detect”时作为文件类型检测组和当书写未命名缓存获取名字时触发。</p>
+<h4 id="BufReadCmd"><a href="#BufReadCmd" class="headerlink" title="BufReadCmd"></a>BufReadCmd</h4><p>before starting to edit a new buffer |Cmd-event|<br>开始编辑新缓存之前|Cmd-event|<br>Should read the file into the buffer. |Cmd-event|<br>文件应已读入缓存。</p>
+<h4 id="FileReadPre"><a href="#FileReadPre" class="headerlink" title="FileReadPre"></a>FileReadPre</h4><p>before reading a file with a “:read” command<br>通过”:read”命令读取文件之前。</p>
+<h4 id="FileReadPost"><a href="#FileReadPost" class="headerlink" title="FileReadPost"></a>FileReadPost</h4><p>after reading a file with a “:read” command<br>通过”:read”命令读取文件之后。<br>Note that Vim sets the ‘[ and ‘] marks to the first and last line of the read.  This can be used to operate on the lines just read.<br>注意：vim在读取的首行和尾行设置’[和’]标记。这个能用来在只读行上操作。</p>
+<h4 id="FileReadCmd"><a href="#FileReadCmd" class="headerlink" title="FileReadCmd"></a>FileReadCmd</h4><p>before reading a file with a “:read” command |Cmd-event|<br>通过”:read”命令读取文件之前。<br>Should do the reading of the file. |Cmd-event|<br>应作用在文件读取中。</p>
+<h4 id="FilterReadPre"><a href="#FilterReadPre" class="headerlink" title="FilterReadPre"></a>FilterReadPre</h4><p>before reading a file from a filter command<br>过滤命令读取文件之前。<br>Vim checks the pattern against the name of the current buffer, not the name of the temporary file that is the output of the filter command.<br>Not triggered when ‘shelltemp’ is off.</p>
+<h4 id="FilterReadPost"><a href="#FilterReadPost" class="headerlink" title="FilterReadPost"></a>FilterReadPost</h4><p>after reading a file from a filter command<br>过滤命令读取文件之后。<br>After reading a file from a filter command.<br>Vim checks the pattern against the name of the current buffer as with FilterReadPre.<br>Not triggered when ‘shelltemp’ is off.</p>
+<h4 id="StdinReadPre"><a href="#StdinReadPre" class="headerlink" title="StdinReadPre"></a>StdinReadPre</h4><p>before reading from stdin into the buffer<br>从标准输入读取到缓存之前。<br>Before reading from stdin into the buffer.<br>Only used when the “-“ argument was used when Vim was started |–|.</p>
+<h4 id="StdinReadPost"><a href="#StdinReadPost" class="headerlink" title="StdinReadPost"></a>StdinReadPost</h4><p>After reading from the stdin into the buffer<br>从标准输入读取到缓存之后。<br>After reading from the stdin into the buffer, before executing the modelines.<br>Only used when the “-“ argument was used when Vim was started |–|.</p>
+<h3 id="写入-Writing"><a href="#写入-Writing" class="headerlink" title="写入(Writing)"></a>写入(Writing)</h3><h4 id="BufWrite"><a href="#BufWrite" class="headerlink" title="BufWrite"></a>BufWrite</h4><p>starting to write the whole buffer to a file<br>开始写整个缓存到文件。<br>Before writing the whole buffer to a file.</p>
+<h4 id="BufWritePre"><a href="#BufWritePre" class="headerlink" title="BufWritePre"></a>BufWritePre</h4><p>starting to write the whole buffer to a file<br>开始写整个缓存到文件。<br>Before writing the whole buffer to a file.</p>
+<h4 id="BufWritePost"><a href="#BufWritePost" class="headerlink" title="BufWritePost"></a>BufWritePost</h4><p>after writing the whole buffer to a file<br>写整个缓存到文件后。<br>(should undo the commands for BufWritePre).</p>
+<h4 id="BufWriteCmd"><a href="#BufWriteCmd" class="headerlink" title="BufWriteCmd"></a>BufWriteCmd</h4><p>before writing the whole buffer to a file |Cmd-event|<br>写整个缓存到文件前。<br>Should do the writing of the file and reset ‘modified’ if successful, unless ‘+’ is in ‘cpo’ and writing to another file |cpo-+|.<br>The buffer contents should not be changed.<br>When the command resets ‘modified’ the undo information is adjusted to mark older undo states as ‘modified’, like |:write| does. |Cmd-event|</p>
+<h4 id="FileWritePre"><a href="#FileWritePre" class="headerlink" title="FileWritePre"></a>FileWritePre</h4><p>starting to write part of a buffer to a file<br>开始写部分缓存到文件。<br>Before writing to a file, when not writing the whole buffer.<br>Use the ‘[ and ‘] marks for the range of lines.</p>
+<h4 id="FileWritePost"><a href="#FileWritePost" class="headerlink" title="FileWritePost"></a>FileWritePost</h4><p>after writing part of a buffer to a file<br>写部分缓存到文件后。<br>After writing to a file, when not writing the whole buffer.</p>
+<h4 id="FileWriteCmd"><a href="#FileWriteCmd" class="headerlink" title="FileWriteCmd"></a>FileWriteCmd</h4><p>before writing part of a buffer to a file |Cmd-event|<br>写部分缓存到文件前。<br>Before writing to a file, when not writing the whole buffer.<br>Should do the writing to the file.<br>Should not change the buffer.<br>Use the ‘[ and ‘] marks for the range of lines. |Cmd-event|</p>
+<h4 id="FileAppendPre"><a href="#FileAppendPre" class="headerlink" title="FileAppendPre"></a>FileAppendPre</h4><p>starting to append to a file<br>开始附加到文件。<br>Before appending to a file.<br>Use the ‘[ and ‘] marks for the range of lines.</p>
+<h4 id="FileAppendPost"><a href="#FileAppendPost" class="headerlink" title="FileAppendPost"></a>FileAppendPost</h4><p>after appending to a file<br>附加到文件后。</p>
+<h4 id="FileAppendCmd"><a href="#FileAppendCmd" class="headerlink" title="FileAppendCmd"></a>FileAppendCmd</h4><p>before appending to a file |Cmd-event|<br>附加到文件前。<br>Should do the appending to the file.<br>Use the ‘[ and ‘] marks for the range of lines.|Cmd-event|</p>
+<h4 id="FilterWritePre"><a href="#FilterWritePre" class="headerlink" title="FilterWritePre"></a>FilterWritePre</h4><p>starting to write a file for a filter command or diff<br>开始为过滤命令或diff写文件。<br>Before writing a file for a filter command or making a diff.<br>Vim checks the pattern against the name of the current buffer, not the name of the temporary file that is the output of the filter command.<br>Not triggered when ‘shelltemp’ is off.</p>
+<h4 id="FilterWritePost"><a href="#FilterWritePost" class="headerlink" title="FilterWritePost"></a>FilterWritePost</h4><p>after writing a file for a filter command or diff<br>为过滤命令或diff写文件后。<br>After writing a file for a filter command or making a diff.<br>Vim checks the pattern against the name of the current buffer as with FilterWritePre.<br>Not triggered when ‘shelltemp’ is off.</p>
+<h3 id="缓存-Buffers"><a href="#缓存-Buffers" class="headerlink" title="缓存(Buffers)"></a>缓存(Buffers)</h3><h4 id="BufAdd"><a href="#BufAdd" class="headerlink" title="BufAdd"></a>BufAdd</h4><p>just after adding a buffer to the buffer list<br>添加缓存到缓存列表后。</p>
+<h4 id="BufCreate"><a href="#BufCreate" class="headerlink" title="BufCreate"></a>BufCreate</h4><p>just after adding a buffer to the buffer list<br>添加缓存到缓存列表后。<br>Just after creating a new buffer which is added to the buffer list, or adding a buffer to the buffer list.<br>Also used just after a buffer in the buffer list has been renamed.<br>The BufCreate event is for historic reasons.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being created “<afile>“.</afile></p>
+<h4 id="BufDelete"><a href="#BufDelete" class="headerlink" title="BufDelete"></a>BufDelete</h4><p>before deleting a buffer from the buffer list<br>从缓存列表删除缓存前。<br>The BufUnload may be called first (if the buffer was loaded).<br>Also used just before a buffer in the buffer list is renamed.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being deleted “<afile>“ and “<abuf>“.<br>Don’t change to another buffer, it will cause problems. </abuf></afile></p>
+<h4 id="BufWipeout"><a href="#BufWipeout" class="headerlink" title="BufWipeout"></a>BufWipeout</h4><p>before completely deleting a buffer<br>完全删除缓存前。<br>The BufUnload and BufDelete events may be called first (if the buffer was loaded and was in the buffer list).<br>Also used just before a buffer is renamed (also when it’s not in the buffer list).<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being deleted “<afile>“.<br>Don’t change to another buffer, it will cause problems.</afile></p>
+<h4 id="BufFilePre"><a href="#BufFilePre" class="headerlink" title="BufFilePre"></a>BufFilePre</h4><p>before changing the name of the current buffer<br>更改当前缓存名字前。<br>with the “:file” or “:saveas” command.</p>
+<h4 id="BufFilePost"><a href="#BufFilePost" class="headerlink" title="BufFilePost"></a>BufFilePost</h4><p>after changing the name of the current buffer<br>更改当前缓存名字后。<br>with the “:file” or “:saveas” command.</p>
+<h4 id="BufEnter"><a href="#BufEnter" class="headerlink" title="BufEnter"></a>BufEnter</h4><p>after entering a buffer<br>进入缓存前。<br>Useful for setting options for a file type.<br>Also executed when starting to edit a buffer, after the BufReadPost autocommands.</p>
+<h4 id="BufLeave"><a href="#BufLeave" class="headerlink" title="BufLeave"></a>BufLeave</h4><p>before leaving to another buffer<br>离开到另一个缓存前。<br>Also when leaving or closing the current window and the new current window is not for the same buffer.<br>Not used for “:qa” or “:q” when exiting Vim.</p>
+<h4 id="BufWinEnter"><a href="#BufWinEnter" class="headerlink" title="BufWinEnter"></a>BufWinEnter</h4><p>after a buffer is displayed in a window<br>缓存在窗口显示后。<br>This can be when the buffer is loaded (after processing the modelines) or when a hidden buffer is displayed in a window (and is no longer hidden).<br>Does not happen for |:split| without arguments, since you keep editing the same buffer, or “:split” with a file that’s already open in a window, because it re-uses an existing buffer.<br>But it does happen for a “:split” with the name of the current buffer, since it reloads that buffer.</p>
+<h4 id="BufWinLeave"><a href="#BufWinLeave" class="headerlink" title="BufWinLeave"></a>BufWinLeave</h4><p>before a buffer is removed from a window<br>缓存从窗口移除前。<br>Not when it’s still visible in another window.<br>Also triggered when exiting.<br>It’s triggered before BufUnload or BufHidden.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being unloaded “<afile>“.<br>When exiting and v:dying is 2 or more this event is not triggered.</afile></p>
+<h4 id="BufUnload"><a href="#BufUnload" class="headerlink" title="BufUnload"></a>BufUnload</h4><p>before unloading a buffer<br>卸下缓存前。<br>This is when the text in the buffer is going to be freed.<br>This may be after a BufWritePost and before a BufDelete.<br>Also used for all buffers that are loaded when Vim is going to exit.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being unloaded “<afile>“.<br>Don’t change to another buffer, it will cause problems.<br>When exiting and v:dying is 2 or more this event is not triggered.</afile></p>
+<h4 id="BufHidden"><a href="#BufHidden" class="headerlink" title="BufHidden"></a>BufHidden</h4><p>just after a buffer has become hidden<br>缓存变成隐藏后。<br>That is, when there are no longer windows that show the buffer, but the buffer is not unloaded or<br>deleted.<br>Not used for “:qa” or “:q” when exiting Vim.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being unloaded “<afile>“.</afile></p>
+<h4 id="BufNew"><a href="#BufNew" class="headerlink" title="BufNew"></a>BufNew</h4><p>just after creating a new buffer<br>创建新的缓存后。<br>Also used just after a buffer has been renamed.<br>When the buffer is added to the buffer list BufAdd will be triggered too.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer being created “<afile>“.</afile></p>
+<h4 id="SwapExists"><a href="#SwapExists" class="headerlink" title="SwapExists"></a>SwapExists</h4><p>detected an existing swap file<br>检测存在交换文件。<br>Detected an existing swap file when starting to edit a file.<br>Only when it is possible to select a way to handle the situation, when Vim would ask the user what to do.<br>The |v:swapname| variable holds the name of the swap file found, <afile> the file being edited.  |v:swapcommand| may contain a command to be executed in the opened file.<br>The commands should set the |v:swapchoice| variable to a string with one character to tell Vim what should be done next: ‘o’    open read-only ‘e’    edit the file anyway ‘r’    recover ‘d’    delete the swap file ‘q’    quit, don’t edit the file ‘a’    abort, like hitting CTRL-C When set to an empty string the user will be asked, as if there was no SwapExists autocmd.<br><em>E812</em> It is not allowed to change to another buffer, change a buffer name or change directory here.</afile></p>
+<h3 id="选项-Options"><a href="#选项-Options" class="headerlink" title="选项(Options)"></a>选项(Options)</h3><h4 id="FileType"><a href="#FileType" class="headerlink" title="FileType"></a>FileType</h4><p>when the ‘filetype’ option has been set<br>当设置了’filetype’选项时。<br>The pattern is matched against the filetype.</p>
+<p><afile> can be used for the name of the file where this option was set, and <amatch> for the new value of ‘filetype’. See |filetypes|.</amatch></afile></p>
+<h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h4><p>when the ‘syntax’ option has been set<br>当设置了’syntax’选项时。<br>When the ‘syntax’ option has been set.<br>The pattern is matched against the syntax name. <afile> can be used for the name of the file where this option was set, and <amatch> for the new value of ‘syntax’.<br>See |:syn-on|.</amatch></afile></p>
+<h4 id="EncodingChanged"><a href="#EncodingChanged" class="headerlink" title="EncodingChanged"></a>EncodingChanged</h4><p>after the ‘encoding’ option has been changed<br>当’encoding’选项改变时。<br>Fires off after the ‘encoding’ option has been changed.<br>Useful to set up fonts, for example.<br>FileEncoding<br>Obsolete.  It still works and is equivalent to |EncodingChanged|.</p>
+<h4 id="TermChanged"><a href="#TermChanged" class="headerlink" title="TermChanged"></a>TermChanged</h4><p>after the value of ‘term’ has changed<br>当’term’选项值改变时。<br>After the value of ‘term’ has changed.<br>Useful for re-loading the syntax file to update the colors, fonts and other terminal-dependent settings.<br>Executed for all loaded buffers.</p>
+<h4 id="OptionSet"><a href="#OptionSet" class="headerlink" title="OptionSet"></a>OptionSet</h4><p>after setting any option<br>设置任何选项后。<br>The pattern is matched against the long option name.<br>The |v:option_old| variable indicates the old option value, |v:option_new| variable indicates the newly set value, the |v:option_type| variable indicates whether it’s global or local scoped and |<amatch>| indicates what option has been set.<br>Is not triggered on startup and for the ‘key’ option for obvious reasons.<br>Usage example: Check for the existence of the directory in the ‘backupdir’ and ‘undodir’ options, create the directory if it doesn’t exist yet.<br>Note: It’s a bad idea to reset an option during this autocommand, this may break a plugin.<br>You can always use <code>:noa</code> to prevent triggering this autocommand.</amatch></p>
+<h3 id="启动与退出-Startup-and-exit"><a href="#启动与退出-Startup-and-exit" class="headerlink" title="启动与退出(Startup and exit)"></a>启动与退出(Startup and exit)</h3><h4 id="VimEnter"><a href="#VimEnter" class="headerlink" title="VimEnter"></a>VimEnter</h4><p>after doing all the startup stuff<br>完成所有启动操作后。<br>After doing all the startup stuff, including loading .vimrc files, executing the “-c cmd” arguments, creating all windows and loading the buffers in them.<br>Just before this event is triggered the |v:vim_did_enter| variable is set, so that you can do: &gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if v:vim_did_enter</div><div class="line">call s:init()</div><div class="line">else</div><div class="line">au VimEnter * call s:init()</div><div class="line">endif</div></pre></td></tr></table></figure></p>
+<h4 id="GUIEnter"><a href="#GUIEnter" class="headerlink" title="GUIEnter"></a>GUIEnter</h4><p>after starting the GUI successfully<br>成功打开GUI后。<br>After starting the GUI successfully, and after opening the window.<br>It is triggered before VimEnter when using gvim.<br>Can be used to position the window from a .gvimrc file: &gt;<br>:autocmd GUIEnter * winpos 100 50</p>
+<h4 id="GUIFailed"><a href="#GUIFailed" class="headerlink" title="GUIFailed"></a>GUIFailed</h4><p>after starting the GUI failed<br>打开GUI失败后。<br>After starting the GUI failed.<br>Vim may continue to run in the terminal, if possible (only on Unix and alikes, when connecting the X server fails).<br>You may want to quit Vim: &gt; :autocmd GUIFailed * qall</p>
+<h4 id="TermResponse"><a href="#TermResponse" class="headerlink" title="TermResponse"></a>TermResponse</h4><p>after the terminal response to |t_RV| is received<br>终端对|t_RV|的答复收到后。<br>After the response to |t_RV| is received from the terminal.<br>The value of |v:termresponse| can be used to do things depending on the terminal version.<br>Note that this event may be triggered halfway executing another event, especially if file I/O, a shell command or anything else that takes time is involved.</p>
+<h4 id="QuitPre"><a href="#QuitPre" class="headerlink" title="QuitPre"></a>QuitPre</h4><p>when using <code>:quit</code>, before deciding whether to quit<br>当使用’:quit’，决定是否退出前。<br>When using <code>:quit</code>, <code>:wq</code> or <code>:qall</code>, before deciding whether it closes the current window or quits Vim.<br>Can be used to close any non-essential window if the current window is the last ordinary window.</p>
+<h4 id="VimLeavePre"><a href="#VimLeavePre" class="headerlink" title="VimLeavePre"></a>VimLeavePre</h4><p>before exiting Vim, before writing the viminfo file<br>退出Vim前，写viminfo文件前。<br>Before exiting Vim, just before writing the .viminfo file.<br>This is executed only once, if there is a match with the name of what happens to be the current buffer when exiting.<br>Mostly useful with a “<em>“ pattern.<br>` :autocmd VimLeavePre </em> call CleanupStuff() `<br>To detect an abnormal exit use |v:dying|.<br>When v:dying is 2 or more this event is not triggered.</p>
+<h4 id="VimLeave"><a href="#VimLeave" class="headerlink" title="VimLeave"></a>VimLeave</h4><p>before exiting Vim, after writing the viminfo file<br>退出Vim前，写viminfo文件前。<br>Before exiting Vim, just after writing the .viminfo file.<br>Executed only once, like VimLeavePre.<br>To detect an abnormal exit use |v:dying|.<br>When v:dying is 2 or more this event is not triggered.</p>
+<h3 id="其他-Various"><a href="#其他-Various" class="headerlink" title="其他(Various)"></a>其他(Various)</h3><h4 id="FileChangedShell"><a href="#FileChangedShell" class="headerlink" title="FileChangedShell"></a>FileChangedShell</h4><p>Vim notices that a file changed since editing started<br>Vim通知文件自从编辑开始时的改变。<br>When Vim notices that the modification time of a file has changed since editing started.<br>Also when the file attributes of the file change or when the size of the file changes.<br>|timestamp|<br>Mostly triggered after executing a shell command, but also with a |:checktime| command or when Gvim regains input focus.<br>This autocommand is triggered for each changed file.<br>It is not used when ‘autoread’ is set and the buffer was not changed.<br>If a FileChangedShell autocommand is present the warning message and prompt is not given.<br>The |v:fcs_reason| variable is set to indicate what happened and |v:fcs_choice| can be used to tell Vim what to do next.<br>NOTE: When this autocommand is executed, the current buffer “%” may be different from the buffer that was changed “<afile>“.<br>NOTE: The commands must not change the current buffer, jump to another buffer or delete a buffer.<br><em>E246</em> <em>E811</em><br>NOTE: This event never nests, to avoid an endless loop.<br>This means that while executing commands for the FileChangedShell event no other FileChangedShell event will be triggered.</afile></p>
+<h4 id="FileChangedShellPost"><a href="#FileChangedShellPost" class="headerlink" title="FileChangedShellPost"></a>FileChangedShellPost</h4><p>After handling a file changed since editing started<br>处理文件自从编辑开始时的改变后。<br>After handling a file that was changed outside of Vim.<br>Can be used to update the statusline.</p>
+<h4 id="FileChangedRO"><a href="#FileChangedRO" class="headerlink" title="FileChangedRO"></a>FileChangedRO</h4><p>before making the first change to a read-only file<br>对只读文件做出首个改变前。<br>Before making the first change to a read-only file.<br>Can be used to check-out the file from a source control system.<br>Not triggered when the change was caused by an autocommand.<br>This event is triggered when making the first change in a buffer or the first change after ‘readonly’ was set, just before the change is applied to the text.<br>WARNING: If the autocommand moves the cursor the effect of the change is undefined.<br><em>E788</em><br>It is not allowed to change to another buffer here.<br>You can reload the buffer but not edit another one.<br><em>E881</em><br>If the number of lines changes saving for undo may fail and the change will be aborted.</p>
+<h4 id="ShellCmdPost"><a href="#ShellCmdPost" class="headerlink" title="ShellCmdPost"></a>ShellCmdPost</h4><p>after executing a shell command<br>执行shell命令后。<br>After executing a shell command with |:!cmd|, |:shell|, |:make| and |:grep|.<br>Can be used to check for any changed files.</p>
+<h4 id="ShellFilterPost"><a href="#ShellFilterPost" class="headerlink" title="ShellFilterPost"></a>ShellFilterPost</h4><p>after filtering with a shell command<br>用shell命令过滤后。<br>After executing a shell command with “:{range}!cmd”, “:w !cmd” or “:r !cmd”.<br>Can be used to check for any changed files.</p>
+<h4 id="CmdUndefined"><a href="#CmdUndefined" class="headerlink" title="CmdUndefined"></a>CmdUndefined</h4><p>a user command is used but it isn’t defined<br>使用未定义的用户命令时。<br>Useful for defining a command only when it’s used.<br>The pattern is matched against the command name.  Both <amatch> and <afile> are set to the name of the command.<br>NOTE: Autocompletion won’t work until the command is defined.<br>An alternative is to always define the user command and have it invoke an autoloaded function.<br>See |autoload|.</afile></amatch></p>
+<h4 id="FuncUndefined"><a href="#FuncUndefined" class="headerlink" title="FuncUndefined"></a>FuncUndefined</h4><p>a user function is used but it isn’t defined<br>使用未定义的用户函数时。<br>When a user function is used but it isn’t defined.<br>Useful for defining a function only when it’s used.<br>The pattern is matched against the function name.<br>Both <amatch> and <afile> are set to the name of the function.<br>NOTE: When writing Vim scripts a better alternative is to use an autoloaded function.<br>See |autoload-functions|.</afile></amatch></p>
+<h4 id="SpellFileMissing"><a href="#SpellFileMissing" class="headerlink" title="SpellFileMissing"></a>SpellFileMissing</h4><p>a spell file is used but it can’t be found<br>使用一个拼写文件，但是找不到。<br>When trying to load a spell checking file and it can’t be found.<br>The pattern is matched against the language.  <amatch> is the language, ‘encoding’ also matters.<br>See |spell-SpellFileMissing|.</amatch></p>
+<h4 id="SourcePre"><a href="#SourcePre" class="headerlink" title="SourcePre"></a>SourcePre</h4><p>before sourcing a Vim script<br>sourcing Vim脚本前。<br>|:source| <afile> is the name of the file being sourced.</afile></p>
+<h4 id="SourceCmd"><a href="#SourceCmd" class="headerlink" title="SourceCmd"></a>SourceCmd</h4><p>before sourcing a Vim script |Cmd-event|<br>sourcing Vim脚本前。<br>When sourcing a Vim script. |:source|</p>
+<p><afile> is the name of the file being sourced.<br>The autocommand must source this file.<br>|Cmd-event|</afile></p>
+<h4 id="VimResized"><a href="#VimResized" class="headerlink" title="VimResized"></a>VimResized</h4><p>after the Vim window size changed<br>Vim窗口尺寸改变后。<br>After the Vim window was resized, thus ‘lines’ and/or ‘columns’ changed.<br>Not when starting up though.</p>
+<h4 id="FocusGained"><a href="#FocusGained" class="headerlink" title="FocusGained"></a>FocusGained</h4><p>Vim got input focus<br>Vim得到输入焦点时。<br>When Vim got input focus.<br>Only for the GUI version and a few console versions where this can be detected.</p>
+<h4 id="FocusLost"><a href="#FocusLost" class="headerlink" title="FocusLost"></a>FocusLost</h4><p>Vim lost input focus<br>Vim失去输入焦点时。<br>When Vim lost input focus.  Only for the GUI version and a few console versions where this can be detected.<br>May also happen when a dialog pops up.</p>
+<h4 id="CursorHold"><a href="#CursorHold" class="headerlink" title="CursorHold"></a>CursorHold</h4><p>the user doesn’t press a key for a while<br>用户不按按键一会儿后。<br>When the user doesn’t press a key for the time specified with ‘updatetime’.<br>Not re-triggered until the user has pressed a key (i.e. doesn’t fire every ‘updatetime’ ms if you leave Vim to make some coffee. :)  See |CursorHold-example| for previewing tags.<br>This event is only triggered in Normal mode.<br>It is not triggered when waiting for a command argument to be typed, or a movement after an operator.<br>While recording the CursorHold event is not triggered. |q| <em><cursorhold></cursorhold></em><br>Internally the autocommand is triggered by the <cursorhold> key.<br>In an expression mapping |getchar()| may see this character.</cursorhold></p>
+<p>Note: Interactive commands cannot be used for this event.  There is no hit-enter prompt, the screen is updated directly (when needed).<br>Note: In the future there will probably be another option to set the time.<br>Hint: to force an update of the status lines use: <code>:let &amp;ro = &amp;ro</code><br>{only on Amiga, Unix, Win32, MSDOS and all GUI versions}</p>
+<h4 id="CursorHoldI"><a href="#CursorHoldI" class="headerlink" title="CursorHoldI"></a>CursorHoldI</h4><p>the user doesn’t press a key for a while in Insert mode<br>用户在插入模式不按按键一会儿后。<br>Just like CursorHold, but in Insert mode.<br>Not triggered when waiting for another key, e.g. after CTRL-V, and not when in CTRL-X mode |insert_expand|.</p>
+<h4 id="CursorMoved"><a href="#CursorMoved" class="headerlink" title="CursorMoved"></a>CursorMoved</h4><p>the cursor was moved in Normal mode<br>在普通模式光标移动。<br>After the cursor was moved in Normal or Visual mode.<br>Also when the text of the cursor line has been changed, e.g., with “x”, “rx” or “p”.<br>Not triggered when there is typeahead or when an operator is pending.<br>For an example see |match-parens|.<br>Careful: This is triggered very often, don’t do anything that the user does not expect or that is slow.</p>
+<h4 id="CursorMovedI"><a href="#CursorMovedI" class="headerlink" title="CursorMovedI"></a>CursorMovedI</h4><p>the cursor was moved in Insert mode<br>在插入模式光标移动。<br>After the cursor was moved in Insert mode.<br>Not triggered when the popup menu is visible.<br>Otherwise the same as CursorMoved.</p>
+<h4 id="WinNew"><a href="#WinNew" class="headerlink" title="WinNew"></a>WinNew</h4><p>after creating a new window<br>创建一个新窗口后。<br>When a new window was created.<br>Not done for the fist window, when Vim has just started.<br>Before a WinEnter event.</p>
+<h4 id="TabNew"><a href="#TabNew" class="headerlink" title="TabNew"></a>TabNew</h4><p>after creating a new tab page<br>创建一个新标签页后。<br>When a tab page was created. |tab-page|<br>A WinEnter event will have been triggered first, TabEnter follows.</p>
+<h4 id="TabClosed"><a href="#TabClosed" class="headerlink" title="TabClosed"></a>TabClosed</h4><p>after closing a tab page<br>关闭一个标签页后。</p>
+<h4 id="WinEnter"><a href="#WinEnter" class="headerlink" title="WinEnter"></a>WinEnter</h4><p>after entering another window<br>进入另一个窗口后。<br>After entering another window.<br>Not done for the first window, when Vim has just started.<br>Useful for setting the window height.<br>If the window is for another buffer, Vim executes the BufEnter autocommands after the WinEnter autocommands.<br>Note: When using “:split fname” the WinEnter event is triggered after the split but before the file “fname” is loaded.</p>
+<h4 id="WinLeave"><a href="#WinLeave" class="headerlink" title="WinLeave"></a>WinLeave</h4><p>before leaving a window<br>离开一个窗口前。<br>Before leaving a window.<br>If the window to be entered next is for a different buffer, Vim executes the BufLeave autocommands before the WinLeave autocommands (but not for “:new”).<br>Not used for “:qa” or “:q” when exiting Vim.</p>
+<h4 id="TabEnter"><a href="#TabEnter" class="headerlink" title="TabEnter"></a>TabEnter</h4><p>after entering another tab page<br>进入另一个标签页后。<br>Just after entering a tab page. |tab-page|<br>After triggering the WinEnter and before triggering the BufEnter event.</p>
+<h4 id="TabLeave"><a href="#TabLeave" class="headerlink" title="TabLeave"></a>TabLeave</h4><p>before leaving a tab page<br>离开一个标签页前。<br>Just before leaving a tab page. |tab-page|<br>A WinLeave event will have been triggered first.</p>
+<h4 id="CmdwinEnter"><a href="#CmdwinEnter" class="headerlink" title="CmdwinEnter"></a>CmdwinEnter</h4><p>after entering the command-line window<br>进入命令行窗口后。<br>Useful for setting options specifically for this special type of window.<br>This is triggered <em>instead</em> of BufEnter and WinEnter.</p>
+<p><afile> is set to a single character, indicating the type of command-line. |cmdwin-char|</afile></p>
+<h4 id="CmdwinLeave"><a href="#CmdwinLeave" class="headerlink" title="CmdwinLeave"></a>CmdwinLeave</h4><p>before leaving the command-line window<br>离开命令行窗口前。<br>Useful to clean up any global setting done with CmdwinEnter.<br>This is triggered <em>instead</em> of BufLeave and WinLeave.</p>
+<p><afile> is set to a single character, indicating the type of command-line. |cmdwin-char|</afile></p>
+<h4 id="InsertEnter"><a href="#InsertEnter" class="headerlink" title="InsertEnter"></a>InsertEnter</h4><p>starting Insert mode<br>开始插入模式。<br>Just before starting Insert mode.<br>Also for Replace mode and Virtual Replace mode.<br>The |v:insertmode| variable indicates the mode.<br>Be careful not to do anything else that the user does not expect.<br>The cursor is restored afterwards.<br>If you do not want that set |v:char| to a non-empty string.</p>
+<h4 id="InsertChange"><a href="#InsertChange" class="headerlink" title="InsertChange"></a>InsertChange</h4><p>when typing <insert> while in Insert or Replace mode<br>当在插入或替换模式时键入<insert>。<br>The |v:insertmode| variable indicates the new mode.<br>Be careful not to move the cursor or do anything else that the user does not expect.</insert></insert></p>
+<h4 id="InsertLeave"><a href="#InsertLeave" class="headerlink" title="InsertLeave"></a>InsertLeave</h4><p>when leaving Insert mode<br>当离开插入模式时。<br>When leaving Insert mode.<br>Also when using CTRL-O |i_CTRL-O|.<br>But not for |i_CTRL-C|.</p>
+<h4 id="InsertCharPre"><a href="#InsertCharPre" class="headerlink" title="InsertCharPre"></a>InsertCharPre</h4><p>when a character was typed in Insert mode, before inserting it<br>当在插入模式键入字符时，插入它之前。<br>When a character is typed in Insert mode, before inserting the char.<br>The |v:char| variable indicates the char typed and can be changed during the event to insert a different character.<br>When |v:char| is set to more than one character this text is inserted literally.<br>It is not allowed to change the text |textlock|.<br>The event is not triggered when ‘paste’ is set.</p>
+<h4 id="TextChanged"><a href="#TextChanged" class="headerlink" title="TextChanged"></a>TextChanged</h4><p>after a change was made to the text in Normal mode<br>在普通模式更改文本后。<br>After a change was made to the text in the current buffer in Normal mode.<br>That is when |b:changedtick| has changed.<br>Not triggered when there is typeahead or when an operator is pending.<br>Careful: This is triggered very often, don’t do anything that the user does not expect or that is slow.</p>
+<h4 id="TextChangedI"><a href="#TextChangedI" class="headerlink" title="TextChangedI"></a>TextChangedI</h4><p>after a change was made to the text in Insert mode<br>在插入模式更改文本后。<br>After a change was made to the text in the current buffer in Insert mode.<br>Not triggered when the popup menu is visible.<br>Otherwise the same as TextChanged.</p>
+<h4 id="ColorScheme"><a href="#ColorScheme" class="headerlink" title="ColorScheme"></a>ColorScheme</h4><p>after loading a color scheme<br>加载一个颜色方案后。<br>|:colorscheme|<br>The pattern is matched against the colorscheme name.</p>
+<p><afile> can be used for the name of the actual file where this option was set, and <amatch> for the new colorscheme name.</amatch></afile></p>
+<h4 id="RemoteReply"><a href="#RemoteReply" class="headerlink" title="RemoteReply"></a>RemoteReply</h4><p>a reply from a server Vim was received<br>Vim收到来自服务器的回应时。<br>When a reply from a Vim that functions as server was received |server2client()|.<br>The pattern is matched against the {serverid}. <amatch> is equal to the {serverid} from which the reply was sent, and <afile> is the actual reply string.<br>Note that even if an autocommand is defined, the reply should be read with |remote_read()| to consume it.</afile></amatch></p>
+<h4 id="QuickFixCmdPre"><a href="#QuickFixCmdPre" class="headerlink" title="QuickFixCmdPre"></a>QuickFixCmdPre</h4><p>before a quickfix command is run<br>quickfix命令运行前。<br>Before a quickfix command is run (|:make|, |:lmake|, |:grep|, |:lgrep|, |:grepadd|, |:lgrepadd|, |:vimgrep|, |:lvimgrep|, |:vimgrepadd|, |:lvimgrepadd|, |:cscope|, |:cfile|, |:cgetfile|, |:caddfile|, |:lfile|, |:lgetfile|, |:laddfile|, |:helpgrep|, |:lhelpgrep|).<br>The pattern is matched against the command being run.<br>When |:grep| is used but ‘grepprg’ is set to “internal” it still matches “grep”.<br>This command cannot be used to set the ‘makeprg’ and ‘grepprg’ variables.<br>If this command causes an error, the quickfix command is not executed.</p>
+<h4 id="QuickFixCmdPost"><a href="#QuickFixCmdPost" class="headerlink" title="QuickFixCmdPost"></a>QuickFixCmdPost</h4><p>after a quickfix command is run<br>quickfix命令运行后。<br>Like QuickFixCmdPre, but after a quickfix command is run, before jumping to the first location.<br>For |:cfile| and |:lfile| commands it is run after error file is read and before moving to the first error.<br>See |QuickFixCmdPost-example|.</p>
+<h4 id="SessionLoadPost"><a href="#SessionLoadPost" class="headerlink" title="SessionLoadPost"></a>SessionLoadPost</h4><p>after loading a session file<br>加载一个会话文件后。<br>After loading the session file created using the |:mksession| command.</p>
+<h4 id="MenuPopup"><a href="#MenuPopup" class="headerlink" title="MenuPopup"></a>MenuPopup</h4><p>just before showing the popup menu<br>显示弹出菜单前。<br>Just before showing the popup menu (under the right mouse button).<br>Useful for adjusting the menu for what is under the cursor or mouse pointer.<br>The pattern is matched against a single character representing the mode:<br>n    Normal<br>v    Visual<br>o    Operator-pending<br>i    Insert<br>c    Command line</p>
+<h4 id="CompleteDone"><a href="#CompleteDone" class="headerlink" title="CompleteDone"></a>CompleteDone</h4><p>after Insert mode completion is done<br>插入模式自动补全作用后。<br>Either when something was completed or abandoning completion. |ins-completion|<br>The |v:completed_item| variable contains information about the completed item.</p>
+<h4 id="User"><a href="#User" class="headerlink" title="User"></a>User</h4><p>to be used in combination with “:doautocmd”<br>用”:doautocmd”使用组合。<br>Never executed automatically.<br>To be used for autocommands that are only executed with “:doautocmd”.</p>
+<h4 id="UserGettingBored"><a href="#UserGettingBored" class="headerlink" title="UserGettingBored"></a>UserGettingBored</h4><p>When the user presses the same key 42 times. Just kidding! :-)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="/tags/技巧/" rel="tag"># 技巧</a>
+          
+            <a href="/tags/帮助/" rel="tag"># 帮助</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/22/AVM2概述/" rel="next" title="AVM2概述">
+                <i class="fa fa-chevron-left"></i> AVM2概述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/13/hexo使用publish发布草稿/" rel="prev" title="hexo使用publish发布草稿">
+                hexo使用publish发布草稿 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/12/vim自动命令事件/"
+     data-title="vim自动命令事件整理"
+     data-content=""
+     data-url="http://x8087.github.io/2016/11/12/vim自动命令事件/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/12/vim自动命令事件/"
+           data-title="vim自动命令事件整理" data-url="http://x8087.github.io/2016/11/12/vim自动命令事件/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="x8087" />
+          <p class="site-author-name" itemprop="name">x8087</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/x8087" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1817414410" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">1.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取-Reading"><span class="nav-number">1.1.</span> <span class="nav-text">读取(Reading)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BufNewFile"><span class="nav-number">1.1.1.</span> <span class="nav-text">BufNewFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufReadPre"><span class="nav-number">1.1.2.</span> <span class="nav-text">BufReadPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufRead-or-BufReadPost"><span class="nav-number">1.1.3.</span> <span class="nav-text">BufRead or BufReadPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufReadCmd"><span class="nav-number">1.1.4.</span> <span class="nav-text">BufReadCmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileReadPre"><span class="nav-number">1.1.5.</span> <span class="nav-text">FileReadPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileReadPost"><span class="nav-number">1.1.6.</span> <span class="nav-text">FileReadPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileReadCmd"><span class="nav-number">1.1.7.</span> <span class="nav-text">FileReadCmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FilterReadPre"><span class="nav-number">1.1.8.</span> <span class="nav-text">FilterReadPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FilterReadPost"><span class="nav-number">1.1.9.</span> <span class="nav-text">FilterReadPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StdinReadPre"><span class="nav-number">1.1.10.</span> <span class="nav-text">StdinReadPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StdinReadPost"><span class="nav-number">1.1.11.</span> <span class="nav-text">StdinReadPost</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写入-Writing"><span class="nav-number">1.2.</span> <span class="nav-text">写入(Writing)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWrite"><span class="nav-number">1.2.1.</span> <span class="nav-text">BufWrite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWritePre"><span class="nav-number">1.2.2.</span> <span class="nav-text">BufWritePre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWritePost"><span class="nav-number">1.2.3.</span> <span class="nav-text">BufWritePost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWriteCmd"><span class="nav-number">1.2.4.</span> <span class="nav-text">BufWriteCmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileWritePre"><span class="nav-number">1.2.5.</span> <span class="nav-text">FileWritePre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileWritePost"><span class="nav-number">1.2.6.</span> <span class="nav-text">FileWritePost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileWriteCmd"><span class="nav-number">1.2.7.</span> <span class="nav-text">FileWriteCmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileAppendPre"><span class="nav-number">1.2.8.</span> <span class="nav-text">FileAppendPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileAppendPost"><span class="nav-number">1.2.9.</span> <span class="nav-text">FileAppendPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileAppendCmd"><span class="nav-number">1.2.10.</span> <span class="nav-text">FileAppendCmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FilterWritePre"><span class="nav-number">1.2.11.</span> <span class="nav-text">FilterWritePre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FilterWritePost"><span class="nav-number">1.2.12.</span> <span class="nav-text">FilterWritePost</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存-Buffers"><span class="nav-number">1.3.</span> <span class="nav-text">缓存(Buffers)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BufAdd"><span class="nav-number">1.3.1.</span> <span class="nav-text">BufAdd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufCreate"><span class="nav-number">1.3.2.</span> <span class="nav-text">BufCreate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufDelete"><span class="nav-number">1.3.3.</span> <span class="nav-text">BufDelete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWipeout"><span class="nav-number">1.3.4.</span> <span class="nav-text">BufWipeout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufFilePre"><span class="nav-number">1.3.5.</span> <span class="nav-text">BufFilePre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufFilePost"><span class="nav-number">1.3.6.</span> <span class="nav-text">BufFilePost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufEnter"><span class="nav-number">1.3.7.</span> <span class="nav-text">BufEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufLeave"><span class="nav-number">1.3.8.</span> <span class="nav-text">BufLeave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWinEnter"><span class="nav-number">1.3.9.</span> <span class="nav-text">BufWinEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufWinLeave"><span class="nav-number">1.3.10.</span> <span class="nav-text">BufWinLeave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufUnload"><span class="nav-number">1.3.11.</span> <span class="nav-text">BufUnload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufHidden"><span class="nav-number">1.3.12.</span> <span class="nav-text">BufHidden</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BufNew"><span class="nav-number">1.3.13.</span> <span class="nav-text">BufNew</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SwapExists"><span class="nav-number">1.3.14.</span> <span class="nav-text">SwapExists</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选项-Options"><span class="nav-number">1.4.</span> <span class="nav-text">选项(Options)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FileType"><span class="nav-number">1.4.1.</span> <span class="nav-text">FileType</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Syntax"><span class="nav-number">1.4.2.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EncodingChanged"><span class="nav-number">1.4.3.</span> <span class="nav-text">EncodingChanged</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TermChanged"><span class="nav-number">1.4.4.</span> <span class="nav-text">TermChanged</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OptionSet"><span class="nav-number">1.4.5.</span> <span class="nav-text">OptionSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动与退出-Startup-and-exit"><span class="nav-number">1.5.</span> <span class="nav-text">启动与退出(Startup and exit)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VimEnter"><span class="nav-number">1.5.1.</span> <span class="nav-text">VimEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GUIEnter"><span class="nav-number">1.5.2.</span> <span class="nav-text">GUIEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GUIFailed"><span class="nav-number">1.5.3.</span> <span class="nav-text">GUIFailed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TermResponse"><span class="nav-number">1.5.4.</span> <span class="nav-text">TermResponse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QuitPre"><span class="nav-number">1.5.5.</span> <span class="nav-text">QuitPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VimLeavePre"><span class="nav-number">1.5.6.</span> <span class="nav-text">VimLeavePre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VimLeave"><span class="nav-number">1.5.7.</span> <span class="nav-text">VimLeave</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他-Various"><span class="nav-number">1.6.</span> <span class="nav-text">其他(Various)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FileChangedShell"><span class="nav-number">1.6.1.</span> <span class="nav-text">FileChangedShell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileChangedShellPost"><span class="nav-number">1.6.2.</span> <span class="nav-text">FileChangedShellPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileChangedRO"><span class="nav-number">1.6.3.</span> <span class="nav-text">FileChangedRO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ShellCmdPost"><span class="nav-number">1.6.4.</span> <span class="nav-text">ShellCmdPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ShellFilterPost"><span class="nav-number">1.6.5.</span> <span class="nav-text">ShellFilterPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CmdUndefined"><span class="nav-number">1.6.6.</span> <span class="nav-text">CmdUndefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FuncUndefined"><span class="nav-number">1.6.7.</span> <span class="nav-text">FuncUndefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SpellFileMissing"><span class="nav-number">1.6.8.</span> <span class="nav-text">SpellFileMissing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SourcePre"><span class="nav-number">1.6.9.</span> <span class="nav-text">SourcePre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SourceCmd"><span class="nav-number">1.6.10.</span> <span class="nav-text">SourceCmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VimResized"><span class="nav-number">1.6.11.</span> <span class="nav-text">VimResized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FocusGained"><span class="nav-number">1.6.12.</span> <span class="nav-text">FocusGained</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FocusLost"><span class="nav-number">1.6.13.</span> <span class="nav-text">FocusLost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CursorHold"><span class="nav-number">1.6.14.</span> <span class="nav-text">CursorHold</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CursorHoldI"><span class="nav-number">1.6.15.</span> <span class="nav-text">CursorHoldI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CursorMoved"><span class="nav-number">1.6.16.</span> <span class="nav-text">CursorMoved</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CursorMovedI"><span class="nav-number">1.6.17.</span> <span class="nav-text">CursorMovedI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WinNew"><span class="nav-number">1.6.18.</span> <span class="nav-text">WinNew</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TabNew"><span class="nav-number">1.6.19.</span> <span class="nav-text">TabNew</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TabClosed"><span class="nav-number">1.6.20.</span> <span class="nav-text">TabClosed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WinEnter"><span class="nav-number">1.6.21.</span> <span class="nav-text">WinEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WinLeave"><span class="nav-number">1.6.22.</span> <span class="nav-text">WinLeave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TabEnter"><span class="nav-number">1.6.23.</span> <span class="nav-text">TabEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TabLeave"><span class="nav-number">1.6.24.</span> <span class="nav-text">TabLeave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CmdwinEnter"><span class="nav-number">1.6.25.</span> <span class="nav-text">CmdwinEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CmdwinLeave"><span class="nav-number">1.6.26.</span> <span class="nav-text">CmdwinLeave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InsertEnter"><span class="nav-number">1.6.27.</span> <span class="nav-text">InsertEnter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InsertChange"><span class="nav-number">1.6.28.</span> <span class="nav-text">InsertChange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InsertLeave"><span class="nav-number">1.6.29.</span> <span class="nav-text">InsertLeave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InsertCharPre"><span class="nav-number">1.6.30.</span> <span class="nav-text">InsertCharPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextChanged"><span class="nav-number">1.6.31.</span> <span class="nav-text">TextChanged</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextChangedI"><span class="nav-number">1.6.32.</span> <span class="nav-text">TextChangedI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ColorScheme"><span class="nav-number">1.6.33.</span> <span class="nav-text">ColorScheme</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RemoteReply"><span class="nav-number">1.6.34.</span> <span class="nav-text">RemoteReply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QuickFixCmdPre"><span class="nav-number">1.6.35.</span> <span class="nav-text">QuickFixCmdPre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QuickFixCmdPost"><span class="nav-number">1.6.36.</span> <span class="nav-text">QuickFixCmdPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SessionLoadPost"><span class="nav-number">1.6.37.</span> <span class="nav-text">SessionLoadPost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MenuPopup"><span class="nav-number">1.6.38.</span> <span class="nav-text">MenuPopup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CompleteDone"><span class="nav-number">1.6.39.</span> <span class="nav-text">CompleteDone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#User"><span class="nav-number">1.6.40.</span> <span class="nav-text">User</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UserGettingBored"><span class="nav-number">1.6.41.</span> <span class="nav-text">UserGettingBored</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">x8087</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"x8087"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vplbqDrK7KP8HzD5uBan8fgD-gzGzoHsz", "TQ074jpoPCHUVWRFj6eMu7KS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

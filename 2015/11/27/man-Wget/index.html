@@ -1,0 +1,1013 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Wget,unix,linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="假如上帝不是程序员" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Wget命令wget [option]… [URL]…
+wget命令用来从指定的URL下载文件。wget非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。如果是服务器打断下载过程，它会再次联到服务器上从停止的地方继续下载。这对从那些限定了链接时间的服务器上下载大文件非常有用。
+Wget能根据HTML,XHTML和C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="man Wget">
+<meta property="og:url" content="http://x8087.github.io/2015/11/27/man-Wget/index.html">
+<meta property="og:site_name" content="假如上帝不是程序员">
+<meta property="og:description" content="Wget命令wget [option]… [URL]…
+wget命令用来从指定的URL下载文件。wget非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。如果是服务器打断下载过程，它会再次联到服务器上从停止的地方继续下载。这对从那些限定了链接时间的服务器上下载大文件非常有用。
+Wget能根据HTML,XHTML和C">
+<meta property="og:updated_time" content="2016-11-26T03:07:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="man Wget">
+<meta name="twitter:description" content="Wget命令wget [option]… [URL]…
+wget命令用来从指定的URL下载文件。wget非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。如果是服务器打断下载过程，它会再次联到服务器上从停止的地方继续下载。这对从那些限定了链接时间的服务器上下载大文件非常有用。
+Wget能根据HTML,XHTML和C">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '12948511',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://x8087.github.io/2015/11/27/man-Wget/"/>
+
+
+
+
+
+  <title> man Wget | 假如上帝不是程序员 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?9d2df6bea6a5f9af49a265803692cb1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=59604490";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">假如上帝不是程序员</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">--存在就是最大的bug</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2015/11/27/man-Wget/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="x8087">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="假如上帝不是程序员">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="假如上帝不是程序员" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                man Wget
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-27T14:20:40+08:00">
+                2015-11-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-11-26T11:07:16+08:00">
+                2016-11-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2015/11/27/man-Wget/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/27/man-Wget/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/11/27/man-Wget/" class="leancloud_visitors" data-flag-title="man Wget">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Wget命令"><a href="#Wget命令" class="headerlink" title="Wget命令"></a>Wget命令</h3><p>wget [option]… [URL]…</p>
+<p>wget命令用来从指定的URL下载文件。<br>wget非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，<br>如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。<br>如果是服务器打断下载过程，它会再次联到服务器上从停止的地方继续下载。<br>这对从那些限定了链接时间的服务器上下载大文件非常有用。</p>
+<p>Wget能根据HTML,XHTML和CSS页面，创建远程网站的本地版本，完整重建原始站点的目录结构。这个有时候称为“递归下载”。</p>
+<a id="more"></a>
+<h4 id="基本启动选项"><a href="#基本启动选项" class="headerlink" title="基本启动选项"></a>基本启动选项</h4><h5 id="V"><a href="#V" class="headerlink" title="-V"></a>-V</h5><h6 id="–version"><a href="#–version" class="headerlink" title="–version"></a>–version</h6><p>显示Wget版本</p>
+<h5 id="h"><a href="#h" class="headerlink" title="-h"></a>-h</h5><h6 id="–help"><a href="#–help" class="headerlink" title="–help"></a>–help</h6><p>打印所有Wget命令行选项帮助信息描述</p>
+<h5 id="b"><a href="#b" class="headerlink" title="-b"></a>-b</h5><h6 id="–background"><a href="#–background" class="headerlink" title="–background"></a>–background</h6><p>启动后立即转到后台。如果没有经由-o选项指定输出文件，输出重新调配到wget-log。</p>
+<h5 id="e-command"><a href="#e-command" class="headerlink" title="-e command"></a>-e command</h5><p>–execute command<br>把命令作为.wgetrc的一部分执行。这样的命令将在.wgetrc的命令后执行，因而优先于它们。如果需要指定更多wgetrc命令，使用多个-e实例。</p>
+<h4 id="记录和输入文件选项"><a href="#记录和输入文件选项" class="headerlink" title="记录和输入文件选项"></a>记录和输入文件选项</h4><h5 id="o-logfile"><a href="#o-logfile" class="headerlink" title="-o logfile"></a>-o logfile</h5><p>–output-file=logfile<br>记录所有信息到logfile。信息通常向标准错误报告。</p>
+<h5 id="a-logfile"><a href="#a-logfile" class="headerlink" title="-a logfile"></a>-a logfile</h5><p>–append-output=logfile<br>添加到logfile。和-o一样，只不过它附加到logfile替代重写旧的记录文件。如果logfile不存在，创建新文件。</p>
+<h5 id="d"><a href="#d" class="headerlink" title="-d"></a>-d</h5><p>–debug<br>打开调试输出，意味许多对Wget开发者重要的消息如果没有正确地工作。你的系统管理员可能选择编译Wget没有调试支持，使-d不能工作。请注意：带调试支持编译总是安全的——Wget带调试支持编译不打印任何调试信息除非使用-d请求。</p>
+<h5 id="q"><a href="#q" class="headerlink" title="-q"></a>-q</h5><p>–quiet<br>关闭Wget输出。</p>
+<h5 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h5><p>–verbose<br>打开详细输出，带所有可获取的数据。默认输出是详细。</p>
+<h5 id="nv"><a href="#nv" class="headerlink" title="-nv"></a>-nv</h5><p>–no-verbose<br>关闭详细，不变成完全沉默（使用-q）。意味错误信息和基本消息仍然打印。</p>
+<h5 id="–report-speed-type"><a href="#–report-speed-type" class="headerlink" title="–report-speed=type"></a>–report-speed=type</h5><p>作为type的输出带宽。只接受值bits。</p>
+<h5 id="i-file"><a href="#i-file" class="headerlink" title="-i file"></a>-i file</h5><p>–input-file=file<br>从本地或者外部file读取URL。如果-指定作为file，从标准输入读取URL。（使用./-从字面上命名为-的文件读取。）</p>
+<p>如果使用这个功能，没有URL需要呈现在命令行。如果URL在命令行和输入文件上两个都有，命令行将首先读取。如果–force-html未指定，则文件应该由一系列URL组成，每行一个。</p>
+<p>然而，如果你指定–force-html，文档将作为html看待。这种情况你可能存在相对链接的问题，你可以通过添加“<base href="url">”到文档或者在命令行指定–base=url指定来解决问题。</p>
+<p>如果文件是外部的，如果文档的Content-Type匹配text/html将自动地作为html对待。此外，文件路径将默认作为基础href如果没有指定。</p>
+<h5 id="F"><a href="#F" class="headerlink" title="-F"></a>-F</h5><p>–force-html<br>当输入从文件读取时，强制它当作html文件对待。这允许你从本地磁盘存在的html文件检索相对链接，添加“<base href="url">”到HTML，或者使用–base命令行选项。</p>
+<h5 id="B-URL"><a href="#B-URL" class="headerlink" title="-B URL"></a>-B URL</h5><p>–base=URL<br>解决相对链接使用URL作为参考点，当从HTML文件读取链接通过-i/–input-file选项时（与–force-html，或者当输入文件是从服务器远程取得描述成HTML）。这相当于在HTML输入文件里存在“BASE”标签，用URL作为“href”属性的值。</p>
+<p>例如，如果指定<a href="http://foo/bar/a.html为URL，Wget从输入文件读取../baz/b.html，将解析成http://foo/baz/b.html。" target="_blank" rel="external">http://foo/bar/a.html为URL，Wget从输入文件读取../baz/b.html，将解析成http://foo/baz/b.html。</a></p>
+<h5 id="–config-FILE"><a href="#–config-FILE" class="headerlink" title="–config=FILE"></a>–config=FILE</h5><p>指定你希望使用的启动文件路径。</p>
+<h4 id="下载选项"><a href="#下载选项" class="headerlink" title="下载选项"></a>下载选项</h4><h5 id="–bind-address-ADDRESS"><a href="#–bind-address-ADDRESS" class="headerlink" title="–bind-address=ADDRESS"></a>–bind-address=ADDRESS</h5><p>当制作客户端TCP/IP连接时，绑定到在本地机器上的ADDRESS。ADDRESS可以指定为主机名或者IP地址。如果你的机器被限制多个IP这个选项非常有用。</p>
+<h5 id="t-number"><a href="#t-number" class="headerlink" title="-t number"></a>-t number</h5><p>–tries=number<br>设置尝试次数为number。指定0或者inf为无限尝试。默认是尝试20次，除非遇到致命错误像“connection refused”或者“not found”（404）则不尝试。</p>
+<h5 id="O-file"><a href="#O-file" class="headerlink" title="-O file"></a>-O file</h5><p>–output-document=file<br>文档将不会写到相应的文件，但是所有将串联一起并写到file。如果-作为file使用，文档将打印到标准输出，停用链接转换。（使用./-打印字面上命名为-的文件）<br>使用-O不是简单意味“使用file名字替代URL中的一个；”当然，它类似于shell重定向：wget -O file <a href="http://foo是打算工作像wget" target="_blank" rel="external">http://foo是打算工作像wget</a> -O - <a href="http://foo&gt;file；file将立即缩短，所有下载内容将被写进那里。" target="_blank" rel="external">http://foo&gt;file；file将立即缩短，所有下载内容将被写进那里。</a></p>
+<p>为些，-N（时间戳检查）不支持与-O组合：因为file总是最近创建，它将总是有最新的时间戳。如果使用这个组合会发布警告。</p>
+<p>类似的，使用-r或者-p与-O可能不会如你期望的工作：Wget不会只下载第一个文件归档然后下载其他他们的普通名字：所有下载内容将放入file。这个在1.11版本信用，但是在1.11.2版本恢复（带警告），在某些情况下这个行为实际上有一些用处。</p>
+<p>注意这个与-k组合只允许在下载单个文档时，在这种情况它将只转换所有相对URI为外部的；-k使对多个URI当他们所有被下载到单个文件时没有作用；-k仅当输出是一个正则文件能被用。</p>
+<h5 id="nc"><a href="#nc" class="headerlink" title="-nc"></a>-nc</h5><p>–no-clobber<br>如果文件被下载超过一次到相同的目录，Wget的行为取决于几个选项，包含-nc。在某些情况，本地文件将被重写，或者覆盖，根据重复下载。另一些情况它将被保存。</p>
+<p>当运行Wget没有-N，-nc，-r或者-p，下载相同文件到相同目录将导致原始file副本被保存且第二个副本被命名为file.1。如果文件被再下载，第三个副本将被命名为file.2，等等。（这也是用-nd的行为，甚至在-r或者-p作用下。）当-nc指定，这个行为被抑止，且Wget将拒绝下载新的file副本。因此，“no-clobber”在这个模式实际上是误称——它没有重写而是防止（如数字后缀就已经是防止重写），而宁可说是多个版本保存来防止。</p>
+<p>当运行Wget带-r或者-p，但是没有-N，-nd或者-nc，重新下载文件将导致新的副本简单地覆盖旧的。添加-nc将防止这种行为，反而引起原始版本被保存，而其他服务器上新的副本被忽略。</p>
+<p>当运行Wget带-N，带或者没有-r或者-p，决定是否下载新的文件副本取决于本地与远程文件的时间戳和大小。-nc可能不被指定在-N的同时。</p>
+<p>注意当-nc指定，文件带后缀.html或者.htm将被从本地磁盘加载并解析如他们从网络检索到。</p>
+<h5 id="–backups-backups"><a href="#–backups-backups" class="headerlink" title="–backups=backups"></a>–backups=backups</h5><p>写文件前，通过添加一个.1后缀到文件名备份存在的文件。这样的备份文件循环为.2，.3等等，一直到backups（并且丢失那边）。</p>
+<h5 id="c"><a href="#c" class="headerlink" title="-c"></a>-c</h5><p>–continue</p>
+<p>继续获取部分下载文件。当你需要完成上个Wget实例，或者另一个程序开始的下载时是有用的。例如：<br>wget -c ftp://sunsite.doc.ic.ac.uk/ls-lR.Z<br>如果当前目录有文件命名为ls-lR.z，Wget将假定它是远程文件的第一部分，询问服务器从等于本地文件长度偏移数继续恢复。</p>
+<p>注意如果你只想当前Wget调用重新尝试下载连接中途丢失的文件不需要指定选项。这个是默认行为。-c只影响下载恢复开始在Wget调用之前的，本地文件仍然闲置的。</p>
+<p>没有-c，先前的例子将只下载远程文件到ls-lR.z.1，保留截断的ls-lR.z文件。</p>
+<p>Wget1.7开始，如果你在非空文件上用-c，它的结果是服务器不支持继续下载，Wget将拒绝从暂时开始下载，那个将有效地破坏存在内容。如果你真的需要从暂时开始下载，移除文件。</p>
+<p>也是Wget1.7开始，如果你在一个文件大小和服务器上大小相等的文件上用-c，Wget将拒绝下载并打印解释的信息。同样的当服务器上的文件比本地的小时（大概因为它自从你的上次下载尝试后在服务器上被改变）——因为“继续”没有意义，没有下载发生。</p>
+<p>另一方面，在使用-c时，任何文件服务器上比本地大会被认为是不安全下载并下载合适的（length(remote)-length(local)）字节附加到本地文件的尾端。这个行为在某些情况能令人满意的——例如，你能用wget -c下载恰好添加到数据集合或者记录文件的新部分。</p>
+<p>然而，如果文件在服务器上变大是因为改变了，与附加正好相对，你将以一个混乱的文件结束。Wget没有办法核实核实本地文件是真的远程文件的有效前缀。你需要特别小心当-c与-r结合使用时，因为每个文件将被认为是“不安全下载”候选。</p>
+<p>另一个会得到混乱的文件的例子是你尝试用-c，如果有一个差劲的HTTP代理插入一段“transfer interrupted”字符串到本地文件。将来可能添加一个“rollback”选项处理这种情况。</p>
+<p>注意-c只工作在支持“Range”头的FTP服务器和HTTP服务器。</p>
+<h5 id="–start-pos-OFFSET"><a href="#–start-pos-OFFSET" class="headerlink" title="–start-pos=OFFSET"></a>–start-pos=OFFSET</h5><p>在从零开始的位置OFFSET开始下载。偏移可能用字节表示，千字节带“k”后缀，兆字节带“m”后缀，等等。</p>
+<p>–start-pos有更高的优先级超过–continue。当–start-pos和–continue两个指定时，wget发出一个警告并当作缺少–continue处理。</p>
+<p>服务器必需支持继续下载，否则–start-pos不能超作用。详细参考-c。</p>
+<h5 id="–progress-type"><a href="#–progress-type" class="headerlink" title="–progress=type"></a>–progress=type</h5><p>选择你希望使用的进度指示器类型。合法的指示器是“dot”和“bar”。<br>默认使用“bar”指示器。画一个ASCII进度条图形（a.k.a “thermometer”(温度计)display）指示检索状态。如果输出不是TTY，默认使用“dot”条。</p>
+<p>用–progress=dot切换到“dot”显示。在屏幕上打印点来跟踪检索，每个点表示确定数量的下载数据。</p>
+<p>进度类型type也能带一到多个参数。参数基于选择的类型改变。type的参数传递添加到类型用冒号（:）分隔像这样：–progress=type:parameter1:parameter2。</p>
+<p>当使用点检索，你可以设定指定类型的样式如dot:style。不同样式对一个点分配不同意义。默认样式每个点表示1K，一组10点且一行50个点。”binary”样式更加“可算（Computer）”——像定向——8<br>k点，16点串48点每行（384k行）。“mega”样式适合下载大文件——每点表示64k检索，8点一串，48点每行（每行含3M）。如果“mega”不够则使用“giga”样式——每点表示1M检索，8点一串，32点每行（每行含32M）。</p>
+<p>用–progress=bar，有两个可能参数，force与noscroll。</p>
+<p>当输出不是TTY，进度条总是回退到“点”，甚至调用wget时传入–progress=bar。这个行为能被覆盖强制“bar”输出使用“force”参数如–progress=bar::force。</p>
+<p>默认，如果条样式进度条被下载的文件文件名超出分配它显示的最大长度，文件名从左向右滚动。在某些情况，像–progress=bar:force，可能不需要进度条滚动文件名。传入“noscroll”参数，wget能强制显示尽可能多地显示文件名而不滚动。</p>
+<p>注意你能在.wgetrc使用“grogress”命令设置默认样式。这个设定能被命令行覆盖。例如，例如强制条输出不滚动，使用–progress=bar:force:noscroll。</p>
+<h5 id="–show-progress"><a href="#–show-progress" class="headerlink" title="–show-progress"></a>–show-progress</h5><p>强制wget在任何冗长里显示进度条。</p>
+<p>默认，wget只在冗长模式显示进度条。然而你可能，需要wget在屏幕上结合其他模式显示进度条像–no-verbose或–quiet。这常常是一个要求属性当调用wget下载几个小/大文件时。在这种情况，wget能简单调用参数在屏幕上获取更加干净的输出。</p>
+<p>当这个选项和–logfile选项一起使用时也强制进度条打印到标准错误（stderr）</p>
+<h5 id="N"><a href="#N" class="headerlink" title="-N"></a>-N</h5><p>–timestamping<br>开启时间戳。</p>
+<p>–no-use-server-timestamps<br>不设置本地文件服务器上的时间戳。</p>
+<p>默认，当下载一个文件时，它的时间戳是设置为匹配远程文件。这允许在wget子序列调用上使用–timestamping。然而，它有时是有用的，根据本地文件时间戳判断它实际什么时候下载。由此目的，提供–no-use-server-timestamps选项</p>
+<h5 id="S"><a href="#S" class="headerlink" title="-S"></a>-S</h5><h6 id="–server-response"><a href="#–server-response" class="headerlink" title="–server-response"></a>–server-response</h6><p>打印HTTP服务器发送的头部和FTP服务器发送的答复。</p>
+<h6 id="–spider"><a href="#–spider" class="headerlink" title="–spider"></a>–spider</h6><p>当使用这个选项调用时，wget表示为网络爬虫，意味着不下载页面，只是检查它们。例如，你能使用Wget检查你的书签：<br>wget –spider –force-html -i bookmarks.html<br>Wget的这个功能需要做更多接近实用的真实网络爬虫。</p>
+<h5 id="T-seconds"><a href="#T-seconds" class="headerlink" title="-T seconds"></a>-T seconds</h5><p>–timeout=seconds<br>设置网络超时为seconds秒。这等于指定–dns-timeout，–connect-timeout与–read-timeout所有同时。</p>
+<p>当与网络交互时，Wget能检查超时并当花费太长时间时终止操作。这样防止像读取挂起与无限连接的异常。默认唯一可行的超时是900秒超时读取。设置超时为0完全禁止它。除非你知道你要做什么，最好不要改变默认超时设置。</p>
+<p>所有超时相关选项接受小数值，和微秒值一样。例如，0.1秒是合法的（虽然不明智）超时选项。微秒超时对检查服务器响应时间或测试潜在的网络是有用的。</p>
+<p>–dns-timeout=seconds<br>设置DNS检查超时为seconds秒。DNS检查没有在指定时间完成将失败。默认，DNS检查不会超时，除了系统库实现。</p>
+<p>–connect-timeout=seconds<br>设置连接超时为seconds秒。TCP建立连接时间太长将终止。默认，没有连接超时，除了系统库实现。</p>
+<p>–read-timeout=seconds<br>设置读取（写入）超时为seconds秒。这个超时“时间”参考空闲时间：如果，在下载的任何点，没有数据接收超过指定数目的秒数，读取失败且下载重新开始。这个选项不直接影响整个下载的持续。</p>
+<p>当然，远程服务器可能选择早于这个选项所需时间终止连接。默认读取超时是900秒。</p>
+<p>–limit-rate=amount<br>限制下载速度这amount字节每秒。总数可能用字节，千字节带k后缀，或者兆字节带m后缀表达。例如，–limit-rate=20k将限制检索速度为20KB/s。当你不需要Wget耗尽整个可获得的带宽时，无论什么原因，这是有用的。</p>
+<p>这个选项允许使用小数，通常结合强大的后缀；例如，–limit-rate=2.5k是合法值。</p>
+<p>注意Wget通过睡眠合适的数量的时间实现网络读取后比特定速率花费更少的时间。最终这个策略引起TCP传输减速到接近于指定速率。然而，它达到平衡可能花费一些时间，所以不要惊奇非常小的文件限制速率没有工作好。</p>
+<p>-w seconds<br>–wait=seconds<br>在检索时等待指定秒数。推荐使用这个选项，它较少频繁地制造请求减轻服务器加载。代替秒，时间能使用“m”后缀指定分钟，“h”后缀指定小时，或者“d”指定天数。</p>
+<p>如果网络或者目标主机停机，为其指定一个大的值是有用的，以便Wget能等待足够长合理地期待网络错误在重试之前被修正。这个功能指定的等待时间间隔受“–random-wait”影响，参见。</p>
+<p>–waitretry=seconds<br>如果你不需要Wget在每个检索之间等待，但是只在失败下载重试之间，你能用这个选项。Wget将用线性补偿，在给定的文件首次失败后等待1秒，接着第二次失败后等待2秒，直到你指定的最大秒数。</p>
+<p>默认，Wget将采用值10秒。</p>
+<p>–random-wait<br>一些网站能通过记录来分析定义像Wget的检索程序，寻找在请求之间的时间统计上象征的相似之处。这选项引起请求之间的时间在0.5到1.5*wait秒之间变化，wait是使用–wait选项指定的，为了从这样的分析屏蔽Wget的存在。</p>
+<p>–no-proxy<br>不使用代理，甚至合适的*_proxy环境变量定义了。</p>
+<h5 id="Q-quota"><a href="#Q-quota" class="headerlink" title="-Q quota"></a>-Q quota</h5><h6 id="–quota-quota"><a href="#–quota-quota" class="headerlink" title="–quota=quota"></a>–quota=quota</h6><p>指定自动检索的下载配额。值可以用字节（默认），千字节（后缀k），或者兆字节（后缀m）。</p>
+<p>注意配额从不影响下载单个文件。所以如果你指定wget -Q10k ftp://wuarchive.wustl.edu/ls-lR.gz, 所有ls-lR.gz被下载。同样即使几个命令行上指定的URL。然而，配额是受遵守的当递归检索或者从输入文件。因此你可以安全地输入wget -Q2m -i sites—下载当配额超过时中止。</p>
+<p>设置配额为0或者inf不限制下载配额。</p>
+<h6 id="–no-dns-cache"><a href="#–no-dns-cache" class="headerlink" title="–no-dns-cache"></a>–no-dns-cache</h6><p>关闭DNS缓存检查。通常，Wget记得它从DNS查找的IP地址，所以它不必重复地联系DNS服务器同样的（通常很小的）主机设置它所检索的。这个缓存只存在在内存里；新的Wget运行将再次联系DNS。</p>
+<p>然而，它已被报告，在某些情况下，它缓存主机名字是不可取的，即使一个简短运行程序持续时间，像Wget。使用此选项wget发布一个新的DNS查找（更准确地说，一个新的调用“gethostbyname”或“getaddrinfo”）每次做一个新的连接</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Wget/" rel="tag"># Wget</a>
+          
+            <a href="/tags/unix/" rel="tag"># unix</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/14/图解式学习法/" rel="next" title="图解式学习法">
+                <i class="fa fa-chevron-left"></i> 图解式学习法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/22/AVM2概述/" rel="prev" title="AVM2概述">
+                AVM2概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/11/27/man-Wget/"
+     data-title="man Wget"
+     data-content=""
+     data-url="http://x8087.github.io/2015/11/27/man-Wget/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/27/man-Wget/"
+           data-title="man Wget" data-url="http://x8087.github.io/2015/11/27/man-Wget/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="x8087" />
+          <p class="site-author-name" itemprop="name">x8087</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/x8087" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1817414410" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wget命令"><span class="nav-number">1.</span> <span class="nav-text">Wget命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本启动选项"><span class="nav-number">1.1.</span> <span class="nav-text">基本启动选项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#V"><span class="nav-number">1.1.1.</span> <span class="nav-text">-V</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#–version"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">–version</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#h"><span class="nav-number">1.1.2.</span> <span class="nav-text">-h</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#–help"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">–help</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b"><span class="nav-number">1.1.3.</span> <span class="nav-text">-b</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#–background"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">–background</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#e-command"><span class="nav-number">1.1.4.</span> <span class="nav-text">-e command</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#记录和输入文件选项"><span class="nav-number">1.2.</span> <span class="nav-text">记录和输入文件选项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#o-logfile"><span class="nav-number">1.2.1.</span> <span class="nav-text">-o logfile</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#a-logfile"><span class="nav-number">1.2.2.</span> <span class="nav-text">-a logfile</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#d"><span class="nav-number">1.2.3.</span> <span class="nav-text">-d</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#q"><span class="nav-number">1.2.4.</span> <span class="nav-text">-q</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#v"><span class="nav-number">1.2.5.</span> <span class="nav-text">-v</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nv"><span class="nav-number">1.2.6.</span> <span class="nav-text">-nv</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–report-speed-type"><span class="nav-number">1.2.7.</span> <span class="nav-text">–report-speed=type</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#i-file"><span class="nav-number">1.2.8.</span> <span class="nav-text">-i file</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#F"><span class="nav-number">1.2.9.</span> <span class="nav-text">-F</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#B-URL"><span class="nav-number">1.2.10.</span> <span class="nav-text">-B URL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–config-FILE"><span class="nav-number">1.2.11.</span> <span class="nav-text">–config=FILE</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载选项"><span class="nav-number">1.3.</span> <span class="nav-text">下载选项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#–bind-address-ADDRESS"><span class="nav-number">1.3.1.</span> <span class="nav-text">–bind-address=ADDRESS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#t-number"><span class="nav-number">1.3.2.</span> <span class="nav-text">-t number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#O-file"><span class="nav-number">1.3.3.</span> <span class="nav-text">-O file</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nc"><span class="nav-number">1.3.4.</span> <span class="nav-text">-nc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–backups-backups"><span class="nav-number">1.3.5.</span> <span class="nav-text">–backups=backups</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#c"><span class="nav-number">1.3.6.</span> <span class="nav-text">-c</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–start-pos-OFFSET"><span class="nav-number">1.3.7.</span> <span class="nav-text">–start-pos=OFFSET</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–progress-type"><span class="nav-number">1.3.8.</span> <span class="nav-text">–progress=type</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–show-progress"><span class="nav-number">1.3.9.</span> <span class="nav-text">–show-progress</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#N"><span class="nav-number">1.3.10.</span> <span class="nav-text">-N</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#S"><span class="nav-number">1.3.11.</span> <span class="nav-text">-S</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#–server-response"><span class="nav-number">1.3.11.1.</span> <span class="nav-text">–server-response</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#–spider"><span class="nav-number">1.3.11.2.</span> <span class="nav-text">–spider</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#T-seconds"><span class="nav-number">1.3.12.</span> <span class="nav-text">-T seconds</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-quota"><span class="nav-number">1.3.13.</span> <span class="nav-text">-Q quota</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#–quota-quota"><span class="nav-number">1.3.13.1.</span> <span class="nav-text">–quota=quota</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#–no-dns-cache"><span class="nav-number">1.3.13.2.</span> <span class="nav-text">–no-dns-cache</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">x8087</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"x8087"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vplbqDrK7KP8HzD5uBan8fgD-gzGzoHsz", "TQ074jpoPCHUVWRFj6eMu7KS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

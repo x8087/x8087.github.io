@@ -1,0 +1,931 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vim,技术,插件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="假如上帝不是程序员" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim常用插件介绍">
+<meta property="og:url" content="http://x8087.github.io/2015/08/17/vim常用插件介绍/index.html">
+<meta property="og:site_name" content="假如上帝不是程序员">
+<meta property="og:description" content="主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。">
+<meta property="og:updated_time" content="2016-11-26T03:07:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim常用插件介绍">
+<meta name="twitter:description" content="主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '12948511',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://x8087.github.io/2015/08/17/vim常用插件介绍/"/>
+
+
+
+
+
+  <title> vim常用插件介绍 | 假如上帝不是程序员 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?9d2df6bea6a5f9af49a265803692cb1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=59604490";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">假如上帝不是程序员</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">--存在就是最大的bug</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2015/08/17/vim常用插件介绍/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="x8087">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="假如上帝不是程序员">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="假如上帝不是程序员" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vim常用插件介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-17T11:45:18+08:00">
+                2015-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-11-26T11:07:24+08:00">
+                2016-11-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2015/08/17/vim常用插件介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/17/vim常用插件介绍/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/08/17/vim常用插件介绍/" class="leancloud_visitors" data-flag-title="vim常用插件介绍">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。<br><a id="more"></a></p>
+<h5 id="Plugin-‘gmarik-vundle’"><a href="#Plugin-‘gmarik-vundle’" class="headerlink" title="Plugin ‘gmarik/vundle’"></a>Plugin ‘gmarik/vundle’</h5><h5 id="Plugin-‘MarcWeber-vim-addon-mw-utils’"><a href="#Plugin-‘MarcWeber-vim-addon-mw-utils’" class="headerlink" title="Plugin ‘MarcWeber/vim-addon-mw-utils’"></a>Plugin ‘MarcWeber/vim-addon-mw-utils’</h5><h5 id="Plugin-‘tomtom-tlib-vim’"><a href="#Plugin-‘tomtom-tlib-vim’" class="headerlink" title="Plugin ‘tomtom/tlib_vim’"></a>Plugin ‘tomtom/tlib_vim’</h5><h5 id="Plugin-‘mileszs-ack-vim’"><a href="#Plugin-‘mileszs-ack-vim’" class="headerlink" title="Plugin ‘mileszs/ack.vim’"></a>Plugin ‘mileszs/ack.vim’</h5><h5 id="Plugin-‘scrooloose-nerdtree’"><a href="#Plugin-‘scrooloose-nerdtree’" class="headerlink" title="Plugin ‘scrooloose/nerdtree’"></a>Plugin ‘scrooloose/nerdtree’</h5><h5 id="Plugin-‘spf13-vim-colors’"><a href="#Plugin-‘spf13-vim-colors’" class="headerlink" title="Plugin ‘spf13/vim-colors’"></a>Plugin ‘spf13/vim-colors’</h5><h5 id="Plugin-‘tpope-vim-surround’"><a href="#Plugin-‘tpope-vim-surround’" class="headerlink" title="Plugin ‘tpope/vim-surround’"></a>Plugin ‘tpope/vim-surround’</h5><h5 id="Plugin-‘tpope-vim-repeat’"><a href="#Plugin-‘tpope-vim-repeat’" class="headerlink" title="Plugin ‘tpope/vim-repeat’"></a>Plugin ‘tpope/vim-repeat’</h5><h5 id="Plugin-‘jiangmiao-auto-pairs’"><a href="#Plugin-‘jiangmiao-auto-pairs’" class="headerlink" title="Plugin ‘jiangmiao/auto-pairs’"></a>Plugin ‘jiangmiao/auto-pairs’</h5><h5 id="Plugin-‘ctrlpvim-ctrlp-vim’"><a href="#Plugin-‘ctrlpvim-ctrlp-vim’" class="headerlink" title="Plugin ‘ctrlpvim/ctrlp.vim’"></a>Plugin ‘ctrlpvim/ctrlp.vim’</h5><h5 id="Plugin-‘tacahiroy-ctrlp-funky’"><a href="#Plugin-‘tacahiroy-ctrlp-funky’" class="headerlink" title="Plugin ‘tacahiroy/ctrlp-funky’"></a>Plugin ‘tacahiroy/ctrlp-funky’</h5><h5 id="Plugin-‘kristijanhusak-vim-multiple-cursors’"><a href="#Plugin-‘kristijanhusak-vim-multiple-cursors’" class="headerlink" title="Plugin ‘kristijanhusak/vim-multiple-cursors’"></a>Plugin ‘kristijanhusak/vim-multiple-cursors’</h5><p>多光标操作支持</p>
+<h5 id="Plugin-‘vim-scripts-sessionman-vim’"><a href="#Plugin-‘vim-scripts-sessionman-vim’" class="headerlink" title="Plugin ‘vim-scripts/sessionman.vim’"></a>Plugin ‘vim-scripts/sessionman.vim’</h5><p>窗口会话管理</p>
+<h5 id="Plugin-‘matchit-zip’"><a href="#Plugin-‘matchit-zip’" class="headerlink" title="Plugin ‘matchit.zip’"></a>Plugin ‘matchit.zip’</h5><p> %匹配扩展支持不只单字符,支持更多语言Ada, ASP with VBS, Csh, DTD, Essbase, Fortran, HTML, JSP (same as HTML), LaTeX, Lua, Pascal, SGML, Shell, Tcsh, Vim, XML.</p>
+<h5 id="Plugin-‘bling-vim-airline’"><a href="#Plugin-‘bling-vim-airline’" class="headerlink" title="Plugin ‘bling/vim-airline’"></a>Plugin ‘bling/vim-airline’</h5><p>状态条  </p>
+<h5 id="Plugin-‘powerline-fonts’"><a href="#Plugin-‘powerline-fonts’" class="headerlink" title="Plugin ‘powerline/fonts’"></a>Plugin ‘powerline/fonts’</h5><p>状态条字体</p>
+<h5 id="Plugin-‘bling-vim-bufferline’"><a href="#Plugin-‘bling-vim-bufferline’" class="headerlink" title="Plugin ‘bling/vim-bufferline’"></a>Plugin ‘bling/vim-bufferline’</h5><p>状态栏显示缓存文件名</p>
+<h5 id="Plugin-‘Lokaltog-vim-easymotion’"><a href="#Plugin-‘Lokaltog-vim-easymotion’" class="headerlink" title="Plugin ‘Lokaltog/vim-easymotion’"></a>Plugin ‘Lokaltog/vim-easymotion’</h5><p>快速跳转</p>
+<h5 id="Plugin-‘jistr-vim-nerdtree-tabs’"><a href="#Plugin-‘jistr-vim-nerdtree-tabs’" class="headerlink" title="Plugin ‘jistr/vim-nerdtree-tabs’"></a>Plugin ‘jistr/vim-nerdtree-tabs’</h5><p>nerdtree标签显示优化</p>
+<h5 id="Plugin-‘flazz-vim-colorschemes’"><a href="#Plugin-‘flazz-vim-colorschemes’" class="headerlink" title="Plugin ‘flazz/vim-colorschemes’"></a>Plugin ‘flazz/vim-colorschemes’</h5><h5 id="Plugin-‘mbbill-undotree’"><a href="#Plugin-‘mbbill-undotree’" class="headerlink" title="Plugin ‘mbbill/undotree’"></a>Plugin ‘mbbill/undotree’</h5><h5 id="Plugin-‘nathanaelkane-vim-indent-guides’"><a href="#Plugin-‘nathanaelkane-vim-indent-guides’" class="headerlink" title="Plugin ‘nathanaelkane/vim-indent-guides’"></a>Plugin ‘nathanaelkane/vim-indent-guides’</h5><h5 id="Plugin-‘vim-scripts-restore-view-vim’"><a href="#Plugin-‘vim-scripts-restore-view-vim’" class="headerlink" title="Plugin ‘vim-scripts/restore_view.vim’"></a>Plugin ‘vim-scripts/restore_view.vim’</h5><h5 id="Plugin-‘mhinz-vim-signify’"><a href="#Plugin-‘mhinz-vim-signify’" class="headerlink" title="Plugin ‘mhinz/vim-signify’"></a>Plugin ‘mhinz/vim-signify’</h5><h5 id="Plugin-‘tpope-vim-abolish-git’"><a href="#Plugin-‘tpope-vim-abolish-git’" class="headerlink" title="Plugin ‘tpope/vim-abolish.git’"></a>Plugin ‘tpope/vim-abolish.git’</h5><h5 id="Plugin-‘osyo-manga-vim-over’"><a href="#Plugin-‘osyo-manga-vim-over’" class="headerlink" title="Plugin ‘osyo-manga/vim-over’"></a>Plugin ‘osyo-manga/vim-over’</h5><h5 id="Plugin-‘kana-vim-textobj-user’"><a href="#Plugin-‘kana-vim-textobj-user’" class="headerlink" title="Plugin ‘kana/vim-textobj-user’"></a>Plugin ‘kana/vim-textobj-user’</h5><h5 id="Plugin-‘kana-vim-textobj-indent’"><a href="#Plugin-‘kana-vim-textobj-indent’" class="headerlink" title="Plugin ‘kana/vim-textobj-indent’"></a>Plugin ‘kana/vim-textobj-indent’</h5><h5 id="Plugin-‘gcmt-wildfire-vim’"><a href="#Plugin-‘gcmt-wildfire-vim’" class="headerlink" title="Plugin ‘gcmt/wildfire.vim’"></a>Plugin ‘gcmt/wildfire.vim’</h5><h5 id="Plugin-‘reedes-vim-litecorrect’"><a href="#Plugin-‘reedes-vim-litecorrect’" class="headerlink" title="Plugin ‘reedes/vim-litecorrect’"></a>Plugin ‘reedes/vim-litecorrect’</h5><h5 id="Plugin-‘reedes-vim-textobj-sentence’"><a href="#Plugin-‘reedes-vim-textobj-sentence’" class="headerlink" title="Plugin ‘reedes/vim-textobj-sentence’"></a>Plugin ‘reedes/vim-textobj-sentence’</h5><h5 id="Plugin-‘reedes-vim-textobj-quote’"><a href="#Plugin-‘reedes-vim-textobj-quote’" class="headerlink" title="Plugin ‘reedes/vim-textobj-quote’"></a>Plugin ‘reedes/vim-textobj-quote’</h5><h5 id="Plugin-‘reedes-vim-wordy’"><a href="#Plugin-‘reedes-vim-wordy’" class="headerlink" title="Plugin ‘reedes/vim-wordy’"></a>Plugin ‘reedes/vim-wordy’</h5><h5 id="Plugin-‘scrooloose-syntastic’"><a href="#Plugin-‘scrooloose-syntastic’" class="headerlink" title="Plugin ‘scrooloose/syntastic’"></a>Plugin ‘scrooloose/syntastic’</h5><h5 id="Plugin-‘tpope-vim-fugitive’"><a href="#Plugin-‘tpope-vim-fugitive’" class="headerlink" title="Plugin ‘tpope/vim-fugitive’"></a>Plugin ‘tpope/vim-fugitive’</h5><h5 id="Plugin-‘mattn-webapi-vim’"><a href="#Plugin-‘mattn-webapi-vim’" class="headerlink" title="Plugin ‘mattn/webapi-vim’"></a>Plugin ‘mattn/webapi-vim’</h5><h5 id="Plugin-‘mattn-gist-vim’"><a href="#Plugin-‘mattn-gist-vim’" class="headerlink" title="Plugin ‘mattn/gist-vim’"></a>Plugin ‘mattn/gist-vim’</h5><h5 id="Plugin-‘scrooloose-nerdcommenter’"><a href="#Plugin-‘scrooloose-nerdcommenter’" class="headerlink" title="Plugin ‘scrooloose/nerdcommenter’"></a>Plugin ‘scrooloose/nerdcommenter’</h5><h5 id="Plugin-‘tpope-vim-commentary’"><a href="#Plugin-‘tpope-vim-commentary’" class="headerlink" title="Plugin ‘tpope/vim-commentary’"></a>Plugin ‘tpope/vim-commentary’</h5><h5 id="Plugin-‘godlygeek-tabular’"><a href="#Plugin-‘godlygeek-tabular’" class="headerlink" title="Plugin ‘godlygeek/tabular’"></a>Plugin ‘godlygeek/tabular’</h5><h5 id="Plugin-‘majutsushi-tagbar’"><a href="#Plugin-‘majutsushi-tagbar’" class="headerlink" title="Plugin ‘majutsushi/tagbar’"></a>Plugin ‘majutsushi/tagbar’</h5><h5 id="Plugin-‘Valloric-YouCompleteMe’"><a href="#Plugin-‘Valloric-YouCompleteMe’" class="headerlink" title="Plugin ‘Valloric/YouCompleteMe’"></a>Plugin ‘Valloric/YouCompleteMe’</h5><h5 id="Plugin-‘SirVer-ultisnips’"><a href="#Plugin-‘SirVer-ultisnips’" class="headerlink" title="Plugin ‘SirVer/ultisnips’"></a>Plugin ‘SirVer/ultisnips’</h5><h5 id="Plugin-‘honza-vim-snippets’"><a href="#Plugin-‘honza-vim-snippets’" class="headerlink" title="Plugin ‘honza/vim-snippets’"></a>Plugin ‘honza/vim-snippets’</h5><h5 id="Plugin-‘spf13-PIV’"><a href="#Plugin-‘spf13-PIV’" class="headerlink" title="Plugin ‘spf13/PIV’"></a>Plugin ‘spf13/PIV’</h5><h5 id="Plugin-‘arnaud-lb-vim-php-namespace’"><a href="#Plugin-‘arnaud-lb-vim-php-namespace’" class="headerlink" title="Plugin ‘arnaud-lb/vim-php-namespace’"></a>Plugin ‘arnaud-lb/vim-php-namespace’</h5><h5 id="Plugin-‘beyondwords-vim-twig’"><a href="#Plugin-‘beyondwords-vim-twig’" class="headerlink" title="Plugin ‘beyondwords/vim-twig’"></a>Plugin ‘beyondwords/vim-twig’</h5><h5 id="Plugin-‘klen-python-mode’"><a href="#Plugin-‘klen-python-mode’" class="headerlink" title="Plugin ‘klen/python-mode’"></a>Plugin ‘klen/python-mode’</h5><h5 id="Plugin-‘yssource-python-vim’"><a href="#Plugin-‘yssource-python-vim’" class="headerlink" title="Plugin ‘yssource/python.vim’"></a>Plugin ‘yssource/python.vim’</h5><h5 id="Plugin-‘python-match-vim’"><a href="#Plugin-‘python-match-vim’" class="headerlink" title="Plugin ‘python_match.vim’"></a>Plugin ‘python_match.vim’</h5><h5 id="Plugin-‘pythoncomplete’"><a href="#Plugin-‘pythoncomplete’" class="headerlink" title="Plugin ‘pythoncomplete’"></a>Plugin ‘pythoncomplete’</h5><h5 id="Plugin-‘elzr-vim-json’"><a href="#Plugin-‘elzr-vim-json’" class="headerlink" title="Plugin ‘elzr/vim-json’"></a>Plugin ‘elzr/vim-json’</h5><h5 id="Plugin-‘groenewege-vim-less’"><a href="#Plugin-‘groenewege-vim-less’" class="headerlink" title="Plugin ‘groenewege/vim-less’"></a>Plugin ‘groenewege/vim-less’</h5><h5 id="Plugin-‘pangloss-vim-javascript’"><a href="#Plugin-‘pangloss-vim-javascript’" class="headerlink" title="Plugin ‘pangloss/vim-javascript’"></a>Plugin ‘pangloss/vim-javascript’</h5><h5 id="Plugin-‘briancollins-vim-jst’"><a href="#Plugin-‘briancollins-vim-jst’" class="headerlink" title="Plugin ‘briancollins/vim-jst’"></a>Plugin ‘briancollins/vim-jst’</h5><h5 id="Plugin-‘kchmck-vim-coffee-script’"><a href="#Plugin-‘kchmck-vim-coffee-script’" class="headerlink" title="Plugin ‘kchmck/vim-coffee-script’"></a>Plugin ‘kchmck/vim-coffee-script’</h5><h5 id="Plugin-‘amirh-HTML-AutoCloseTag’"><a href="#Plugin-‘amirh-HTML-AutoCloseTag’" class="headerlink" title="Plugin ‘amirh/HTML-AutoCloseTag’"></a>Plugin ‘amirh/HTML-AutoCloseTag’</h5><h5 id="Plugin-‘hail2u-vim-css3-syntax’"><a href="#Plugin-‘hail2u-vim-css3-syntax’" class="headerlink" title="Plugin ‘hail2u/vim-css3-syntax’"></a>Plugin ‘hail2u/vim-css3-syntax’</h5><h5 id="Plugin-‘gorodinskiy-vim-coloresque’"><a href="#Plugin-‘gorodinskiy-vim-coloresque’" class="headerlink" title="Plugin ‘gorodinskiy/vim-coloresque’"></a>Plugin ‘gorodinskiy/vim-coloresque’</h5><h5 id="Plugin-‘tpope-vim-haml’"><a href="#Plugin-‘tpope-vim-haml’" class="headerlink" title="Plugin ‘tpope/vim-haml’"></a>Plugin ‘tpope/vim-haml’</h5><h5 id="Plugin-‘tpope-vim-rails’"><a href="#Plugin-‘tpope-vim-rails’" class="headerlink" title="Plugin ‘tpope/vim-rails’"></a>Plugin ‘tpope/vim-rails’</h5><h5 id="Plugin-‘fatih-vim-go’"><a href="#Plugin-‘fatih-vim-go’" class="headerlink" title="Plugin ‘fatih/vim-go’"></a>Plugin ‘fatih/vim-go’</h5><h5 id="Plugin-‘rust-lang-rust-vim’"><a href="#Plugin-‘rust-lang-rust-vim’" class="headerlink" title="Plugin ‘rust-lang/rust.vim’"></a>Plugin ‘rust-lang/rust.vim’</h5><h5 id="Plugin-‘tpope-vim-markdown’"><a href="#Plugin-‘tpope-vim-markdown’" class="headerlink" title="Plugin ‘tpope/vim-markdown’"></a>Plugin ‘tpope/vim-markdown’</h5><h5 id="Plugin-‘spf13-vim-preview’"><a href="#Plugin-‘spf13-vim-preview’" class="headerlink" title="Plugin ‘spf13/vim-preview’"></a>Plugin ‘spf13/vim-preview’</h5><h5 id="Plugin-‘tpope-vim-cucumber’"><a href="#Plugin-‘tpope-vim-cucumber’" class="headerlink" title="Plugin ‘tpope/vim-cucumber’"></a>Plugin ‘tpope/vim-cucumber’</h5><h5 id="Plugin-‘cespare-vim-toml’"><a href="#Plugin-‘cespare-vim-toml’" class="headerlink" title="Plugin ‘cespare/vim-toml’"></a>Plugin ‘cespare/vim-toml’</h5><h5 id="Plugin-‘quentindecock-vim-cucumber-align-pipes’"><a href="#Plugin-‘quentindecock-vim-cucumber-align-pipes’" class="headerlink" title="Plugin ‘quentindecock/vim-cucumber-align-pipes’"></a>Plugin ‘quentindecock/vim-cucumber-align-pipes’</h5><h5 id="Plugin-‘saltstack-salt-vim’"><a href="#Plugin-‘saltstack-salt-vim’" class="headerlink" title="Plugin ‘saltstack/salt-vim’"></a>Plugin ‘saltstack/salt-vim’</h5><h5 id="Plugin-‘desertEx’"><a href="#Plugin-‘desertEx’" class="headerlink" title="Plugin ‘desertEx’"></a>Plugin ‘desertEx’</h5><h5 id="Plugin-‘mattn-emmet-vim’"><a href="#Plugin-‘mattn-emmet-vim’" class="headerlink" title="Plugin ‘mattn/emmet-vim’"></a>Plugin ‘mattn/emmet-vim’</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/插件/" rel="tag"># 插件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/16/图解攻心说话术/" rel="next" title="图解攻心说话术">
+                <i class="fa fa-chevron-left"></i> 图解攻心说话术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/10/zparseopts的使用帮助/" rel="prev" title="zparseopts的使用帮助">
+                zparseopts的使用帮助 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/08/17/vim常用插件介绍/"
+     data-title="vim常用插件介绍"
+     data-content=""
+     data-url="http://x8087.github.io/2015/08/17/vim常用插件介绍/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/08/17/vim常用插件介绍/"
+           data-title="vim常用插件介绍" data-url="http://x8087.github.io/2015/08/17/vim常用插件介绍/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="x8087" />
+          <p class="site-author-name" itemprop="name">x8087</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/x8087" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1817414410" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘gmarik-vundle’"><span class="nav-number">1.</span> <span class="nav-text">Plugin ‘gmarik/vundle’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘MarcWeber-vim-addon-mw-utils’"><span class="nav-number">2.</span> <span class="nav-text">Plugin ‘MarcWeber/vim-addon-mw-utils’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tomtom-tlib-vim’"><span class="nav-number">3.</span> <span class="nav-text">Plugin ‘tomtom/tlib_vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘mileszs-ack-vim’"><span class="nav-number">4.</span> <span class="nav-text">Plugin ‘mileszs/ack.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘scrooloose-nerdtree’"><span class="nav-number">5.</span> <span class="nav-text">Plugin ‘scrooloose/nerdtree’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘spf13-vim-colors’"><span class="nav-number">6.</span> <span class="nav-text">Plugin ‘spf13/vim-colors’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-surround’"><span class="nav-number">7.</span> <span class="nav-text">Plugin ‘tpope/vim-surround’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-repeat’"><span class="nav-number">8.</span> <span class="nav-text">Plugin ‘tpope/vim-repeat’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘jiangmiao-auto-pairs’"><span class="nav-number">9.</span> <span class="nav-text">Plugin ‘jiangmiao/auto-pairs’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘ctrlpvim-ctrlp-vim’"><span class="nav-number">10.</span> <span class="nav-text">Plugin ‘ctrlpvim/ctrlp.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tacahiroy-ctrlp-funky’"><span class="nav-number">11.</span> <span class="nav-text">Plugin ‘tacahiroy/ctrlp-funky’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘kristijanhusak-vim-multiple-cursors’"><span class="nav-number">12.</span> <span class="nav-text">Plugin ‘kristijanhusak/vim-multiple-cursors’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘vim-scripts-sessionman-vim’"><span class="nav-number">13.</span> <span class="nav-text">Plugin ‘vim-scripts/sessionman.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘matchit-zip’"><span class="nav-number">14.</span> <span class="nav-text">Plugin ‘matchit.zip’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘bling-vim-airline’"><span class="nav-number">15.</span> <span class="nav-text">Plugin ‘bling/vim-airline’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘powerline-fonts’"><span class="nav-number">16.</span> <span class="nav-text">Plugin ‘powerline/fonts’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘bling-vim-bufferline’"><span class="nav-number">17.</span> <span class="nav-text">Plugin ‘bling/vim-bufferline’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘Lokaltog-vim-easymotion’"><span class="nav-number">18.</span> <span class="nav-text">Plugin ‘Lokaltog/vim-easymotion’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘jistr-vim-nerdtree-tabs’"><span class="nav-number">19.</span> <span class="nav-text">Plugin ‘jistr/vim-nerdtree-tabs’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘flazz-vim-colorschemes’"><span class="nav-number">20.</span> <span class="nav-text">Plugin ‘flazz/vim-colorschemes’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘mbbill-undotree’"><span class="nav-number">21.</span> <span class="nav-text">Plugin ‘mbbill/undotree’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘nathanaelkane-vim-indent-guides’"><span class="nav-number">22.</span> <span class="nav-text">Plugin ‘nathanaelkane/vim-indent-guides’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘vim-scripts-restore-view-vim’"><span class="nav-number">23.</span> <span class="nav-text">Plugin ‘vim-scripts/restore_view.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘mhinz-vim-signify’"><span class="nav-number">24.</span> <span class="nav-text">Plugin ‘mhinz/vim-signify’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-abolish-git’"><span class="nav-number">25.</span> <span class="nav-text">Plugin ‘tpope/vim-abolish.git’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘osyo-manga-vim-over’"><span class="nav-number">26.</span> <span class="nav-text">Plugin ‘osyo-manga/vim-over’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘kana-vim-textobj-user’"><span class="nav-number">27.</span> <span class="nav-text">Plugin ‘kana/vim-textobj-user’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘kana-vim-textobj-indent’"><span class="nav-number">28.</span> <span class="nav-text">Plugin ‘kana/vim-textobj-indent’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘gcmt-wildfire-vim’"><span class="nav-number">29.</span> <span class="nav-text">Plugin ‘gcmt/wildfire.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘reedes-vim-litecorrect’"><span class="nav-number">30.</span> <span class="nav-text">Plugin ‘reedes/vim-litecorrect’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘reedes-vim-textobj-sentence’"><span class="nav-number">31.</span> <span class="nav-text">Plugin ‘reedes/vim-textobj-sentence’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘reedes-vim-textobj-quote’"><span class="nav-number">32.</span> <span class="nav-text">Plugin ‘reedes/vim-textobj-quote’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘reedes-vim-wordy’"><span class="nav-number">33.</span> <span class="nav-text">Plugin ‘reedes/vim-wordy’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘scrooloose-syntastic’"><span class="nav-number">34.</span> <span class="nav-text">Plugin ‘scrooloose/syntastic’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-fugitive’"><span class="nav-number">35.</span> <span class="nav-text">Plugin ‘tpope/vim-fugitive’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘mattn-webapi-vim’"><span class="nav-number">36.</span> <span class="nav-text">Plugin ‘mattn/webapi-vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘mattn-gist-vim’"><span class="nav-number">37.</span> <span class="nav-text">Plugin ‘mattn/gist-vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘scrooloose-nerdcommenter’"><span class="nav-number">38.</span> <span class="nav-text">Plugin ‘scrooloose/nerdcommenter’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-commentary’"><span class="nav-number">39.</span> <span class="nav-text">Plugin ‘tpope/vim-commentary’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘godlygeek-tabular’"><span class="nav-number">40.</span> <span class="nav-text">Plugin ‘godlygeek/tabular’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘majutsushi-tagbar’"><span class="nav-number">41.</span> <span class="nav-text">Plugin ‘majutsushi/tagbar’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘Valloric-YouCompleteMe’"><span class="nav-number">42.</span> <span class="nav-text">Plugin ‘Valloric/YouCompleteMe’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘SirVer-ultisnips’"><span class="nav-number">43.</span> <span class="nav-text">Plugin ‘SirVer/ultisnips’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘honza-vim-snippets’"><span class="nav-number">44.</span> <span class="nav-text">Plugin ‘honza/vim-snippets’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘spf13-PIV’"><span class="nav-number">45.</span> <span class="nav-text">Plugin ‘spf13/PIV’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘arnaud-lb-vim-php-namespace’"><span class="nav-number">46.</span> <span class="nav-text">Plugin ‘arnaud-lb/vim-php-namespace’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘beyondwords-vim-twig’"><span class="nav-number">47.</span> <span class="nav-text">Plugin ‘beyondwords/vim-twig’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘klen-python-mode’"><span class="nav-number">48.</span> <span class="nav-text">Plugin ‘klen/python-mode’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘yssource-python-vim’"><span class="nav-number">49.</span> <span class="nav-text">Plugin ‘yssource/python.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘python-match-vim’"><span class="nav-number">50.</span> <span class="nav-text">Plugin ‘python_match.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘pythoncomplete’"><span class="nav-number">51.</span> <span class="nav-text">Plugin ‘pythoncomplete’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘elzr-vim-json’"><span class="nav-number">52.</span> <span class="nav-text">Plugin ‘elzr/vim-json’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘groenewege-vim-less’"><span class="nav-number">53.</span> <span class="nav-text">Plugin ‘groenewege/vim-less’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘pangloss-vim-javascript’"><span class="nav-number">54.</span> <span class="nav-text">Plugin ‘pangloss/vim-javascript’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘briancollins-vim-jst’"><span class="nav-number">55.</span> <span class="nav-text">Plugin ‘briancollins/vim-jst’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘kchmck-vim-coffee-script’"><span class="nav-number">56.</span> <span class="nav-text">Plugin ‘kchmck/vim-coffee-script’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘amirh-HTML-AutoCloseTag’"><span class="nav-number">57.</span> <span class="nav-text">Plugin ‘amirh/HTML-AutoCloseTag’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘hail2u-vim-css3-syntax’"><span class="nav-number">58.</span> <span class="nav-text">Plugin ‘hail2u/vim-css3-syntax’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘gorodinskiy-vim-coloresque’"><span class="nav-number">59.</span> <span class="nav-text">Plugin ‘gorodinskiy/vim-coloresque’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-haml’"><span class="nav-number">60.</span> <span class="nav-text">Plugin ‘tpope/vim-haml’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-rails’"><span class="nav-number">61.</span> <span class="nav-text">Plugin ‘tpope/vim-rails’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘fatih-vim-go’"><span class="nav-number">62.</span> <span class="nav-text">Plugin ‘fatih/vim-go’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘rust-lang-rust-vim’"><span class="nav-number">63.</span> <span class="nav-text">Plugin ‘rust-lang/rust.vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-markdown’"><span class="nav-number">64.</span> <span class="nav-text">Plugin ‘tpope/vim-markdown’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘spf13-vim-preview’"><span class="nav-number">65.</span> <span class="nav-text">Plugin ‘spf13/vim-preview’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘tpope-vim-cucumber’"><span class="nav-number">66.</span> <span class="nav-text">Plugin ‘tpope/vim-cucumber’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘cespare-vim-toml’"><span class="nav-number">67.</span> <span class="nav-text">Plugin ‘cespare/vim-toml’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘quentindecock-vim-cucumber-align-pipes’"><span class="nav-number">68.</span> <span class="nav-text">Plugin ‘quentindecock/vim-cucumber-align-pipes’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘saltstack-salt-vim’"><span class="nav-number">69.</span> <span class="nav-text">Plugin ‘saltstack/salt-vim’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘desertEx’"><span class="nav-number">70.</span> <span class="nav-text">Plugin ‘desertEx’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plugin-‘mattn-emmet-vim’"><span class="nav-number">71.</span> <span class="nav-text">Plugin ‘mattn/emmet-vim’</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">x8087</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"x8087"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vplbqDrK7KP8HzD5uBan8fgD-gzGzoHsz", "TQ074jpoPCHUVWRFj6eMu7KS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

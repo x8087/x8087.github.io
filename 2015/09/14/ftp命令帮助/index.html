@@ -1,0 +1,1013 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="shell,zsh,ftp,mac," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="假如上帝不是程序员" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="ftp网络文件传输程序ftp [-46AadefginpRtvV] [-N netrc] [-o output] [-p port] [-q quittime] [ -s srcaddr] [-r retry] [-T dir,max[,inc]] [[user@]host [port]] [[user@]host:[path][/]] [file://path] [ftp://[user[:pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ftp命令帮助">
+<meta property="og:url" content="http://x8087.github.io/2015/09/14/ftp命令帮助/index.html">
+<meta property="og:site_name" content="假如上帝不是程序员">
+<meta property="og:description" content="ftp网络文件传输程序ftp [-46AadefginpRtvV] [-N netrc] [-o output] [-p port] [-q quittime] [ -s srcaddr] [-r retry] [-T dir,max[,inc]] [[user@]host [port]] [[user@]host:[path][/]] [file://path] [ftp://[user[:pa">
+<meta property="og:updated_time" content="2016-11-26T02:48:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ftp命令帮助">
+<meta name="twitter:description" content="ftp网络文件传输程序ftp [-46AadefginpRtvV] [-N netrc] [-o output] [-p port] [-q quittime] [ -s srcaddr] [-r retry] [-T dir,max[,inc]] [[user@]host [port]] [[user@]host:[path][/]] [file://path] [ftp://[user[:pa">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '12948511',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://x8087.github.io/2015/09/14/ftp命令帮助/"/>
+
+
+
+
+
+  <title> ftp命令帮助 | 假如上帝不是程序员 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?9d2df6bea6a5f9af49a265803692cb1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=59604490";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">假如上帝不是程序员</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">--存在就是最大的bug</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2015/09/14/ftp命令帮助/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="x8087">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="假如上帝不是程序员">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="假如上帝不是程序员" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ftp命令帮助
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-14T15:29:29+08:00">
+                2015-09-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-11-26T10:48:50+08:00">
+                2016-11-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2015/09/14/ftp命令帮助/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/14/ftp命令帮助/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/09/14/ftp命令帮助/" class="leancloud_visitors" data-flag-title="ftp命令帮助">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>ftp</strong>网络文件传输程序<br>ftp [-46AadefginpRtvV] [-N netrc] [-o output] [-p port] [-q quittime] [ -s srcaddr] [-r retry] [-T dir,max[,inc]] [[user@]host [port]] [[user@]host:[path][/]] [file://path] [ftp://[user[:password]@]host[:port]/path[/][;type=X]][<a href="http://[user[:password]@]host[:port]/path" target="_blank" rel="external">http://[user[:password]@]host[:port]/path</a>] […]<br>ftp -u URL file […]</p>
+<a id="more"></a>
+<h3 id="描述："><a href="#描述：" class="headerlink" title="描述："></a>描述：</h3><p>ftp是网络标准传输协议的用户接口。程序允许用户与远程网络站点传输文件。<br>选项可指定给命令行或者命令解释器。<br>-4 强制ftp只使用IPv4地址<br>-6 强制ftp只使用IPv6地址<br>-A 强制使用主动模式ftp。默认情况，ftp尝试使用被动模式ftp且当服务器不支持被动模式时回退到主动模式。这个选项使ftp总是使用主动连接。这只是对连接非常老可能没有实现被动模式的服务器有用。<br>-a 使ftp绕过普通登录程序，并替换为使用匿名登录。<br>-d 开启调试<br>-e 关闭命令行编辑。这对Emacs ange-ftp模式有用。<br>-f 强制经过ftp或者http代理的传输缓存重载。<br>-g 关闭文件名扩展。<br>-i 在多文件传输时关闭交互提示。<br>-n 阻止ftp在初始化非”auto-fetch”传输连接时尝试”auto-login”。如果允许自动登录，ftp会检查用户Home目录里的.netrc文件获取描述远程端账户的入口。如果入口不存在，ftp会提示远程端登录名（默认是用户本地机器上定义的）且如果有需要时提示登录账号的密码。覆盖”auto-fetch”传输的自动登录，指定合适的用户名（和可选的，密码）。<br>-N netrc 使用netrc替代~/.netrc。更多信息请参阅.netrc文件。<br>-o output 当自动获取文件时，保存内容到<code>output</code>。<code>output</code>根据下面的文件命名规则解析。如果<code>output</code>没有’-‘或者不是以’|’开头，那只有指定的第一个文件在<code>output</code>中检索到。所有其他文件在他们远程名字的basename里检索到。<br>-p 启用被动模式操作，用于在连接过滤防火墙后面使用。Ftp现在默认尝试使用被动模式已不推荐使用此选项，如果服务器不支持被动连接则回退到主动模式。<br>-P port 设置端口号为<code>port</code>。<br>-q quittime 在连接停滞<code>quitime</code>秒后退出。<br>-r wait 如果连接失败，暂停<code>wait</code>秒尝试重新连接。<br>-R 重新启动所有非代理的自动提取<br>-s srcaddr 使用srcaddr作为所有连接的本地IP地址<br>-t 启用数据包跟踪<br>-T direction,maximum[,increment] 为<code>direction</code>设置最大传输速度到<code>maximum</code>字节/秒，如果指定，则增量为<code>increment</code>字节/秒。更多信息参考<code>rate</code>。<br>-u URL file […] 在命令行上传文件到<code>URL</code>，<code>URL</code>是支持<code>auto-fetch</code>的ftp URL类型之一（对单个文件的上传附加一个可选目标文件名)，<code>file</code>是即将上传的一个或多个文件。<br>-v 启用详情和进度。如果输出是输出到终端这是默认的（对于进度，ftp是前台程序）。强制ftp显示所有来自远程服务端的响应，以及对数据传输的统计报告。<br>-V 禁用详情和进度，如果输出是输出到终端，覆盖默认的启用。</p>
+<p>与ftp通讯的客户端主机可以在命令行中指定。如果这样的话，ftp会立即试图在主机上建立一个与ftp服务器的连接；否则，ftp会进入它的命令解释器并等待来自用户的指令。当等待来自用户的命令时，ftp提供给用户<code>ftp&gt;</code>的提示。下面是ftp认可的命令：</p>
+<p>! [command [args]]<br>在本地机器上调用一个交互式的shell。如果有参数，第一个是直接执行的命令，其余的参数作为其参数。</p>
+<p>$ macro-name [args]<br>执行macdef命令定义的宏<code>macro-name</code>。参数传递到宏unglobbed。</p>
+<p>account [passwd]<br>一旦登录用于访问资源的远程系统成功完成，提供所需的补充密码。如果没有包含任何参数，将提示用户在无回响输入模式输入用户密码。</p>
+<p>append local-file [remote-file]<br>将本地文件附加到远程计算机上的文件。如果未指定<code>remote-file</code>，本地文件名被用来命名被任何ntrans或者nmap设置改变后的远程文件。文件传输使用当前的类型，格式，模式，结构配置。</p>
+<p>ascii<br>设置文件网络传输类型ASCII。这是默认类型。</p>
+<p>bell<br>设定在每个文件传输命令完成后响铃提示。</p>
+<p>binary<br>设置文件传输类型支持二进制图像传输。</p>
+<p>bye<br>终止与远程服务器的FTP会话并退出ftp。文件结尾也会终止会话并退出。</p>
+<p>case<br>切换远程计算机文件名大小写在<code>get</code>，<code>mget</code>，和<code>mput</code>命令时的映射。当<code>case</code>开启（默认关闭），远程计算机文件名所有大写字母映射成小写写进本地目录。</p>
+<p>cd remote-directory<br>将远程机器上的工作目录更改为<code>remote-directory</code>。</p>
+<p>cdup<br>将远程机器上的工作目录更改为当前远程机器工作目录的父目录。</p>
+<p>chmod mode remote-file<br>更改远程系统上的<code>remote-file</code>文件权限模式为<code>mode</code>。</p>
+<p>close<br>终止与远程服务器的FTP会话，并返回到命令解释器。任何定义的宏被擦除。</p>
+<p>cr<br>切换在ascii类型文件检索时回车提取。记录是记在ascii类型文件传输时的回车/换行序列。当<code>cr</code>开启（默认），回车从序列中去除，以符合UNIX单换行记录定界符。在非UNIX远程系统上的记录可能包含单换行符；当有一个ascii类型传输时，这些换行只有当<code>cr</code>关闭时才可能与记录定界符区分。</p>
+<p>ftp_debug [ftp_debug-value]<br>切换调试模式。如果可选<code>ftp_debug-value</code>指定，可以用来设置调试等级。当调试开启时，ftp打印每条发往远程机器的命令，以<code>--&gt;</code>字符串开始。</p>
+<p>delete remote-file<br>删除在远程机器上的文件<code>remote-file</code></p>
+<p>dir [remote-path [local-file]]<br>打印远程机器上的目录内容清单。清单包括服务器指定的任何系统相关信息；例如，大多数UNIX系统通过<code>ls -l</code>产生的输出。如果没有指定<code>remote-path</code>，使用当前工作目录。如果交互提示开启，ftp会提示用户确认最后一个参数是接收<code>dir</code>输出的目标本地文件。如果没有指定本地文件，或者如果<code>local-file</code>是<code>-</code>，输出发送到终端。</p>
+<p>disconnect<br>与close相同</p>
+<p>edit<br>切换命令行编辑，上下文相关命令和文件补全。从终端输入时自动开启，否则禁用。</p>
+<p>epsv4<br>切换在IPv4连接时使用扩展EPSV和EPRT命令。首先尝试EPSV/EPRT，然后PASV/PORT。默认开启。如果扩展命令失败，选项会在当前连接期间临时禁用，或者直到epsv4再次执行。</p>
+<p>exit<br>与bye相同。</p>
+<p>features<br>显示远程服务器支持什么功能（使用FEAT命令）。</p>
+<p>fget localfile<br>检索<code>localfile</code>列出的文件，每个文件名占一行。</p>
+<p>form format<br>将文件传输格式设置成<code>format</code>。默认（只支持）格式<code>non-print</code>。</p>
+<p>ftp host [port]<br>与open相同</p>
+<p>gate [host [post]]<br>切换到<code>gate-ftp</code>模式，通过<code>TIS FWTK</code>和<code>Gauntlet ftp proxies</code>连接。如果gate-ftp服务器还没设置这将不被允许（由用户显示声明，或者来自<code>FTPSERVER</code>环境变量）。如果<code>host</code>给定，那么<code>gate-ftp</code>模式开启，且<code>gate-ftp</code>服务器将设置为<code>host</code>。如果<code>port</code>也给定，将使用作为在gate-ftp服务器上连接的端口。</p>
+<p>get remote-file [local-file]<br>检索<code>remote-file</code>并在本地机器上保存。如果没有指定本地文件名，给予在远程机器上相同的名字，受当前case，ntrans和nmap设置变更影响。当传输文件时使用当前类型，方式，模式和结构设置。</p>
+<p>glob<br>切换对<code>mdelete</code>，<code>mget</code>，<code>mput</code>和<code>mreget</code>的文件名扩展。如果使用<code>glob</code>关闭匹配，文件名参数按字面意思理解且不扩展。<code>mput</code>的匹配和在<code>csh</code>下是一样的。对于<code>mdelete</code>，<code>mget</code>和<code>mreget</code>，每个远程文件名在远程机器上分别扩展且不合并列表。目录名扩展多半和普通文件名不相同：确切的结果取决于外来的操作系统和ftp服务器，能通过<code>mls remote-files -</code>预览。注意：<code>mget</code>，<code>mput</code>和<code>mreget</code>并不意味传输文件的整个目录树。这可以通过传输目录树的<code>tar</code>归档实现（使用二进制模式）。</p>
+<p>hash [size]<br>切换<code>hash-sign</code>（<code>#</code>）对每个数据块传输的打印。默认的数据块大小为1024字节。这能通过使用字节为单位指定<code>size</code>改变。启用hash会禁用进度progress。</p>
+<p>help [command]<br>打印关于<code>command</code>含义的关键信息。如果没有指定参数，ftp打印已知命令列表。</p>
+<p>idle [seconds]<br>设置在远程服务器上的闲置定时为<code>seconds</code>秒。如果<code>seconds</code>省略，打印当前闲置定时。</p>
+<p>image<br>与<code>binary</code>相同。</p>
+<p>lcd [directory]<br>更改在本地机器上的工作目录。如果未指定<code>directory</code>，使用用户的<code>home</code>目录。</p>
+<p>less file<br>与<code>page</code>相同。</p>
+<p>lpage local-file<br>使用<code>pager</code>选项设置的指定程序显示<code>local-file</code>。</p>
+<p>lpwd<br>打印在本地机器上的工作目录。</p>
+<p>ls [remote-path] [local-file]<br>与<code>dir</code>相同。</p>
+<p>macdef macro-name<br>定义一个宏。后续行存储为宏<code>macro-name</code>；一个空行（文件里的连续换行字符或者终端中输入回车）终止宏输入模式。所有定义的宏有16个宏和4096个总字符的限制。宏名称最多8个字符。宏只适用于当前它们定义的会话内（或者在外部定义的会话中定义的会话调用下一个打开的命令），并保持定义直到执行关闭命令。要调用宏，请使用<code>$</code>命令（请看上面）。<br>宏处理器将<code>$</code>和<code>\\</code>作为特殊字符解释。<code>$</code>后面带一个数字被替换为宏调用命令行相应的参数。<code>$</code>后面带一个<code>i</code>指示宏处理器循环执行宏。传进来的第一个<code>$i</code>被替换成宏调用命令行的第一个参数，第二个传递的替换为第二个参数，等等。<code>\\</code>后带任何字符替换为该字符。使用<code>\\</code>可以防止<code>$</code>特殊处理。</p>
+<p>mdelete [remote-files]<br>删除远程机器上的<code>remote-files</code></p>
+<p>mdir remote-files local-file<br>像<code>dir</code>，除了可以指定多个远程文件。如果交互提示开启，ftp会提示用户确认最后一个参数确实是接收<code>mdir</code>输出的目标本地文件。</p>
+<p>mget remote-files<br>扩展在远程机器上的<code>remote-files</code>并获取每个因此产生的文件名。在文件名扩展上的细节查看<code>glob</code>。结果文件名随后将经过<code>case</code>，<code>ntrans</code>和<code>nmap</code>设置处理。文件被转移到本地工作目录，本地工作目录能由<code>lcd directory</code>改变；新的本地目录能使用<code>! mkdir directory</code>创建。</p>
+<p>mkdir directory-name<br>在远程机器上创建目录</p>
+<p>mls remote-files local-file<br>像<code>ls</code>，除了可以指定多个远程文件和必须指定<code>local-file</code>。如果交互提示开启，ftp会提示用户确认最后一个参数确实是接收<code>mls</code>输出的目标本地文件。</p>
+<p>mlsd [remote-path]<br>以机器解析(machine-parsable)形式，使用<code>MLSD</code>显示<code>remote-path</code>的内容（如果没给应该默认当前目录）。显示格式能用<code>remopts mlst ...</code>更改。</p>
+<p>mlst [remote-path]<br>以机器解析(machine-parsable)形式，使用<code>MLST</code>显示<code>remote-pat</code>的相关详细。（如果没给应该默认当前目录）。显示格式能用<code>remopts mlst ...</code>更改。</p>
+<p>mode mode-name<br>设置文件传输模式为<code>mode-name</code>。默认（只支持）模式是<code>stream</code>。</p>
+<p>modtime remote-file<br>显示在远程机器上的文件最后修改时间，使用RFC2822格式。</p>
+<p>more file<br>与page相同。</p>
+<p>mput local-file<br>扩展搭配作为参数给定的本地文件列表并放置结果列表中的每个文件。文件名扩展详细查看<code>glob</code>。结果文件名随后经过<code>ntrans</code>和<code>nmap</code>设置处理。</p>
+<p>mreget remote-file<br>当作每个<code>mget</code>，但执行<code>reget</code>替代<code>get</code>。</p>
+<p>msend local-files<br>与<code>mput</code>相同。</p>
+<p>newer remote-file [local-file]<br>只有当远程文件的修改时间比当前系统文件更新，才获取文件。如果文件在当前系统不存在，则该远程文件被认为更加新。否则，这个命令等同于<code>get</code>。</p>
+<p>nlist [remote-path [local-file]]<br>与<code>ls</code>相同。</p>
+<p>nmap [inpattern outpattern]<br>设置或撤消文件名映射机制。如果没有指定参数，文件名映射机制撤消。如果指定参数，远程文件名在<code>mput</code>命令和<code>put</code>命令未生成远程目标文件名时被映射。如果指定参数，本地文件名在<code>mget</code>命令和<code>get</code>命令未生成指定本地目标文件名时映射。这个命令在使用不同的文件命名规则或惯例连接非UNIX远程计算机时相当有用。映射遵循<code>inpattern</code>和<code>outpattern</code>的模式设置。[<code>Inpattern</code>]是传入的文件名模板（可能已经经过<code>ntrans</code>和<code>case</code>设置处理)。可变模板由包含在<code>inpattern</code>内的序列<code>$1</code>,<code>$2</code>,…<code>$9</code>实现。使用<code>\\</code>防止<code>$</code>字符特殊处理。所有其他字符按字面意思对待，并用于确定<code>nmap [inpattern]</code>变量值。例如，给定<code>inpattern</code> $1.$2且远程文件名”mydata.data”，$1将获得值”mydata”，$2获得值”data”。<code>outpattern</code>确定映射文件名结果。序列<code>$1</code>,<code>$2</code>,…<code>$9</code>替换为来自<code>inpattern</code>模板的任何结果值。序列<code>$0</code>替换为原始文件名。此外，序列<code>[seq1,seq2]</code>如果<code>seq1</code>不是空字符串替换为<code>[seq1]</code>，否则替换为<code>seq2</code>。例如，命令<code>nmap $1.$2.$3 [$1,$2].[$2.file]</code>输入文件名”myfile.data”和”myfile.data.old”产生输出文件名”myfile.data”，输入文件名”myfile”产生”myfile.file”，输入文件名”.myfile”产生”myfile.myfile”。空格可以包含在<code>outpattern</code>，例如：<code>nmap $1 sed s/   *$// &gt;$1</code><br>使用<code>\\</code>防止字符’$’,’[‘,’]’和’,’特殊处理。</p>
+<p>ntrans [inchars [outchars]]<br>设置或撤消文件名字符转换机制。如果没有指定参数，文件名字符转换机制撤消。如果指定参数，远程文件名字符在<code>mput</code>命令和<code>put</code>命令未生成指定远程目标文件名时被转换。如果指定参数，本地文件名字符在<code>mget</code>命令和<code>get</code>命令未生成指定本地目标文件名时被转换。这个命令在使用不同的文件命名规则或惯例连接非UNIX远程计算机时相当有用。文件名内的字符匹配<code>inchars</code>内的字符被替换为<code>outchars</code>内相应的字符。如果<code>inchars</code>内的字符位置比<code>outchars</code>的长度长，那么字符从文件名删除。</p>
+<p>open host [port]<br>与指定的<code>host</code>FTP服务器建立连接。可提供可选端口号，这种情况下，ftp将尝试在该端口联系FTP服务器。如果<code>auto-login</code>选项开启（默认），ftp同时尝试自动登录FTP服务器账户（见下文）。</p>
+<p>page file<br>检索文件并用<code>pager</code>选项设定的指定程序显示。</p>
+<p>passive [auto]<br>切换被动模式（如果没有给定参数）。如果给定<code>auto</code>，像<code>FTPMODE</code>设置为<code>auto</code>一样动作。如果被动模式开启（默认），ftp将为所有数据连接发送PASV命令替代PORT命令。PASV命令请求远程服务器为数据连接打开端口并返回端口地址。远程服务器监听与客户端连接的该端口。当使用更传统的的PROT命令，客户端监听端口并发送地址给远程服务器连接回来。被动模式在使用ftp经过控制交通方向的网关路由或者主机时非常有用。（注意：虽然FTP服务器需要支持RFC1123 PASV命令，但是有些没有。）</p>
+<p>pdir [remote-path]<br>执行<code>dir [remote-path]</code>，并用<code>pager</code>选项指定的程序显示结果。</p>
+<p>pls [remote-path]<br>执行<code>ls [remote-path]</code>，并用<code>pager</code>选项指定的程序显示结果。</p>
+<p>pmlsd [remote-path]<br>执行<code>mlsd [remote-path]</code>，并用<code>pager</code>选项指定的程序显示结果。</p>
+<p>preserve<br>切换在检索文件时保持修改时间。</p>
+<p>progress<br>切换显示传输进度条。对于含有<code>-</code>的<code>local-file</code>或者命令以<code>|</code>开始的传送会禁用进度条。更多信息参考<code>文件命名规则``File NAMING CONVERTIONS</code>。开启<code>progress</code>会禁用<code>hash</code>。</p>
+<p>prompt<br>切换交互式提示。交互式提示发生在多文件传输时允许用户选择性地检索或者存储文件。如果提示关闭（默认是开启），任何<code>mget</code>或者<code>mput</code>会传输所有文件，<code>mdelete</code>会删除所有文件。<br>当提示开启，下面的命令在提示可用：<br>a 当前文件回复<code>yes</code>，当前命令剩下的所有文件自动回复<code>yes</code>。<br>n 回复<code>no</code>，不传输文件。<br>p 当前文件回复<code>yes</code>，并关闭提示模式（类似给定<code>prompt off</code>）。<br>q 终止当前操作。<br>y 回复<code>yes</code>，传输文件。<br>？显示帮助消息。<br>任何其他回复相当于当前文件回复<code>yes</code>。</p>
+<p>proxy ftp-command<br>在间接控制连接上运行ftp命令。这个命令允许同时连接两个远程ftp服务器在两个服务器之间传输文件。首先代理命令应该打开，用来建立间接控制连接。输入命令”proxy ?”查看在间接连接上其他可运行的ftp命令。下面的命令在<code>proxy</code>开端时表现不同：<code>open</code>在自动登录过程中不定义新的宏，<code>close</code>不擦除存在的宏定义，<code>get</code>和<code>mget</code>从主控制连接的主机往间接连接的主机传输文件，<code>put</code>和<code>mput</code>从间接控制连接主机往主控制连接主机附加传输文件。第三方文件传输依赖于间接控制连接服务器的FTP协议PASV命令支持。</p>
+<p>put local-file [remote-file]<br>在远程机器保存本地文件。如果<code>remote-file</code>未指定，使用通过<code>ntrans</code>或者<code>nmap</code>设置处理后的本地文件名命名远程文件。文件传输使用当前的类型，格式，模式和结构设置。</p>
+<p>pwd<br>打印远程机器上的当前工作目录名字。</p>
+<p>quit<br>与<code>bye</code>相同。</p>
+<p>quote arg1 arg2 …<br>指定参数逐字发送到远程FTP服务器。</p>
+<p>rate direction [maximum [increment]]<br>压制最大传输速率为<code>maximum</code>字节/秒。如果<code>maximum</code>为0，禁用压制。<br><code>direction</code>可能是其中的：<br>all 两个目录。<br>get 输入传输。<br>put 输出传输。<br><code>maximum</code>在飘荡中每次给定的信号被接收可改动<code>increment</code>字节（默认：1024）：<br>SIGUSR1 <code>increment</code>字节<code>maximum</code>增量。<br>SIGUSR2 <code>increment</code>字节<code>maximum</code>减量。结果必须是正整数。<br>如果没有提供<code>maximum</code>，显示当前压制速率。<br>注意：速率还没实现ascii模式的传输。</p>
+<p>rcvbuf size<br>设置socket接收缓存大小为<code>size</code>。</p>
+<p>recv remote-file [local-file]<br>与<code>get</code>相同。</p>
+<p>reget remote-file [local-file]<br><code>reget</code>动作像<code>get</code>，除了如果<code>local-file</code>存在并比<code>remote-file</code>小，<code>local-file</code>被假定为部分转移<code>remote-file</code>拷贝并从明显的失败点继续转移。这命令当传输非常大的文件经过容易断开连接的网络时是有用的。</p>
+<p>remopts command [command-option]<br>设置<code>command</code>到<code>command-options</code>（缺省以特定命令基准处理）在远程FTP服务器上的选项。远程FTP命令所知支持选项包括：<code>MLST</code>（用于<code>MLSD</code>和<code>MLST</code>）。</p>
+<p>rename [from [to]]<br>在远程机器上重命名文件<code>from</code>为文件<code>to</code>。</p>
+<p>reset<br>清除应答队列。这个命令重新同步命令/应答的远程FTP服务器的排序。同步可能需要由远程服务器违反FTP协议。</p>
+<p>restart marker<br>在指定的<code>marker</code>重新开始立即接着<code>get</code>或者<code>put</code>。在UNIX系统，标记通常是文件的字节偏移。</p>
+<p>rhelp [command-name]<br>向远程FTP服务器请求帮助。如果指定<code>command-name</code>，则提供给服务器。</p>
+<p>rmdir directory-name<br>删除远程机器上的目录。</p>
+<p>restatus [remote-file]<br>不带参数，显示远程机器状态。如果指定<code>remote-file</code>，显示远程机器上的<code>remote-file</code>状态。</p>
+<p>runique<br>切换在本地系统用唯一文件名存储文件。如果文件已经存在，与<code>get</code>或者<code>mget</code>命令的目标本地文件名名称相同，名称附加“.1”。如果结果名字匹配另一个存在的文件，在原本的名称附加“.2”。如果这个过程继续到“.99”，打印一个错误消息，并且不发生转移。生成的唯一文件名将被报告。注意<code>runique</code>不影响来自shell命令的本地文件生成（看下文）。默认值是关闭off。</p>
+<p>send local-file [remote-file]<br>与<code>put</code>相同。</p>
+<p>sendport<br>切换使用<code>PORT</code>命令。默认，ftp当建立连接时为每个数据传输尝试使用<code>PORT</code>命令。使用<code>PORT</code>命令能在执行多文件传输时防止延时。如果<code>PORT</code>命令失败，如果<code>PORT</code>命令失败，ftp使用默认数据端口。当禁用<code>PORT</code>命令，不会尝试每个数据传输使用<code>PORT</code>命令。这对于某些忽略<code>PORT</code>命令实现的FTP是有不正确，但有用的，表明他们已经接受。</p>
+<p>set [option value]<br>设置<code>option</code>为<code>value</code>。如果<code>option</code>和<code>value</code>没有给定，显示所有选项和他们的值。当前支持的选项有：<br>anonpass 默认为$FTPANONPASS<br>ftp_proxy 默认为$ftp_proxy。<br>http_proxy 默认为$http_proxy。<br>no_proxy 默认为$no_proxy。<br>pager 默认为$PAGER。<br>prompt 默认为$FTPPROMPT。<br>rprompt 默认为$FTPRPROMPT。</p>
+<p>site arg1 arg2 …<br>作为<code>SITE</code>命令逐字发送的指定参数到远程FTP服务器。</p>
+<p>size remote-file<br>返回远程机器的<code>remote-file</code>大小。</p>
+<p>sndbuf size<br>设置socket发送缓存大小为<code>size</code>。</p>
+<p>status<br>显示当前ftp状态。</p>
+<p>struct struct-name<br>设置文件传输结构为<code>struct-name</code>。默认（只支持）结构<code>file</code>。</p>
+<p>sunique<br>切换在远程机器用唯一文件名存储文件。要成功完成，远程FTP服务器必须支持FTP协议STOU命令。远程服务器会报告唯一名字。默认值是关闭off。</p>
+<p>system<br>显示在远程机器上运行的保作系统类型。</p>
+<p>tenex<br>设置需要告诉<code>TENEX</code>机器的文件传输类型。</p>
+<p>throttle<br>与rate相同。</p>
+<p>trace<br>切换包跟踪。</p>
+<p>type [type-name]<br>设置文件传输类型为<code>type-name</code>。如果没有指定类型，打印当前类型。默认类型是网络ASCII。</p>
+<p>umask [newmask]<br>设置在远程服务器上的默认<code>umask</code>为<code>newmask</code>。如果<code>newmask</code>省略，打印当前<code>umask</code>。</p>
+<p>unset option<br>撤消<code>option</code>。更多信息参考<code>set</code>。</p>
+<p>usage command<br>打印<code>command</code>的用例消息。</p>
+<p>user user-name [password] [account]]<br>确定自己的远程FTP服务器。如果<code>password</code>未指定且服务请求它，ftp将向用户提示它（禁止本地回响后）。如果<code>account</code>字段未指定，且FTP服务器请求它，将向用户提示。如果<code>account</code>字段指定，如果远程服务器没有用<code>account</code>命令请求登入，登录序列完成后，将接替远程服务器。除非ftp调用<code>auto-login</code>失效，这个过程在初始化到FTP服务器的连接自动完成。</p>
+<p>verbose<br>切换详情模式。在详情模式，所有来自FTP服务器的响应都显示给用户。此外，如果<code>verbose</code>开启，当文件传输完成，报告传输效率统计关系。默认为开启。</p>
+<p>xferbuf size<br>设置socket发送和接收的缓存大小为<code>size</code>。</p>
+<p>? [command]<br>与<code>help</code>相同。</p>
+<p>带有嵌入空格的命令参数可以用<code>&quot;</code>引用。<br>切换设置命令能采用明确的<code>on</code>或者<code>off</code>参数强制合适地设置。<br>以字节数作为参数的命令（例如<code>hash</code>,<code>rate</code>,<code>xferbuf</code>）支持参数可选后缀，改变参数的解释。支持的后缀有：<br>  b 不引起改变。（可选）<br>  k Kilo；参数乘以1024<br>  m Mega；参数乘以1048576<br>  g Gige；参数乘以1073741824<br>如果ftp接收<code>SIGINFO</code>（查看stty(1) <code>status</code>参数）或者<code>SIGQUIT</code>信号同时一个传输在进行中，当前的传输速率统计将被写到标准错误输出，以相同的标准完成消息格式。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+            <a href="/tags/zsh/" rel="tag"># zsh</a>
+          
+            <a href="/tags/ftp/" rel="tag"># ftp</a>
+          
+            <a href="/tags/mac/" rel="tag"># mac</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/10/zparseopts的使用帮助/" rel="next" title="zparseopts的使用帮助">
+                <i class="fa fa-chevron-left"></i> zparseopts的使用帮助
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/14/图解式学习法/" rel="prev" title="图解式学习法">
+                图解式学习法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/09/14/ftp命令帮助/"
+     data-title="ftp命令帮助"
+     data-content=""
+     data-url="http://x8087.github.io/2015/09/14/ftp命令帮助/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/14/ftp命令帮助/"
+           data-title="ftp命令帮助" data-url="http://x8087.github.io/2015/09/14/ftp命令帮助/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="x8087" />
+          <p class="site-author-name" itemprop="name">x8087</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/x8087" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1817414410" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述："><span class="nav-number">1.</span> <span class="nav-text">描述：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">x8087</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"x8087"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vplbqDrK7KP8HzD5uBan8fgD-gzGzoHsz", "TQ074jpoPCHUVWRFj6eMu7KS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
