@@ -48,8 +48,13 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: 笔记
 category_map:
+  笔记: note
+  生活: life
+  编程: program
+  其他: other
+  问题: bug
 tag_map:
 
 # Date / Time format
