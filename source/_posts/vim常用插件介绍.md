@@ -219,6 +219,58 @@ q | 关闭*quickfix*窗口
 #### Plugin 'scrooloose/nerdtree'
 #### Plugin 'spf13/vim-colors'
 #### Plugin 'tpope/vim-surround'
+##### 介绍 #####
+移除，修改和添加成对符号的工具，包括括号，引号和标签。
+
+##### 映射 #####
+```
+ds {TARGET} //删除。
+
+cs {TARGET} {REPLACEMENT} //修改。
+cS {TARGET} {REPLACEMENT} //修改，把围绕文本放在单独的行。
+
+ys {MOTION or TEXTOBJECT} {REPLACEMENT} //添加。
+yss {REPLACEMENT} //当前行添加，忽略前导空白。
+ySS {REPLACEMENT} //当前行添加，缩进并将围绕文本放在单独的行。
+yS {MOTION or TEXTOBJECT} {REPLACEMENT} //添加，缩进并将围绕文本放在单独的行。
+
+vS {REPLACEMENT} //可视模式下添加
+//行可视模式，围绕放在分开的行并缩进。
+//块可视模式，每一行分开围绕。
+
+vgS {REPLACEMENT} //可视模式下的"gS“
+//行可视模式，阻止自动缩进。
+//块可视模式，允许围绕根据'virtualedit'设置超过行的结束
+
+//插入模式下
+//插入成对符号，并把光标放在中间
+<C-G>s {REPLACEMENT}
+<C-G>S {REPLACEMENT}
+<C-S> {REPLACEMENT}
+```
+
+##### 目标对象 #####
+单个字符，基于Vim提供的`text-object`。
+- 8个括号标记。`(` `)` `{` `}` `[` `]` `<` `>`对于`ds`和`cs`使用开括号时，包含的空白也会除去。`b` `B` `r` `a`作为`)` `}` `]` `>`的别名。
+- 3个引号标记。`'` `"` `\`` 只在当前行搜索。
+- `t`是一对*HTML*或者*XML*标签。默认对光标所在最内层标签处理，指定数字可以针对其他标签。
+- `w` `W` `s`相当于`word` `WORD` `sentence`。这些没有什么可以删除，且使用`ds`没有操作。对于`cs`可以当作轻量的`ysi`(`cswb` == `ysiwb`, 多或者少)。
+- `p`表示`paragraph`。类似于`w` `W`和`s`；不过会添加或者删除新行。
+
+##### 替换对象 #####
+单个字符。未定义的字符默认直接使用该字符。
+- 使用`)` `}` `]` `>`添加适当的成对符号。`(` `{` `[`与其类似，不过会添加额外的空白字符在里面。`b` `B` `r` `a`对应`)` `}` `]` `>`。为实现在C风格语言对于代码块的通用需要，`<C-}>`添加花括号到与内容隔开的行(貌似按键冲突)。
+- 使用`t`或者`<`， Vim提示作为一个HTML/XML标签插入。可以指定属性，标签会自动闭合。如果替换标签，属性会保留在新的标签里。用`>`结束你的输入抛弃那些属性。如果使用`<C-T>`，标签将自己显示在行上。
+- 使用`s`， 添加一个前导但不包括尾部的空白。这对于来自csbs的方法调用移除圆括号是有用的。
+
+##### 自定义 #####
+- 针对特定文件，`autocmd FileType php let b:surround_45 = "<?php \r ?>"`
+- 全局变量`let g:surround_45 = "<% \r %>"`，其中的`\r`会替换被围绕的字符，`45`为`-`键。
+- 通过提示输入替换字符串，`let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\1}"`，其中`\1`指定替换位置，`environment:`为提示字符，`108`为`l`键。
+- 使用正则表达式应用替换，`let g:surround_108 = "\\begin{\environment: \1}\r\\end{\1\r}.\*\r\1}"`，其中`\1`中间的`\r`为正则表达式。
+- 使用正则表达式应用替换，`let g:surround_{char2nr("d")} = "<div\1id: \r..*\r id=\"&\"\1>\r</div>"`，其中`char2nr`将字符转换成ascII码，提示输入id将匹配`\r..\*\r`并替换`&`所在位置。
+- 插入模式下添加`let g:surround_insert_tail = "<++>"`。
+
 #### Plugin 'tpope/vim-repeat'
 #### Plugin 'jiangmiao/auto-pairs'
 #### Plugin 'ctrlpvim/ctrlp.vim'
