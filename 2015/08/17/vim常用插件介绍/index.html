@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://x8087.github.io/2015/08/17/vim常用插件介绍/index.html">
 <meta property="og:site_name" content="假如上帝不是程序员">
 <meta property="og:description" content="主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。">
-<meta property="og:updated_time" content="2016-12-04T15:06:00.000Z">
+<meta property="og:updated_time" content="2016-12-06T15:56:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim常用插件介绍">
 <meta name="twitter:description" content="主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。">
@@ -320,8 +320,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-12-04T23:06:00+08:00">
-                2016-12-04
+              <time title="更新于" itemprop="dateModified" datetime="2016-12-06T23:56:45+08:00">
+                2016-12-06
               </time>
             
           </span>
@@ -758,13 +758,135 @@
 <li>使用正则表达式应用替换，<code>let g:surround_{char2nr(&quot;d&quot;)} = &quot;&lt;div\1id: \r..*\r id=\&quot;&amp;\&quot;\1&gt;\r&lt;/div&gt;&quot;</code>，其中<code>char2nr</code>将字符转换成ascII码，提示输入id将匹配<code>\r..\*\r</code>并替换<code>&amp;</code>所在位置。</li>
 <li>插入模式下添加<code>let g:surround_insert_tail = &quot;&lt;++&gt;&quot;</code>。</li>
 </ul>
-<h4 id="Plugin-‘tpope-vim-repeat’"><a href="#Plugin-‘tpope-vim-repeat’" class="headerlink" title="Plugin ‘tpope/vim-repeat’"></a>Plugin ‘tpope/vim-repeat’</h4><h4 id="Plugin-‘jiangmiao-auto-pairs’"><a href="#Plugin-‘jiangmiao-auto-pairs’" class="headerlink" title="Plugin ‘jiangmiao/auto-pairs’"></a>Plugin ‘jiangmiao/auto-pairs’</h4><h4 id="Plugin-‘ctrlpvim-ctrlp-vim’"><a href="#Plugin-‘ctrlpvim-ctrlp-vim’" class="headerlink" title="Plugin ‘ctrlpvim/ctrlp.vim’"></a>Plugin ‘ctrlpvim/ctrlp.vim’</h4><h4 id="Plugin-‘tacahiroy-ctrlp-funky’"><a href="#Plugin-‘tacahiroy-ctrlp-funky’" class="headerlink" title="Plugin ‘tacahiroy/ctrlp-funky’"></a>Plugin ‘tacahiroy/ctrlp-funky’</h4><h4 id="Plugin-‘kristijanhusak-vim-multiple-cursors’"><a href="#Plugin-‘kristijanhusak-vim-multiple-cursors’" class="headerlink" title="Plugin ‘kristijanhusak/vim-multiple-cursors’"></a>Plugin ‘kristijanhusak/vim-multiple-cursors’</h4><p>多光标操作支持</p>
-<h4 id="Plugin-‘vim-scripts-sessionman-vim’"><a href="#Plugin-‘vim-scripts-sessionman-vim’" class="headerlink" title="Plugin ‘vim-scripts/sessionman.vim’"></a>Plugin ‘vim-scripts/sessionman.vim’</h4><p>窗口会话管理</p>
+<h4 id="Plugin-‘tpope-vim-repeat’"><a href="#Plugin-‘tpope-vim-repeat’" class="headerlink" title="Plugin ‘tpope/vim-repeat’"></a>Plugin ‘tpope/vim-repeat’</h4><blockquote>
+<p>让<code>.</code>命令可以重复插件的映射。</p>
+</blockquote>
+<h4 id="Plugin-‘jiangmiao-auto-pairs’"><a href="#Plugin-‘jiangmiao-auto-pairs’" class="headerlink" title="Plugin ‘jiangmiao/auto-pairs’"></a>Plugin ‘jiangmiao/auto-pairs’</h4><p>暂时没有安装</p>
+<h4 id="Plugin-‘ctrlpvim-ctrlp-vim’"><a href="#Plugin-‘ctrlpvim-ctrlp-vim’" class="headerlink" title="Plugin ‘ctrlpvim/ctrlp.vim’"></a>Plugin ‘ctrlpvim/ctrlp.vim’</h4><h4 id="Plugin-‘tacahiroy-ctrlp-funky’"><a href="#Plugin-‘tacahiroy-ctrlp-funky’" class="headerlink" title="Plugin ‘tacahiroy/ctrlp-funky’"></a>Plugin ‘tacahiroy/ctrlp-funky’</h4><h4 id="Plugin-‘kristijanhusak-vim-multiple-cursors’"><a href="#Plugin-‘kristijanhusak-vim-multiple-cursors’" class="headerlink" title="Plugin ‘kristijanhusak/vim-multiple-cursors’"></a>Plugin ‘kristijanhusak/vim-multiple-cursors’</h4><p>多光标操作支持</p>
+<h4 id="Plugin-‘vim-scripts-sessionman-vim’"><a href="#Plugin-‘vim-scripts-sessionman-vim’" class="headerlink" title="Plugin ‘vim-scripts/sessionman.vim’"></a>Plugin ‘vim-scripts/sessionman.vim’</h4><p>窗口会话管理<br><code>:SessionOpen</code> <code>:SessionClose</code> <code>SessionSave</code> <code>SessionOpenLast</code> <code>:SessionShowLast</code> <code>:SessionSaveAs</code> <code>:SessionList</code></p>
 <h4 id="Plugin-‘matchit-zip’"><a href="#Plugin-‘matchit-zip’" class="headerlink" title="Plugin ‘matchit.zip’"></a>Plugin ‘matchit.zip’</h4><p> %匹配扩展支持不只单字符,支持更多语言Ada, ASP with VBS, Csh, DTD, Essbase, Fortran, HTML, JSP (same as HTML), LaTeX, Lua, Pascal, SGML, Shell, Tcsh, Vim, XML.</p>
 <h4 id="Plugin-‘bling-vim-airline’"><a href="#Plugin-‘bling-vim-airline’" class="headerlink" title="Plugin ‘bling/vim-airline’"></a>Plugin ‘bling/vim-airline’</h4><p>状态条  </p>
 <h4 id="Plugin-‘powerline-fonts’"><a href="#Plugin-‘powerline-fonts’" class="headerlink" title="Plugin ‘powerline/fonts’"></a>Plugin ‘powerline/fonts’</h4><p>状态条字体</p>
 <h4 id="Plugin-‘bling-vim-bufferline’"><a href="#Plugin-‘bling-vim-bufferline’" class="headerlink" title="Plugin ‘bling/vim-bufferline’"></a>Plugin ‘bling/vim-bufferline’</h4><p>状态栏显示缓存文件名</p>
-<h4 id="Plugin-‘Lokaltog-vim-easymotion’"><a href="#Plugin-‘Lokaltog-vim-easymotion’" class="headerlink" title="Plugin ‘Lokaltog/vim-easymotion’"></a>Plugin ‘Lokaltog/vim-easymotion’</h4><p>快速跳转</p>
+<h4 id="Plugin-‘Lokaltog-vim-easymotion’"><a href="#Plugin-‘Lokaltog-vim-easymotion’" class="headerlink" title="Plugin ‘Lokaltog/vim-easymotion’"></a>Plugin ‘Lokaltog/vim-easymotion’</h4><p>快速跳转<br>Note: The default leader has been changed to <leader><leader> to avoid<br>      conflicts with other plugins you may have installed</leader></leader></p>
+<table>
+<thead>
+<tr>
+<th>Default Mapping</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><leader>f{char}</leader></td>
+<td>Find {char} to the right. See</td>
+<td>f</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>F{char}</leader></td>
+<td>Find {char} to the left. See</td>
+<td>F</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>t{char}</leader></td>
+<td>Till before the {char} to the right. See</td>
+<td>t</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>T{char}</leader></td>
+<td>Till after the {char} to the left. See</td>
+<td>T</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>w</leader></td>
+<td>Beginning of word forward. See</td>
+<td>w</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>W</leader></td>
+<td>Beginning of WORD forward. See</td>
+<td>W</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>b</leader></td>
+<td>Beginning of word backward. See</td>
+<td>b</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>B</leader></td>
+<td>Beginning of WORD backward. See</td>
+<td>B</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>e</leader></td>
+<td>End of word forward. See</td>
+<td>e</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>E</leader></td>
+<td>End of WORD forward. See</td>
+<td>E</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>ge</leader></td>
+<td>End of word backward. See</td>
+<td>ge</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>gE</leader></td>
+<td>End of WORD backward. See</td>
+<td>gE</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>j</leader></td>
+<td>Line downward. See</td>
+<td>j</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>k</leader></td>
+<td>Line upward. See</td>
+<td>k</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>n</leader></td>
+<td>Jump to latest “/“ or “?” forward. See</td>
+<td>n</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>N</leader></td>
+<td>Jump to latest “/“ or “?” backward. See</td>
+<td>N</td>
+<td>.</td>
+</tr>
+<tr>
+<td><leader>s</leader></td>
+<td>Find(Search) {char} forward and backward.</td>
+</tr>
+<tr>
+<td></td>
+<td>See</td>
+<td>f</td>
+<td>and</td>
+<td>F</td>
+<td>.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="Plugin-‘jistr-vim-nerdtree-tabs’"><a href="#Plugin-‘jistr-vim-nerdtree-tabs’" class="headerlink" title="Plugin ‘jistr/vim-nerdtree-tabs’"></a>Plugin ‘jistr/vim-nerdtree-tabs’</h4><p>nerdtree标签显示优化</p>
 <h4 id="Plugin-‘flazz-vim-colorschemes’"><a href="#Plugin-‘flazz-vim-colorschemes’" class="headerlink" title="Plugin ‘flazz/vim-colorschemes’"></a>Plugin ‘flazz/vim-colorschemes’</h4><h4 id="Plugin-‘mbbill-undotree’"><a href="#Plugin-‘mbbill-undotree’" class="headerlink" title="Plugin ‘mbbill/undotree’"></a>Plugin ‘mbbill/undotree’</h4><h4 id="Plugin-‘nathanaelkane-vim-indent-guides’"><a href="#Plugin-‘nathanaelkane-vim-indent-guides’" class="headerlink" title="Plugin ‘nathanaelkane/vim-indent-guides’"></a>Plugin ‘nathanaelkane/vim-indent-guides’</h4><h4 id="Plugin-‘vim-scripts-restore-view-vim’"><a href="#Plugin-‘vim-scripts-restore-view-vim’" class="headerlink" title="Plugin ‘vim-scripts/restore_view.vim’"></a>Plugin ‘vim-scripts/restore_view.vim’</h4><h4 id="Plugin-‘mhinz-vim-signify’"><a href="#Plugin-‘mhinz-vim-signify’" class="headerlink" title="Plugin ‘mhinz/vim-signify’"></a>Plugin ‘mhinz/vim-signify’</h4><h4 id="Plugin-‘tpope-vim-abolish-git’"><a href="#Plugin-‘tpope-vim-abolish-git’" class="headerlink" title="Plugin ‘tpope/vim-abolish.git’"></a>Plugin ‘tpope/vim-abolish.git’</h4><h4 id="Plugin-‘osyo-manga-vim-over’"><a href="#Plugin-‘osyo-manga-vim-over’" class="headerlink" title="Plugin ‘osyo-manga/vim-over’"></a>Plugin ‘osyo-manga/vim-over’</h4><h4 id="Plugin-‘kana-vim-textobj-user’"><a href="#Plugin-‘kana-vim-textobj-user’" class="headerlink" title="Plugin ‘kana/vim-textobj-user’"></a>Plugin ‘kana/vim-textobj-user’</h4><h4 id="Plugin-‘kana-vim-textobj-indent’"><a href="#Plugin-‘kana-vim-textobj-indent’" class="headerlink" title="Plugin ‘kana/vim-textobj-indent’"></a>Plugin ‘kana/vim-textobj-indent’</h4><h4 id="Plugin-‘gcmt-wildfire-vim’"><a href="#Plugin-‘gcmt-wildfire-vim’" class="headerlink" title="Plugin ‘gcmt/wildfire.vim’"></a>Plugin ‘gcmt/wildfire.vim’</h4><h3 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h3><h4 id="Plugin-‘reedes-vim-litecorrect’"><a href="#Plugin-‘reedes-vim-litecorrect’" class="headerlink" title="Plugin ‘reedes/vim-litecorrect’"></a>Plugin ‘reedes/vim-litecorrect’</h4><h4 id="Plugin-‘reedes-vim-textobj-sentence’"><a href="#Plugin-‘reedes-vim-textobj-sentence’" class="headerlink" title="Plugin ‘reedes/vim-textobj-sentence’"></a>Plugin ‘reedes/vim-textobj-sentence’</h4><h4 id="Plugin-‘reedes-vim-textobj-quote’"><a href="#Plugin-‘reedes-vim-textobj-quote’" class="headerlink" title="Plugin ‘reedes/vim-textobj-quote’"></a>Plugin ‘reedes/vim-textobj-quote’</h4><h4 id="Plugin-‘reedes-vim-wordy’"><a href="#Plugin-‘reedes-vim-wordy’" class="headerlink" title="Plugin ‘reedes/vim-wordy’"></a>Plugin ‘reedes/vim-wordy’</h4><h3 id="Programming"><a href="#Programming" class="headerlink" title="Programming"></a>Programming</h3><h4 id="Plugin-‘scrooloose-syntastic’"><a href="#Plugin-‘scrooloose-syntastic’" class="headerlink" title="Plugin ‘scrooloose/syntastic’"></a>Plugin ‘scrooloose/syntastic’</h4><h4 id="Plugin-‘tpope-vim-fugitive’"><a href="#Plugin-‘tpope-vim-fugitive’" class="headerlink" title="Plugin ‘tpope/vim-fugitive’"></a>Plugin ‘tpope/vim-fugitive’</h4><h4 id="Plugin-‘mattn-webapi-vim’"><a href="#Plugin-‘mattn-webapi-vim’" class="headerlink" title="Plugin ‘mattn/webapi-vim’"></a>Plugin ‘mattn/webapi-vim’</h4><h4 id="Plugin-‘mattn-gist-vim’"><a href="#Plugin-‘mattn-gist-vim’" class="headerlink" title="Plugin ‘mattn/gist-vim’"></a>Plugin ‘mattn/gist-vim’</h4><h4 id="Plugin-‘scrooloose-nerdcommenter’"><a href="#Plugin-‘scrooloose-nerdcommenter’" class="headerlink" title="Plugin ‘scrooloose/nerdcommenter’"></a>Plugin ‘scrooloose/nerdcommenter’</h4><h4 id="Plugin-‘tpope-vim-commentary’"><a href="#Plugin-‘tpope-vim-commentary’" class="headerlink" title="Plugin ‘tpope/vim-commentary’"></a>Plugin ‘tpope/vim-commentary’</h4><h4 id="Plugin-‘godlygeek-tabular’"><a href="#Plugin-‘godlygeek-tabular’" class="headerlink" title="Plugin ‘godlygeek/tabular’"></a>Plugin ‘godlygeek/tabular’</h4><h4 id="Plugin-‘majutsushi-tagbar’"><a href="#Plugin-‘majutsushi-tagbar’" class="headerlink" title="Plugin ‘majutsushi/tagbar’"></a>Plugin ‘majutsushi/tagbar’</h4><h3 id="Snippets-amp-autoComplete"><a href="#Snippets-amp-autoComplete" class="headerlink" title="Snippets &amp; autoComplete"></a>Snippets &amp; autoComplete</h3><h4 id="Plugin-‘Valloric-YouCompleteMe’"><a href="#Plugin-‘Valloric-YouCompleteMe’" class="headerlink" title="Plugin ‘Valloric/YouCompleteMe’"></a>Plugin ‘Valloric/YouCompleteMe’</h4><h4 id="Plugin-‘SirVer-ultisnips’"><a href="#Plugin-‘SirVer-ultisnips’" class="headerlink" title="Plugin ‘SirVer/ultisnips’"></a>Plugin ‘SirVer/ultisnips’</h4><h4 id="Plugin-‘honza-vim-snippets’"><a href="#Plugin-‘honza-vim-snippets’" class="headerlink" title="Plugin ‘honza/vim-snippets’"></a>Plugin ‘honza/vim-snippets’</h4><h3 id="Php"><a href="#Php" class="headerlink" title="Php"></a>Php</h3><h4 id="Plugin-‘spf13-PIV’"><a href="#Plugin-‘spf13-PIV’" class="headerlink" title="Plugin ‘spf13/PIV’"></a>Plugin ‘spf13/PIV’</h4><h4 id="Plugin-‘arnaud-lb-vim-php-namespace’"><a href="#Plugin-‘arnaud-lb-vim-php-namespace’" class="headerlink" title="Plugin ‘arnaud-lb/vim-php-namespace’"></a>Plugin ‘arnaud-lb/vim-php-namespace’</h4><h4 id="Plugin-‘beyondwords-vim-twig’"><a href="#Plugin-‘beyondwords-vim-twig’" class="headerlink" title="Plugin ‘beyondwords/vim-twig’"></a>Plugin ‘beyondwords/vim-twig’</h4><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><h4 id="Plugin-‘klen-python-mode’"><a href="#Plugin-‘klen-python-mode’" class="headerlink" title="Plugin ‘klen/python-mode’"></a>Plugin ‘klen/python-mode’</h4><h4 id="Plugin-‘yssource-python-vim’"><a href="#Plugin-‘yssource-python-vim’" class="headerlink" title="Plugin ‘yssource/python.vim’"></a>Plugin ‘yssource/python.vim’</h4><h4 id="Plugin-‘python-match-vim’"><a href="#Plugin-‘python-match-vim’" class="headerlink" title="Plugin ‘python_match.vim’"></a>Plugin ‘python_match.vim’</h4><h4 id="Plugin-‘pythoncomplete’"><a href="#Plugin-‘pythoncomplete’" class="headerlink" title="Plugin ‘pythoncomplete’"></a>Plugin ‘pythoncomplete’</h4><h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h3><h4 id="Plugin-‘elzr-vim-json’"><a href="#Plugin-‘elzr-vim-json’" class="headerlink" title="Plugin ‘elzr/vim-json’"></a>Plugin ‘elzr/vim-json’</h4><h4 id="Plugin-‘groenewege-vim-less’"><a href="#Plugin-‘groenewege-vim-less’" class="headerlink" title="Plugin ‘groenewege/vim-less’"></a>Plugin ‘groenewege/vim-less’</h4><h4 id="Plugin-‘pangloss-vim-javascript’"><a href="#Plugin-‘pangloss-vim-javascript’" class="headerlink" title="Plugin ‘pangloss/vim-javascript’"></a>Plugin ‘pangloss/vim-javascript’</h4><h4 id="Plugin-‘briancollins-vim-jst’"><a href="#Plugin-‘briancollins-vim-jst’" class="headerlink" title="Plugin ‘briancollins/vim-jst’"></a>Plugin ‘briancollins/vim-jst’</h4><h4 id="Plugin-‘kchmck-vim-coffee-script’"><a href="#Plugin-‘kchmck-vim-coffee-script’" class="headerlink" title="Plugin ‘kchmck/vim-coffee-script’"></a>Plugin ‘kchmck/vim-coffee-script’</h4><h3 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h3><h4 id="Plugin-‘amirh-HTML-AutoCloseTag’"><a href="#Plugin-‘amirh-HTML-AutoCloseTag’" class="headerlink" title="Plugin ‘amirh/HTML-AutoCloseTag’"></a>Plugin ‘amirh/HTML-AutoCloseTag’</h4><h4 id="Plugin-‘hail2u-vim-css3-syntax’"><a href="#Plugin-‘hail2u-vim-css3-syntax’" class="headerlink" title="Plugin ‘hail2u/vim-css3-syntax’"></a>Plugin ‘hail2u/vim-css3-syntax’</h4><h4 id="Plugin-‘gorodinskiy-vim-coloresque’"><a href="#Plugin-‘gorodinskiy-vim-coloresque’" class="headerlink" title="Plugin ‘gorodinskiy/vim-coloresque’"></a>Plugin ‘gorodinskiy/vim-coloresque’</h4><h4 id="Plugin-‘tpope-vim-haml’"><a href="#Plugin-‘tpope-vim-haml’" class="headerlink" title="Plugin ‘tpope/vim-haml’"></a>Plugin ‘tpope/vim-haml’</h4><h4 id="Plugin-‘mattn-emmet-vim’"><a href="#Plugin-‘mattn-emmet-vim’" class="headerlink" title="Plugin ‘mattn/emmet-vim’"></a>Plugin ‘mattn/emmet-vim’</h4><h3 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h3><h4 id="Plugin-‘tpope-vim-rails’"><a href="#Plugin-‘tpope-vim-rails’" class="headerlink" title="Plugin ‘tpope/vim-rails’"></a>Plugin ‘tpope/vim-rails’</h4><h3 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h3><h4 id="Plugin-‘fatih-vim-go’"><a href="#Plugin-‘fatih-vim-go’" class="headerlink" title="Plugin ‘fatih/vim-go’"></a>Plugin ‘fatih/vim-go’</h4><h3 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h3><h4 id="Plugin-‘rust-lang-rust-vim’"><a href="#Plugin-‘rust-lang-rust-vim’" class="headerlink" title="Plugin ‘rust-lang/rust.vim’"></a>Plugin ‘rust-lang/rust.vim’</h4><h4 id="Plugin-‘tpope-vim-markdown’"><a href="#Plugin-‘tpope-vim-markdown’" class="headerlink" title="Plugin ‘tpope/vim-markdown’"></a>Plugin ‘tpope/vim-markdown’</h4><h4 id="Plugin-‘spf13-vim-preview’"><a href="#Plugin-‘spf13-vim-preview’" class="headerlink" title="Plugin ‘spf13/vim-preview’"></a>Plugin ‘spf13/vim-preview’</h4><h4 id="Plugin-‘tpope-vim-cucumber’"><a href="#Plugin-‘tpope-vim-cucumber’" class="headerlink" title="Plugin ‘tpope/vim-cucumber’"></a>Plugin ‘tpope/vim-cucumber’</h4><h4 id="Plugin-‘cespare-vim-toml’"><a href="#Plugin-‘cespare-vim-toml’" class="headerlink" title="Plugin ‘cespare/vim-toml’"></a>Plugin ‘cespare/vim-toml’</h4><h4 id="Plugin-‘quentindecock-vim-cucumber-align-pipes’"><a href="#Plugin-‘quentindecock-vim-cucumber-align-pipes’" class="headerlink" title="Plugin ‘quentindecock/vim-cucumber-align-pipes’"></a>Plugin ‘quentindecock/vim-cucumber-align-pipes’</h4><h4 id="Plugin-‘saltstack-salt-vim’"><a href="#Plugin-‘saltstack-salt-vim’" class="headerlink" title="Plugin ‘saltstack/salt-vim’"></a>Plugin ‘saltstack/salt-vim’</h4><h4 id="Plugin-‘desertEx’"><a href="#Plugin-‘desertEx’" class="headerlink" title="Plugin ‘desertEx’"></a>Plugin ‘desertEx’</h4>
       
