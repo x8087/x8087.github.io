@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x8087.github.io/"/>
-  <updated>2016-11-26T02:49:50.000Z</updated>
+  <updated>2016-12-22T16:41:01.000Z</updated>
   <id>http://x8087.github.io/</id>
   
   <author>
@@ -14,6 +14,221 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vim脚本语法</title>
+    <link href="http://x8087.github.io/2016/12/15/Vim%E8%84%9A%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>http://x8087.github.io/2016/12/15/Vim脚本语法/</id>
+    <published>2016-12-14T16:13:14.000Z</published>
+    <updated>2016-12-22T16:41:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:let &#123;变量&#125; = &#123;表达式&#125;</div></pre></td></tr></table></figure>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:while &#123;条件&#125;</div><div class="line">:  &#123;语句&#125;</div><div class="line">:endwhile</div></pre></td></tr></table></figure>
+<h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">:for &#123;变量&#125; in &#123;列表&#125;</div><div class="line">:  &#123;语句&#125;</div><div class="line">:endfo[r]</div><div class="line"></div><div class="line">:for [&#123;变量1&#125;, &#123;变量2&#125;, ...] in &#123;二维列表&#125;</div><div class="line">:  &#123;语句&#125;</div><div class="line">:endfo[r]</div></pre></td></tr></table></figure>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量名包含ASCII字符，数字和下划线，不能以数字开头。<br><code>:let</code>查看当前定义变量列表。<br><code>:let {变量} = {表达式}</code>    定义变量<br><code>:unlet {变量}</code>             删除变量<br><code>:unlet! {变量}</code>            删除变量，不管变量是否存在，不需要报错信息。<br><code>exist(&quot;{变量}&quot;)</code>           检测变量是否存在，参数是检测的变量名。<br>true为非0，false为0<br>vim在查找数字时自动转换字符串为数字，当字符串不以0开头时，结果为0。<br><code>type()</code>获取变量类型<br>特殊变量：</p>
+<ul>
+<li>‘viminfo’选项包含’!’标志时，以大写字符开头且不包含小写字符的全局变量保存在viminfo-file</li>
+<li>‘sessionoptions’选项包含”global”时，以大写字符开头且至少包含一个小写字符的全局变量保存在session-file<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2>Vim支持的基本类型有数字和字符串。变量类型是动态的，每次使用<code>:let</code>给变量赋值时设置类型。</li>
+</ul>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><ul>
+<li><em>十进制</em> 不以”0”开头数字。</li>
+<li><em>十六进制</em> 以”0x”或者”0X”开头。</li>
+<li><em>八进制</em> 以”0”开头。</li>
+<li>负数在前面加负号<br>注:<strong>表达式忽略空格</strong></li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h4><h5 id="使用双引号"><a href="#使用双引号" class="headerlink" title="使用双引号"></a>使用双引号</h5><ul>
+<li>字符串内部包含双引号时使用反斜杠转义<code>\&quot;</code></li>
+<li>特殊字符使用反斜杠转义</li>
+</ul>
+<p>A string constant accepts these special characters:<br>...    three-digit octal number (e.g., “\316”)<br>..    two-digit octal number (must be followed by non-digit)<br>.    one-digit octal number (must be followed by non-digit)<br>\x..    byte specified with two hex numbers (e.g., “\x1f”)<br>\x.    byte specified with one hex number (must be followed by non-hex char)<br>\X..    same as \x..<br>\X.    same as \x.<br>\u….    character specified with up to 4 hex numbers, stored according to the<br>    current value of ‘encoding’ (e.g., “\u02a4”)<br>\U….    same as \u but allows up to 8 hex numbers.<br>\b    backspace <bs><br>\e    escape <esc><br>\f    formfeed <ff><br>\n    newline <nl><br>\r    return <cr><br>\t    tab <tab><br>\    backslash<br>\”    double quote<br>\<xxx>    Special key named “xxx”.  e.g. “\<c-w>“ for CTRL-W.  This is for use<br>    in mappings, the 0x80 byte is escaped.<br>    To use the double quote character it must be escaped: “&lt;M-\”&gt;”.<br>    Don’t use <char-xxxx> to get a utf-8 character, use \uxxxx as<br>    mentioned above.</char-xxxx></c-w></xxx></tab></cr></nl></ff></esc></bs></p>
+<h5 id="使用单引号"><a href="#使用单引号" class="headerlink" title="使用单引号"></a>使用单引号</h5><ul>
+<li>所有字符除单引号外都不需要转义，使用两个单引号表示自己<code>&#39;&#39;</code><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3></li>
+<li>有序序列</li>
+<li>序列项可以为任何类型，甚至混合使用</li>
+<li><em>创建列表</em> <code>:let alist = [{item}, {item}, {item}....]</code></li>
+<li><em>添加项</em> <code>add({list}, {item})</code></li>
+<li><em>连接或扩展列表</em> <code>{list}+{list2}</code> 或者 <code>call extend({list}, {list2})</code></li>
+<li><em>拷贝</em> <code>copy()</code> 或者 <code>[:]</code></li>
+<li><em>深拷贝</em> <code>deepcopy()</code></li>
+<li><em>判断是否同一个list</em> <code>is</code>和<code>isnot</code></li>
+<li><em>判断两个列表是否包含相同值</em> <code>==</code>，当长度相同且所有项使用<code>==</code>对比后相等时为真。<br>注意：字符串和数字比较时不会自动类型转换，视为不相等项。</li>
+<li>列表比较比数字与字符串比较要严格</li>
+<li><em>列表解包</em> <code>:let [var1, var2] = mylist</code>（当列表长度与变量数不对应时会报错），使用<code>:let [var1, var2; rest] = mylist</code>可以将额外项放到rest，避免报错。</li>
+<li><em>列表修改</em> <code>:let list[4] = &quot;four&quot;</code>,<code>:let listlist[0][3] = item</code></li>
+<li><em>列表部分修改</em> `:let list[3:5] = [3, 4, 5]</li>
+<li>从列表添加和移除项：<br>examples: &gt;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">:call insert(list, &apos;a&apos;)		&quot; prepend item &apos;a&apos;</div><div class="line">:call insert(list, &apos;a&apos;, 3)	&quot; insert item &apos;a&apos; before list[3]</div><div class="line">:call add(list, &quot;new&quot;)		&quot; append String item</div><div class="line">:call add(list, [1, 2])		&quot; append a List as one new item</div><div class="line">:call extend(list, [1, 2])	&quot; extend the list with two more items</div><div class="line">:let i = remove(list, 3)	&quot; remove item 3</div><div class="line">:unlet list[3]			&quot; idem</div><div class="line">:let l = remove(list, 3, -1)	&quot; remove items 3 to last item</div><div class="line">:unlet list[3 : ]		&quot; idem</div><div class="line">:call filter(list, &apos;v:val !~ &quot;x&quot;&apos;)  &quot; remove items with an &apos;x&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Changing the order of items in a list: &gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:call sort(list)		&quot; sort a list alphabetically</div><div class="line">:call reverse(list)		&quot; reverse the order of items</div><div class="line">:call uniq(sort(list))		&quot; sort and remove duplicates</div></pre></td></tr></table></figure></p>
+<ul>
+<li>列表方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">:let r = call(funcname, list)	&quot; call a function with an argument list</div><div class="line">:if empty(list)			&quot; check if list is empty</div><div class="line">:let l = len(list)		&quot; number of items in list</div><div class="line">:let big = max(list)		&quot; maximum value in list</div><div class="line">:let small = min(list)		&quot; minimum value in list</div><div class="line">:let xs = count(list, &apos;x&apos;)	&quot; count nr of times &apos;x&apos; appears in list</div><div class="line">:let i = index(list, &apos;x&apos;)	&quot; index of first &apos;x&apos; in list</div><div class="line">:let lines = getline(1, 10)	&quot; get ten text lines from buffer</div><div class="line">:call append(&apos;$&apos;, lines)	&quot; append text lines in buffer</div><div class="line">:let list = split(&quot;a b c&quot;)	&quot; create list from items in a string</div><div class="line">:let string = join(list, &apos;, &apos;)	&quot; create string from list items</div><div class="line">:let s = string(list)		&quot; String representation of list</div><div class="line">:call map(list, &apos;&quot;&gt;&gt; &quot; . v:val&apos;)  &quot; prepend &quot;&gt;&gt; &quot; to each item</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><ul>
+<li>无序序列，键值对</li>
+<li><em>创建列表</em> <code>:let {varname} = {&lt;key&gt; : &lt;value&gt;, ...}</code></li>
+<li><em>访问字典项</em> <code>:echo {varname}[{key}]</code>或者<code>:echo {varname}.{key}</code></li>
+<li><em>字典方法</em> <code>:function {dictname}.{funcname}({param}) dict</code>方法内部可以通过<code>self</code>访问字典本身</li>
+<li><code>keys()</code> <code>values()</code> <code>items()</code></li>
+<li>字典相关方法<br>  :if has_key(dict, ‘foo’)    “ TRUE if dict has entry with key “foo”<br>  :if empty(dict)            “ TRUE if dict is empty<br>  :let l = len(dict)        “ number of items in dict<br>  :let big = max(dict)        “ maximum value in dict<br>  :let small = min(dict)        “ minimum value in dict<br>  :let xs = count(dict, ‘x’)    “ count nr of times ‘x’ appears in dict<br>  :let s = string(dict)        “ String representation of dict<br>  :call map(dict, ‘“&gt;&gt; “ . v:val’)  “ prepend “&gt;&gt; “ to each item<h2 id="变量范围"><a href="#变量范围" class="headerlink" title="变量范围"></a>变量范围</h2><code>name</code>     在函数内为函数本地变量，否则为全局变量<br><code>s:name</code>   脚本变量<br><code>b:name</code>   本地缓存变量。其中b:changedtick为预定义变量，表示当前缓存改变总数。<br><code>w:name</code>   本地窗口变量<br><code>t:name</code>   本地标签变量<br><code>g:name</code>   全局变量<br><code>l:name</code>   函数本地变量<br><code>a:name</code>   函数参数（只在函数内有效）<br><code>v:name</code>   vim预定义变量</li>
+</ul>
+<p>变量范围名可以当作字典使用。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for k in keys(s:)</div><div class="line">  unlet s:[k]</div><div class="line">endfor</div></pre></td></tr></table></figure></p>
+<h2 id="花括号名称"><a href="#花括号名称" class="headerlink" title="花括号名称"></a>花括号名称</h2><p>在大多数可以使用变量的地方，可以使用”花括号各称”变量。这是具有一个或者多个表达式的常规变量名包裹在一对花括号内，如：<code>my_{varname}_variable</code><br>当vim遇到这种情况时，会计算括号内的表达式，代替表达式位置，并将整个重新解释为一个变量名。<br>可以使用选项值，如：<code>my_{&amp;background}_message</code><br>可以使用多对花括号。<br>可以嵌套使用。<br>注：最终解悉后的变量名必须为有效的变量名。</p>
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><ul>
+<li>表达式的基本项有数字，字符串，变量，$Name(环境变量), &amp;name(选项), @r(寄存器)<br>|expr1|   expr2<br>  expr2 ? expr1 : expr1    if-then-else</li>
+</ul>
+<p>|expr2|    expr3<br>    expr3 || expr3 ..    logical OR</p>
+<p>|expr3|    expr4<br>    expr4 &amp;&amp; expr4 ..    logical AND</p>
+<p>|expr4|    expr5<br>    expr5 == expr5        equal<br>    expr5 != expr5        not equal<br>    expr5 &gt;     expr5        greater than<br>    expr5 &gt;= expr5        greater than or equal<br>    expr5 &lt;     expr5        smaller than<br>    expr5 &lt;= expr5        smaller than or equal<br>    expr5 =~ expr5        regexp matches<br>    expr5 !~ expr5        regexp doesn’t match</p>
+<pre><code>expr5 ==? expr5        equal, ignoring case
+expr5 ==# expr5        equal, match case
+etc.            As above, append ? for ignoring case, # for
+            matching case
+
+expr5 is expr5        same |List| instance
+expr5 isnot expr5    different |List| instance
+</code></pre><p>|expr5|    expr6<br>    expr6 +     expr6 ..    number addition or list concatenation<br>    expr6 -     expr6 ..    number subtraction<br>    expr6 .     expr6 ..    string concatenation</p>
+<p>|expr6|    expr7<br>    expr7 *     expr7 ..    number multiplication<br>    expr7 /     expr7 ..    number division<br>    expr7 %     expr7 ..    number modulo</p>
+<p>|expr7|    expr8<br>    ! expr7            logical NOT</p>
+<pre><code>- expr7            unary minus
++ expr7            unary plus
+</code></pre><p>|expr8|    expr9<br>    expr8[expr1]        byte of a String or item of a |List|<br>    expr8[expr1 : expr1]    substring of a String or sublist of a |List|<br>    expr8.name        entry in a |Dictionary|<br>    expr8(expr1, …)    function call with |Funcref| variable</p>
+<p>|expr9|   number        number constant<br>    “string”        string constant, backslash is special<br>    ‘string’        string constant, ‘ is doubled<br>    [expr1, …]        |List|<br>    {expr1: expr1, …}    |Dictionary|<br>    &amp;option            option value<br>    (expr1)            nested expression<br>    variable        internal variable<br>    va{ria}ble        internal variable with curly braces<br>    $VAR            environment variable<br>    @r            contents of register ‘r’<br>    function(expr1, …)    function call<br>    func{ti}on(expr1, …)    function call with curly braces<br>    {args -&gt; expr1}        lambda expression</p>
+<p>“..” 表示此级别的操作可连接<br>Example: &gt;<br>    &amp;nu || &amp;list &amp;&amp; &amp;shell == “csh”</p>
+<p>一个级别内的所有表达式从左到右解析</p>
+<h1 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h1><h2 id="三种条件语句"><a href="#三种条件语句" class="headerlink" title="三种条件语句"></a>三种条件语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">:if &#123;condition&#125;</div><div class="line">  &#123;statements&#125;</div><div class="line">:endif</div><div class="line"></div><div class="line">if &#123;condition&#125;</div><div class="line">  &#123;statements&#125;</div><div class="line">:else</div><div class="line">  &#123;statements&#125;</div><div class="line">:endif</div><div class="line"></div><div class="line">:if &#123;condition&#125;</div><div class="line">  &#123;statements&#125;</div><div class="line">:elseif &#123;condition&#125;</div><div class="line">  &#123;statements&#125;</div><div class="line">:else</div><div class="line">  &#123;statements&#125;</div><div class="line">:endif</div></pre></td></tr></table></figure>
+<h2 id="逻辑操作"><a href="#逻辑操作" class="headerlink" title="逻辑操作"></a>逻辑操作</h2><h3 id="数字和字符串"><a href="#数字和字符串" class="headerlink" title="数字和字符串"></a>数字和字符串</h3><p>a == b等于<br>a != b不等于<br>a &gt;  b大于<br>a &gt;= b大于或等于<br>a &lt; b 小于<br>a &lt;= b小于或等于</p>
+<ul>
+<li>如果条件满足结果为1，否则为0</li>
+<li>逻辑运算符同时用于数字和字符串。 </li>
+<li>比较两个字符串时，使用数学差异。 这是比较字节值，可能不适合某些语言。</li>
+<li>当将字符串与数字进行比较时，字符串首先转换为数字。 这有点棘手，因为当一个字符串不像一个数字时，使用数字零。</li>
+</ul>
+<h3 id="字符串-1"><a href="#字符串-1" class="headerlink" title="字符串"></a>字符串</h3><p>a =~ b 匹配<br>a !~ b 不匹配<br><code>#</code> 匹配大小写<br><code>?</code> 忽略大小写</p>
+<h3 id="更多循环"><a href="#更多循环" class="headerlink" title="更多循环"></a>更多循环</h3><p><code>:continue</code> 跳转回到循环开始继续循环<br><code>:break</code> 跳转到<code>:endwihile</code>，不继续循环</p>
+<h1 id="执行表达式"><a href="#执行表达式" class="headerlink" title="执行表达式"></a>执行表达式</h1><ul>
+<li><code>:execute</code>命令允许执行表达式结果，这是构建并执行命令的一种非常强大的方法。</li>
+<li><code>:execute</code>命令只能执行冒号命令。</li>
+<li><code>:normal</code>命令执行普通模式命令，但参数不能为表达式。</li>
+<li><code>:execute &quot;normal &quot; . normal_commands</code>实现允许执行表达式结果普通模式命令。</li>
+<li><code>eval()</code>函数只计算获取表达式的值而不执行。</li>
+</ul>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><ul>
+<li>使用<code>:call</code>命令调用函数。 在括号之间传入参数用逗号分隔。</li>
+<li>函数能在表达式里调用</li>
+</ul>
+<h2 id="删除函数"><a href="#删除函数" class="headerlink" title="删除函数"></a>删除函数</h2><ul>
+<li><code>:delfunction {name}</code>函数不存在时报错</li>
+</ul>
+<h2 id="函数引用"><a href="#函数引用" class="headerlink" title="函数引用"></a>函数引用</h2><ul>
+<li><code>function()</code>这个函数可以把函数名转化成函数引用</li>
+<li>注意：为了与内置函数区分开来，函数引用的变量首字母也要大写</li>
+<li><code>call({funcRef}, {paramlist})</code>通过这个函数可以调用函数引用</li>
+</ul>
+<h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:function &#123;name&#125;(&#123;var1&#125;, &#123;var2&#125;, ...)</div><div class="line">:  &#123;body&#125;</div><div class="line">:endfunction</div></pre></td></tr></table></figure>
+<ul>
+<li>函数名必须首字符大写</li>
+<li>函数执行到<code>:endfunction</code>或者<code>:return</code>没有参数时，返回0</li>
+<li><code>:function!</code>重定义已存在的函数</li>
+</ul>
+<h3 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h3><ul>
+<li><code>:call</code>命令可以给一个行范围。</li>
+<li>当函数用<code>range</code>关键字定义时，它会只关心行范围本身。</li>
+<li>函数传递变量<code>a:firstline</code>和<code>a:lastline</code>，拥有函数调用范围的行数字。</li>
+<li>另一种使用行范围的方法是定义不带<code>range</code>关键字的函数。函数对范围内的每行调用一次，光标在该行。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:function Number()</div><div class="line">: echo &quot;line &quot; . line(&quot;.&quot;) . &quot; contains: &quot; . getline(&quot;.&quot;)</div><div class="line">:endfunction</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="可变数量参数"><a href="#可变数量参数" class="headerlink" title="可变数量参数"></a>可变数量参数</h3><ul>
+<li>Vim允许你定义带可变数量参数的函数</li>
+<li><code>a:1</code>包含第一个可选参数, <code>a:2</code>第二个，以此类推。<code>a:0</code>包含额外参数数量。</li>
+<li><code>a:000</code>所有<code>...</code>参数的列表</li>
+</ul>
+<h3 id="列出函数"><a href="#列出函数" class="headerlink" title="列出函数"></a>列出函数</h3><ul>
+<li><code>:function</code>列出所有用户定义函数的名字和参数</li>
+<li><code>:function {funcname}</code>查看函数实现</li>
+</ul>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><h4 id="进入调试模式"><a href="#进入调试模式" class="headerlink" title="进入调试模式"></a>进入调试模式</h4><ul>
+<li><code>vim -D file.txt</code> 使用 <code>-D</code>参数打开vim</li>
+<li>调用带<code>:debug</code>前缀的命令。调试只有当这个命令执行时有效。用于调试特定脚本或者用户函数，以及自动命令使用的脚本和函数。</li>
+<li>在源文件或者用户函数中设置断点。你可以在命令行里这样做：`vim -c “breakadd file */explorer.vim”。</li>
+<li>在调试模式，每条执行命令在它执行前显示。跳过空行和没有执行的行。当一行内包含两条命令，由<code>|</code>分开，每条命令分别显示。</li>
+<li>在调试模式下可以使用平常的Ex命令。<h4 id="调试模式下的命令"><a href="#调试模式下的命令" class="headerlink" title="调试模式下的命令"></a>调试模式下的命令</h4></li>
+<li><code>cont</code></li>
+<li><code>quit</code></li>
+<li><code>next</code></li>
+<li><code>step</code></li>
+<li><code>interrupt</code></li>
+<li><code>finish</code></li>
+<li><code>backtrace``bt``where</code></li>
+<li><code>frame N</code></li>
+<li><code>up</code></li>
+<li><code>down</code></li>
+<li>不会自动补全，自动补全只对Ex命令有效</li>
+<li>可以缩短输入的字符，除了相同字符开始的命令需要输入足够字符区分。f=finish,fr=frame</li>
+<li>点击<cr>重复上个命令，当运行另一个命令时，重置。</cr></li>
+<li>当需要使用相同名字的Ex命令时，前面添加冒号。<h4 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h4><h5 id="添加断点"><a href="#添加断点" class="headerlink" title="添加断点"></a>添加断点</h5></li>
+<li><code>:breaka[dd] func [lnum] {name}</code> 在函数里设置断点，不会验证函数名有效性，因此可以在函数定义前添加断点。</li>
+<li><code>:breaka[dd] file [lnum] {name}</code> 在源文件设置断点</li>
+<li><code>:breaka[dd] here</code> 在当前文件当前行设置断点。</li>
+<li><code>[lnum]</code>是断点的行数字，缺省为1</li>
+<li><code>{name}</code>匹配文件或者函数名的模式。不指定目录则使用当前目录。<h5 id="删除断点"><a href="#删除断点" class="headerlink" title="删除断点"></a>删除断点</h5></li>
+<li><code>:breakd[el] {nr}</code>删除断点{nr}， 使用<code>:breaklist</code>查看每个断点的数值</li>
+<li><code>:breakd[el] \*</code>删除所有断点</li>
+<li><code>:breakd[el] func [lnum] {name}</code>删除函数内断点</li>
+<li><code>:breakd[el] file [lnum] {name}</code>删除源文件断点</li>
+<li><code>:breakd[el] here</code>删除当前文件当前行断点</li>
+<li><code>[lnum]</code>缺省为第一个断点位置<h5 id="列出断点"><a href="#列出断点" class="headerlink" title="列出断点"></a>列出断点</h5></li>
+<li><code>:breakl[ist]</code> 列出所有断点<h2 id="函数列表"><a href="#函数列表" class="headerlink" title="函数列表"></a>函数列表</h2></li>
+</ul>
+<h3 id="字符串操作："><a href="#字符串操作：" class="headerlink" title="字符串操作："></a>字符串操作：</h3><p>nr2char（）通过其ASCII值获取字符<br>char2nr（）获取字符的ASCII值<br>str2nr（）将字符串转换为数字<br>str2float（）将字符串转换为Float<br>printf（）根据％项格式化一个字符串<br>escape（）转义一个字符串中带有’\’的字符<br>shellescape（）转义一个用于shell命令的字符串<br>fnameescape（）转义用于Vim命令的文件名<br>tr（）将字符从一个集翻译成另一个集<br>strtrans（）翻译一个字符串，使其可打印<br>tolower（）将字符串转换为小写<br>toupper（）将字符串转换为大写<br>match（）位置，其中模式在字符串中匹配<br>matchend（）位置，其中模式匹配以字符串结尾<br>matchstr（）匹配字符串中的模式<br>matchstrpos（）匹配和字符串中模式的位置<br>matchlist（）like matchstr（）并返回子匹配<br>stridx（）长字符串中的短字符串的第一个索引<br>strridx（）一个长字符串中的一个短字符串的最后一个索引<br>strlen（）字符串的长度（以字节为单位）<br>strchars（）字符串的长度<br>strwidth（）显示时字符串的大小<br>strdisplaywidth（）显示时字符串的大小，处理制表符<br>substitute（）用一个字符串替换模式匹配<br>submatch（）在“：s”和substitute（）中获取特定的匹配项，<br>strpart（）使用字节索引获取字符串的一部分<br>strcharpart（）使用char索引获取字符串的一部分<br>strgetchar（）使用char索引从字符串中获取字符<br>expand（）展开特殊关键字<br>iconv（）将文本从一个编码转换为另一个<br>byteidx（）字符串中字符的字节索引<br>byteidxcomp（）like byteidx（）但计算构成字符<br>repeat（）重复一个字符串多次<br>eval（）计算字符串表达式<br>execute（）执行Ex命令并获取输出</p>
+<h3 id="列表操作："><a href="#列表操作：" class="headerlink" title="列表操作："></a>列表操作：</h3><p>get（）得到一个没有错误的项目，错误的索引<br>len（）列表中的项目数<br>empty（）检查List是否为空<br>insert（）在List中的某个位置插入一个项目<br>add（）将一个项目附加到List<br>extend（）将列表附加到列表<br>remove（）从列表中删除一个或多个项目<br>copy（）创建一个List的浅拷贝<br>deepcopy（）创建一个列表的完整副本<br>filter（）从列表中删除所选项目<br>map（）更改每个List项<br>sort（）排序列表<br>reverse（）反转List的顺序<br>uniq（）删除重复的邻近项目的副本<br>split（）将一个String拆分成一个List<br>join（）将列表项目转换为String<br>range（）返回一个包含数字序列的List<br>string（）List的字符串表示形式<br>call（）调用List作为参数的函数<br>index（）列表中值的索引<br>max（）最大值<br>min（）最小值<br>count（）count一个值出现在列表中的次数<br>repeat（）重复一个List多次</p>
+<h3 id="字典操作："><a href="#字典操作：" class="headerlink" title="字典操作："></a>字典操作：</h3><p>get（）获取一个条目，没有错误的错误键<br>len（）在Dictionary中的条目数<br>has_key（）检查一个键是否出现在Dictionary中<br>empty（）检查Dictionary是否为空<br>remove（）从Dictionary中删除一个条目<br>extend（）将一个字典中的条目添加到另一个<br>filter（）从Dictionary中删除选定的条目<br>map（）更改每个Dictionary条目<br>keys（）获取字典键列表<br>values（）获取字典值列表<br>items（）获取字典键值对列表<br>copy（）做一个字典的浅拷贝<br>deepcopy（）创建一个字典的完整副本<br>string（）字典的字符串表示形式<br>max（）在Dictionary中的最大值<br>min（）最小值<br>count（）count一个值出现的次数</p>
+<h3 id="浮点计算"><a href="#浮点计算" class="headerlink" title="浮点计算"></a>浮点计算</h3><p>float2nr（）将Float转换为Number<br>abs（）绝对值（也适用于Number）<br>round（）舍入<br>ceil（）向上舍入<br>floor（）向下舍入<br>trunc（）删除小数点后的值<br>fmod（）除法的余数<br>exp（）指数<br>log（）自然对数（以e为底的对数）<br>log10（）对数以10为底<br>pow（）值x到指数y<br>sqrt（）平方根<br>sin（）正弦<br>cos（）余弦<br>tan（）切线<br>asin（）反正弦<br>acos（）反余弦<br>atan（）反正切<br>atan2（）反正切<br>sinh（）双曲正弦<br>cosh（）双曲余弦<br>tanh（）双曲正切<br>isnan（）检查不是一个数字</p>
+<h3 id="其它计算"><a href="#其它计算" class="headerlink" title="其它计算"></a>其它计算</h3><p>and（）按位与<br>invert（）按位反转<br>or（）按位或<br>xor（）按位异或<br>sha256（）SHA-256哈希</p>
+<h3 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h3><p>type（）类型的变量<br>islocked（）检查变量是否被锁定<br>function（）获取函数名的Funcref<br>getbufvar（）从特定缓冲区获取变量值<br>setbufvar（）在一个特定的缓冲区中设置一个变量<br>getwinvar（）从特定窗口获取变量<br>gettabvar（）从特定标签页获取一个变量<br>gettabwinvar（）从特定窗口和标签页获取一个变量<br>setwinvar（）在一个特定的窗口中设置一个变量<br>settabvar（）在一个特定的标签页中设置一个变量<br>settabwinvar（）在一个特定的窗口和标签页中设置一个变量<br>garbagecollect（）尽可能释放内存</p>
+<h3 id="光标和标志位置"><a href="#光标和标志位置" class="headerlink" title="光标和标志位置"></a>光标和标志位置</h3><p>col（）列号或一个标记<br>virtcol（）屏幕列的光标或标记<br>line（）行号的光标或标记<br>wincol（）窗口列的光标号<br>winline（）窗口中光标的行号<br>cursor（）将光标定位在一行/列<br>screencol（）获取屏幕列的光标<br>screenrow（）获取光标的屏幕行<br>getcurpos（）获取光标的位置<br>getpos（）获取光标，标记等的位置。<br>setpos（）设置光标，标记等的位置<br>byte2line（）获取特定字节计数的行号<br>line2byte（）在特定行的字节计数<br>diff_filler（）获取行之上的填充行数<br>screenattr（）获取屏幕线/行的属性<br>screenchar（）在屏幕行/行获取字符代码</p>
+<h3 id="使用当前缓冲区的文本"><a href="#使用当前缓冲区的文本" class="headerlink" title="使用当前缓冲区的文本"></a>使用当前缓冲区的文本</h3><p>getline（）从缓冲区中获取行或行的列表<br>setline（）替换缓冲区中的一行<br>append（）在缓冲区中追加行或行列表<br>indent（）缩进特定行<br>cindent（）缩进根据C缩进<br>lispindent（）缩进根据Lisp缩进<br>nextnonblank（）找到下一个非空行<br>prevnonblank（）找到上一个非空行<br>search（）找到一个模式的匹配<br>searchpos（）找到一个模式的匹配<br>searchpair（）找到另一端的开始/跳过/结束<br>searchpairpos（）找到开始/跳过/结束的另一端<br>searchdecl（）搜索名称的声明<br>getcharsearch（）返回字符搜索信息<br>setcharsearch（）设置字符搜索信息</p>
+<h3 id="系统功能和文件操作"><a href="#系统功能和文件操作" class="headerlink" title="系统功能和文件操作"></a>系统功能和文件操作</h3><p>glob（）展开通配符<br>globpath（）在许多目录中展开通配符<br>glob2regpat（）将glob模式转换为搜索模式<br>findfile（）在目录列表中找到一个文件<br>finddir（）在目录列表中找到一个目录<br>resolve（）找出快捷方式指向的位置<br>fnamemodify（）修改文件名<br>pathshorten（）缩短路径中的目录名<br>simplify（）简化路径而不改变其含义<br>executable（）检查可执行程序是否存在<br>exepath（）可执行程序的完整路径<br>filereadable（）检查是否可以读取文件<br>filewritable（）检查是否可以写入文件<br>getfperm（）获取文件的权限<br>setfperm（）设置文件的权限<br>getftype（）获取文件的种类<br>isdirectory（）检查目录是否存在<br>getfsize（）获取文件的大小<br>getcwd（）获取当前工作目录<br>haslocaldir（）检查当前窗口是否使用|：lcd |<br>tempname（）获取临时文件的名称<br>mkdir（）创建一个新目录<br>delete（）删除文件<br>rename（）重命名文件<br>system（）获取shell命令的结果作为字符串<br>systemlist（）获取shell命令的结果作为列表<br>hostname（）系统的名称<br>readfile（）将一个文件读入一个List行<br>writefile（）将一行List写入一个文件</p>
+<h3 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h3><p>getftime（）获取文件的最后修改时间<br>localtime（）获取当前时间（秒）<br>strftime（）将时间转换为字符串<br>reltime（）准确地获取当前或逝去的时间<br>reltimestr（）将reltime（）的结果转换为字符串<br>reltimefloat（）将reltime（）结果转换为Float</p>
+<h3 id="缓冲区，窗口和参数列表"><a href="#缓冲区，窗口和参数列表" class="headerlink" title="缓冲区，窗口和参数列表"></a>缓冲区，窗口和参数列表</h3><p>argc（）参数列表中的条目数<br>argidx（）当前位置在参数列表中<br>arglistid（）获取参数列表的id<br>argv（）从参数列表中获取一个条目<br>bufexists（）检查是否存在缓冲区<br>buflisted（）检查是否存在并列出了缓冲区<br>bufloaded（）检查缓冲区是否存在并且已加载<br>bufname（）获取特定缓冲区的名称<br>bufnr（）获取特定缓冲区的缓冲区号<br>tabpagebuflist（）return标签页中的缓冲区列表<br>tabpagenr（）获取标签页的编号<br>tabpagewinnr（）像 winner（）用于特定标签页<br>winner（）获取当前窗口的窗口编号<br>bufwinid（）获取特定缓冲区的窗口ID<br>bufwinnr（）获取特定缓冲区的窗口编号<br>winbufnr（）获取特定窗口的缓冲区号<br>getbufline（）从指定的缓冲区中获取行的列表<br>win_findbuf（）查找包含缓冲区的窗口<br>win_getid（）获取窗口的窗口ID<br>win_gotoid（）转到带有ID的窗口<br>win_id2tabwin（）从窗口ID获取选项卡和窗口nr<br>win_id2win（）从窗口ID获取窗口nr<br>getbufinfo（）获取包含缓冲区信息的列表<br>gettabinfo（）获取带有标签页信息的列表<br>getwininfo（）获取带有窗口信息的列表</p>
+<h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>getcmdline（）获取当前命令行<br>getcmdpos（）获取光标在命令行中的位置<br>setcmdpos（）设置光标在命令行中的位置<br>getcmdtype（）返回当前的命令行类型<br>getcmdwintype（）返回当前命令行窗口类型<br>getcompletion（）命令行完成匹配列表</p>
+<h3 id="快速修复和位置列表"><a href="#快速修复和位置列表" class="headerlink" title="快速修复和位置列表"></a>快速修复和位置列表</h3><p>getqflist（）quickfix错误列表<br>setqflist（）修改quickfix列表<br>getloclist（）列出位置列表项<br>setloclist（）修改位置列表</p>
+<h3 id="插入模式补全"><a href="#插入模式补全" class="headerlink" title="插入模式补全"></a>插入模式补全</h3><p>complete（）设置找到的匹配项<br>complete_add（）添加找到的匹配项<br>complete_check（）检查是否应该中止完成<br>pumvisible（）检查是否显示弹出菜单</p>
+<h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><p>foldclosed（）检查特定行处的折叠<br>foldclosedend（）像 foldclosed（）但返回最后一行<br>foldlevel（）检查特定行的折叠级别<br>foldtext（）生成为封闭折叠显示的线<br>foldtextresult（）获取关闭折叠显示的文本</p>
+<h3 id="语法和高亮"><a href="#语法和高亮" class="headerlink" title="语法和高亮"></a>语法和高亮</h3><p>clearmatches（）清除由| matchadd（）|定义的所有匹配 和 |：match | 命令<br>getmatches（）获取由| matchadd（）|定义的所有匹配 和 |：match | 命令<br>hlexists（）检查高亮组是否存在<br>hlID（）获取高亮组的ID<br>synID（）获取特定位置的语法ID<br>syndICate（）获取语法ID的特定属性<br>synIDtrans（）获取翻译的语法ID<br>synstack（）获取特定位置的语法ID列表<br>synconcealed（）获取有关隐藏的信息<br>diff_hlID（）获取位置处diff模式的高亮ID<br>mathcad（）定义一个模式来突出显示（“匹配”）<br>matchaddpos（）定义要突出显示的位置列表<br>matcharg（）获取有关|：match |的信息 参数<br>matchdelete（）删除由| matchadd（）|定义的匹配 或 |：match | 命令<br>setmatches（）恢复由保存的匹配列表 | getmatches（）|</p>
+<h3 id="拼写"><a href="#拼写" class="headerlink" title="拼写"></a>拼写</h3><p>spellbadword（）定位在光标处或之后的拼写错误的单词<br>spellsuggest（）返回建议的拼写更正<br>soundfold（）返回一个词的声音a类似的等价物</p>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>histadd（）向历史添加项目<br>histdel（）从历史记录中删除项目<br>histget（）从历史记录中获取项目<br>histnr（）获取历史列表的最高索引</p>
+<h3 id="互动"><a href="#互动" class="headerlink" title="互动"></a>互动</h3><p>browse（）放置一个文件请求者<br>browsedir（）放了一个目录请求者<br>confirm（）让用户做出选择<br>getchar（）从用户获取一个字符<br>getcharmod（）获取最后一个输入字符的修饰符<br>feedkeys（）将字符放在预先排队的队列中<br>input（）从用户获取一行<br>inputlist（）让用户从列表中选择一个条目<br>inputsecret（）从用户获取一行而不显示它<br>inputdialog（）在对话框中从用户获取一行<br>inputsave（）保存和清除typeahead<br>inputrestore（）恢复typeahead</p>
+<h3 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h3><p>getfontname（）获取当前正在使用的字体的名称<br>getwinposx（）GUI Vim窗口的X位置<br>getwinposy（）Y GUI的Vim窗口的位置</p>
+<h3 id="VIM服务器"><a href="#VIM服务器" class="headerlink" title="VIM服务器"></a>VIM服务器</h3><p>serverlist（）返回服务器名称的列表<br>remote_send（）向Vim服务器发送命令字符<br>remote_expr（）计算Vim服务器中的表达式<br>server2client（）向Vim服务器的客户端发送回复<br>remote_peek（）检查是否有来自Vim服务器的回复<br>remote_read（）从Vim服务器读取回复<br>foreground（）将Vim窗口移动到前台<br>remote_foreground（）将Vim服务器窗口移动到前台</p>
+<h3 id="窗口大小和位置"><a href="#窗口大小和位置" class="headerlink" title="窗口大小和位置"></a>窗口大小和位置</h3><p>winheight（）获取特定窗口的高度<br>winwidth（）获取特定窗口的宽度<br>winrestcmd（）return命令恢复窗口大小<br>winsaveview（）获取当前窗口的视图<br>winrestview（）恢复当前窗口的保存视图</p>
+<h3 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h3><p>hasmapto（）检查是否存在映射<br>mapcheck（）检查是否存在匹配的映射<br>maparg（）获取映射的rhs<br>wildmenumode（）检查wildmode是否处于活动状态</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>assert_equal（）断言两个表达式的值相等<br>assert_notequal（）断言两个表达式的值不相等<br>assert_inrange（）断言表达式在范围内<br>assert_match（）断言模式匹配该值<br>assert_notmatch（）断言模式与值不匹配<br>assert_false（）断言表达式为false<br>assert_true（）断言表达式为true<br>assert_exception（）断言命令抛出异常<br>assert_fails（）断言函数调用失败<br>test_alloc_fail（）使内存分配失败<br>test_autochdir（）在启动期间启用’autochdir’<br>test_disable_char_avail（）测试没有typeahead<br>test_garbagecollect_now（）可用内存<br>test_null_channel（）返回一个null通道<br>test_null_dict（）返回一个空Dict<br>test_null_job（）返回一个空作业<br>test_null_list（）返回一个空列表<br>test_null_partial（）返回一个零部分函数<br>test_null_string（）返回一个空字符串</p>
+<h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><p>ch_open（）打开一个通道<br>ch_close（）关闭一个通道<br>ch_read（）从通道读取消息<br>ch_readraw（）从通道读取原始消息<br>ch_sendexpr（）通过通道发送JSON消息<br>ch_sendraw（）通过通道发送原始消息<br>ch_evalexpr（）通过通道评估表达式<br>ch_evalraw（）通过通道评估原始字符串<br>ch_status（）获取通道的状态<br>ch_getbufnr（）获取通道的缓冲区号<br>ch_getjob（）获取与通道相关联的作业<br>ch_info（）获取通道信息<br>ch_log（）在通道日志文件中写入一条消息<br>ch_logfile（）设置通道日志文件<br>ch_setoptions（）设置通道的选项<br>json_encode（）将表达式编码为JSON字符串<br>json_decode（）将JSON字符串解码为Vim类型<br>js_encode（）将表达式编码为JSON字符串<br>js_decode（）将JSON字符串解码为Vim类型</p>
+<h3 id="Jobs"><a href="#Jobs" class="headerlink" title="Jobs"></a>Jobs</h3><p>job_start（）启动作业<br>job_stop（）停止作业<br>job_status（）获取作业的状态<br>job_getchannel（）获取作业使用的通道<br>job_info（）获取有关作业的信息<br>job_setoptions（）设置作业的选项</p>
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>timer_start（）创建一个定时器<br>timer_pause（）暂停或取消暂停计时器<br>timer_stop（）停止定时器<br>timer_stopall（）停止所有计时器<br>timer_info（）获取有关计时器的信息</p>
+<h3 id="各种"><a href="#各种" class="headerlink" title="各种"></a>各种</h3><p>mode（）获取当前编辑模式<br>visualmode（）最后使用的可视模式<br>exists（）检查是否存在变量，函数等<br>has（）检查Vim中是否支持特性<br>changenr（）返回最近更改的数字<br>cscope_connection（）检查cscope连接是否存在<br>did_filetype（）检查是否使用了FileType自动命令<br>eventhandler（）检查是否由事件处理程序调用<br>getpid（）获取Vim的进程ID<br>libcall（）调用外部库中的函数<br>lincoln（）idem，返回一个数字<br>undofile（）获取撤销文件的名称<br>undotree（）返回撤销树的状态<br>getreg（）获取寄存器的内容<br>getregtype（）获取寄存器的类型<br>setreg（）设置寄存器的内容和类型<br>shiftwidth（）有效值’shiftwidth’<br>wordcount（）获取缓冲区的字节/字/ char计数<br>taglist（）获取匹配标签的列表<br>tagfiles（）获取标签文件的列表<br>luaeval（）评估Lua表达式<br>mzeval（）evaluate | MzScheme | 表达<br>perleval（）计算Perl表达式（| + perl |）<br>py3eval（）评估Python表达式（| + python3 |）<br>pyeval（）求值Python表达式（| + python |）</p>
+<h1 id="异常-Exceptions"><a href="#异常-Exceptions" class="headerlink" title="异常(Exceptions)"></a>异常(Exceptions)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:try</div><div class="line">: read ~/templates/pascal.tmpl</div><div class="line">:catch /E484:/</div><div class="line"> echo &quot;sorry, ...&quot;</div><div class="line">:endtry</div></pre></td></tr></table></figure>
+<ul>
+<li>异常是一个字符串，每个错误信息都有一个固定数值</li>
+<li>通过匹配模式处理对应异常</li>
+<li>匹配模式为空表示捕捉所有异常</li>
+<li><code>:finally</code>机制，不管是否有错误或者退出都会执行到</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;定义变量&quot;&gt;&lt;a href=&quot;#定义变量&quot; class=&quot;headerlink&quot; title=&quot;定义变量&quot;&gt;&lt;/a&gt;定义变量&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://x8087.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="vim" scheme="http://x8087.github.io/tags/vim/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo使用publish发布草稿</title>
@@ -50,7 +265,7 @@
     <link href="http://x8087.github.io/2016/11/12/vim%E8%87%AA%E5%8A%A8%E5%91%BD%E4%BB%A4%E4%BA%8B%E4%BB%B6/"/>
     <id>http://x8087.github.io/2016/11/12/vim自动命令事件/</id>
     <published>2016-11-12T07:09:00.000Z</published>
-    <updated>2016-11-26T03:15:10.000Z</updated>
+    <updated>2016-12-22T16:40:37.000Z</updated>
     
     <content type="html"><![CDATA[<p>vim参考文档内自动命令事件的翻译整理。</p>
 <a id="more"></a>
@@ -700,7 +915,7 @@
     <link href="http://x8087.github.io/2015/08/17/vim%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/"/>
     <id>http://x8087.github.io/2015/08/17/vim常用插件介绍/</id>
     <published>2015-08-17T03:45:18.000Z</published>
-    <updated>2016-12-06T15:56:45.000Z</updated>
+    <updated>2016-12-07T14:50:49.000Z</updated>
     
     <content type="html"><![CDATA[<p>主要介绍Spf13vim配置里用到以及常用的插件。涉及插件的用途以及插件的一般使用方法。<br><a id="more"></a></p>
 <h3 id="Deps"><a href="#Deps" class="headerlink" title="Deps"></a>Deps</h3><h4 id="Plugin-‘gmarik-vundle’"><a href="#Plugin-‘gmarik-vundle’" class="headerlink" title="Plugin ‘gmarik/vundle’"></a>Plugin ‘gmarik/vundle’</h4><p>Vundle是Vim bundle的缩写， 它是一个Vim插件管理器。<br>功能：</p>
@@ -1089,112 +1304,72 @@
 </thead>
 <tbody>
 <tr>
-<td><leader>f{char}</leader></td>
-<td>Find {char} to the right. See</td>
-<td>f</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;f{char}</code></td>
+<td>Find {char} to the right. See f.</td>
 </tr>
 <tr>
-<td><leader>F{char}</leader></td>
-<td>Find {char} to the left. See</td>
-<td>F</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;F{char}</code></td>
+<td>Find {char} to the left. See F.</td>
 </tr>
 <tr>
-<td><leader>t{char}</leader></td>
-<td>Till before the {char} to the right. See</td>
-<td>t</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;t{char}</code></td>
+<td>Till before the {char} to the right. See t.</td>
 </tr>
 <tr>
-<td><leader>T{char}</leader></td>
-<td>Till after the {char} to the left. See</td>
-<td>T</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;T{char}</code></td>
+<td>Till after the {char} to the left. See T.</td>
 </tr>
 <tr>
-<td><leader>w</leader></td>
-<td>Beginning of word forward. See</td>
-<td>w</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;w</code></td>
+<td>Beginning of word forward. See w.</td>
 </tr>
 <tr>
-<td><leader>W</leader></td>
-<td>Beginning of WORD forward. See</td>
-<td>W</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;W</code></td>
+<td>Beginning of WORD forward. See W.</td>
 </tr>
 <tr>
-<td><leader>b</leader></td>
-<td>Beginning of word backward. See</td>
-<td>b</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;b</code></td>
+<td>Beginning of word backward. See b.</td>
 </tr>
 <tr>
-<td><leader>B</leader></td>
-<td>Beginning of WORD backward. See</td>
-<td>B</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;B</code></td>
+<td>Beginning of WORD backward. See B.</td>
 </tr>
 <tr>
-<td><leader>e</leader></td>
-<td>End of word forward. See</td>
-<td>e</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;e</code></td>
+<td>End of word forward. See e.</td>
 </tr>
 <tr>
-<td><leader>E</leader></td>
-<td>End of WORD forward. See</td>
-<td>E</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;E</code></td>
+<td>End of WORD forward. See E.</td>
 </tr>
 <tr>
-<td><leader>ge</leader></td>
-<td>End of word backward. See</td>
-<td>ge</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;ge</code></td>
+<td>End of word backward. See ge.</td>
 </tr>
 <tr>
-<td><leader>gE</leader></td>
-<td>End of WORD backward. See</td>
-<td>gE</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;gE</code></td>
+<td>End of WORD backward. See gE.</td>
 </tr>
 <tr>
-<td><leader>j</leader></td>
-<td>Line downward. See</td>
-<td>j</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;j</code></td>
+<td>Line downward. See j.</td>
 </tr>
 <tr>
-<td><leader>k</leader></td>
-<td>Line upward. See</td>
-<td>k</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;k</code></td>
+<td>Line upward. See k.</td>
 </tr>
 <tr>
-<td><leader>n</leader></td>
-<td>Jump to latest “/“ or “?” forward. See</td>
-<td>n</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;n</code></td>
+<td>Jump to latest “/“ or “?” forward. See n.</td>
 </tr>
 <tr>
-<td><leader>N</leader></td>
-<td>Jump to latest “/“ or “?” backward. See</td>
-<td>N</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;N</code></td>
+<td>Jump to latest “/“ or “?” backward. See N.</td>
 </tr>
 <tr>
-<td><leader>s</leader></td>
-<td>Find(Search) {char} forward and backward.</td>
-</tr>
-<tr>
-<td></td>
-<td>See</td>
-<td>f</td>
-<td>and</td>
-<td>F</td>
-<td>.</td>
+<td>  <code>&lt;Leader&gt;s</code></td>
+<td>Find(Search) {char} forward and backward. See f and F.</td>
 </tr>
 </tbody>
 </table>
