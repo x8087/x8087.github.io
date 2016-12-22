@@ -1,9 +1,12 @@
----
 title: Vim脚本语法
 date: 2016-12-15 00:13:14
-categories: 笔记
-tags: [笔记, vim]
+tags: 
+  - 笔记
+  - vim
+
 ---
+vim7.4脚本相关帮助笔记
+<!-- more -->
 # 定义变量 #
 ```vimscript
 :let {变量} = {表达式}
