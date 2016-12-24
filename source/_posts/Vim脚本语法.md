@@ -828,3 +828,72 @@ pyeval（）求值Python表达式（| + python |）
 - 通过匹配模式处理对应异常
 - 匹配模式为空表示捕捉所有异常
 - `:finally`机制，不管是否有错误或者退出都会执行到
+
+# 各种设定 #
+## 行结束符 ##
+
+系统  | 符号
+:-|-:
+Unix | <NL>
+MS-DOS,windows,OS/2 | <CR><LF>
+
+## 空白字符 ##
+- 允许并忽略空行
+- 前导空白字符所有忽略
+- 参数间的空白字符它缩减为一个并作为分隔字符使用
+- 最后一个字符后的空白字符根据情况可能忽略也可能不忽略
+- `=`前的空白忽略，但后面则不
+- 选项中包含空白字符使用反斜杠转义
+
+## 注释 ##
+- 字符`"`表示注释。`"`后面包括该字符直到行尾都认为是注释并忽略，除非命令不认为是注释。
+- 注释能在行的任何字符位置开始
+- 以下命令需要通过`|`分隔成两个命令处理，否则注释会被认为是命令的一部分
+```
+:abbrev dev development|" shorthand
+:map <F3> o#include|" insert include
+:excute cmd         |" do it
+:exe '!ls *c'       |" list C files
+```
+
+# 编写插件 #
+## 插件类型 ##
+- 全局插件(global) 
+- 文件类型插件(filetype) 
+## 插件的基本组成 ##
+### 名字 ###
+- 不能超过8个字符,避免在旧的windows系统上出问题
+### 头部 ###
+```
+" Vim global plugin for correcting typing mistakes
+" Last Change:  2000 Oct 15
+" Maintainer: Bram Moolenaar <Bram@vim.org>
+" License:	This file is placed in the public domain.
+" copyright
+```
+## 注意 ##
+### 续行与避免边界效果 ###
+- `compatible`选项设置后续行机制运行会出问题，不能只是重置`compatible`，因为那样有很多边界效果。避免这个，设置`cpoptions`选项为vim默认值并稍候恢复它。
+### 不加载 ###
+```
+if exists("g:loaded_typecorr")
+  finish
+endif
+let g:loaded_typecorr = 1
+```
+### 映射 ###
+```
+map <unique> <Leader>a <Plug>TypecorrAdd
+```
+- 使用`<unique>`，如果映射已存在时报错
+```
+if !hasmapto('<Plug>TypecorrAdd')
+  map <unique> <Leader>a <Plug>TypecorrAdd
+endif
+```
+- 判断是否有相关的映射
+
+
+
+
+
