@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="zsh,zparseopts,getopts," />
+  <meta name="keywords" content="shell,col,mac,翻译," />
 
 
 
@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="zparseopts [ -DKME ] [ -a array ] [ -A assoc ] spec ...
-
-这个内部命令简化位置参数$的分析。每个spec描述一个选项，且必须使用opt[=array]的格式。如果位置参数中包含opt描述的选项，该选项将复制到-a array指定和opt后=array指定的array中。注意：如果没用使用-a或-A选项指定array，且spec中也没有使用=a">
+<meta name="description" content="当把man帮助文本输出到文件后多了很多不需要显示的控制字符，可以通过col过滤解决。1man &amp;#123;command&amp;#125;|col -b&amp;gt;&amp;#123;output_file&amp;#125;
+下面是col命令的帮助：COL(1)              BSD General Commands Manual            COL(1)
+NAME     col – filter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zparseopts的使用帮助">
-<meta property="og:url" content="http://x8087.github.io/2015/09/10/zparseopts的使用帮助/index.html">
+<meta property="og:title" content="col命令帮助">
+<meta property="og:url" content="http://x8087.github.io/2016/12/30/col_help/index.html">
 <meta property="og:site_name" content="假如上帝不是程序员">
-<meta property="og:description" content="zparseopts [ -DKME ] [ -a array ] [ -A assoc ] spec ...
-
-这个内部命令简化位置参数$的分析。每个spec描述一个选项，且必须使用opt[=array]的格式。如果位置参数中包含opt描述的选项，该选项将复制到-a array指定和opt后=array指定的array中。注意：如果没用使用-a或-A选项指定array，且spec中也没有使用=a">
-<meta property="og:updated_time" content="2016-11-26T03:03:06.000Z">
+<meta property="og:description" content="当把man帮助文本输出到文件后多了很多不需要显示的控制字符，可以通过col过滤解决。1man &amp;#123;command&amp;#125;|col -b&amp;gt;&amp;#123;output_file&amp;#125;
+下面是col命令的帮助：COL(1)              BSD General Commands Manual            COL(1)
+NAME     col – filter">
+<meta property="og:updated_time" content="2016-12-30T15:49:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zparseopts的使用帮助">
-<meta name="twitter:description" content="zparseopts [ -DKME ] [ -a array ] [ -A assoc ] spec ...
-
-这个内部命令简化位置参数$的分析。每个spec描述一个选项，且必须使用opt[=array]的格式。如果位置参数中包含opt描述的选项，该选项将复制到-a array指定和opt后=array指定的array中。注意：如果没用使用-a或-A选项指定array，且spec中也没有使用=a">
+<meta name="twitter:title" content="col命令帮助">
+<meta name="twitter:description" content="当把man帮助文本输出到文件后多了很多不需要显示的控制字符，可以通过col过滤解决。1man &amp;#123;command&amp;#125;|col -b&amp;gt;&amp;#123;output_file&amp;#125;
+下面是col命令的帮助：COL(1)              BSD General Commands Manual            COL(1)
+NAME     col – filter">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://x8087.github.io/2015/09/10/zparseopts的使用帮助/"/>
+  <link rel="canonical" href="http://x8087.github.io/2016/12/30/col_help/"/>
 
 
 
 
 
-  <title> zparseopts的使用帮助 | 假如上帝不是程序员 </title>
+  <title> col命令帮助 | 假如上帝不是程序员 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2015/09/10/zparseopts的使用帮助/">
+  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2016/12/30/col_help/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="x8087">
@@ -299,7 +299,7 @@
             
             
               
-                zparseopts的使用帮助
+                col命令帮助
               
             
           </h1>
@@ -312,8 +312,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-10T09:44:06+08:00">
-                2015-09-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-30T23:38:00+08:00">
+                2016-12-30
               </time>
             
 
@@ -326,20 +326,38 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-11-26T11:03:06+08:00">
-                2016-11-26
+              <time title="更新于" itemprop="dateModified" datetime="2016-12-30T23:49:43+08:00">
+                2016-12-30
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2015/09/10/zparseopts的使用帮助/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/zparseopts的使用帮助/" itemprop="commentCount"></span>
+                <a href="/2016/12/30/col_help/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/col_help/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -349,7 +367,7 @@
 
           
           
-             <span id="/2015/09/10/zparseopts的使用帮助/" class="leancloud_visitors" data-flag-title="zparseopts的使用帮助">
+             <span id="/2016/12/30/col_help/" class="leancloud_visitors" data-flag-title="col命令帮助">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -379,20 +397,10 @@
       
 
       
-        <p><code>zparseopts [ -DKME ] [ -a array ] [ -A assoc ] spec ...</code></p>
-<hr>
-<p>这个内部命令简化位置参数$<em>的分析。每个spec描述一个选项，且必须使用<code>opt[=array]</code>的格式。如果位置参数中包含<code>opt</code>描述的选项，该选项将复制到<code>-a array</code>指定和<code>opt</code>后<code>=array</code>指定的<code>array</code>中。<br><strong>注意：</strong>如果没用使用<code>-a</code>或<code>-A</code>选项指定<code>array</code>，且<code>spec</code>中也没有使用<code>=array</code>，命令会报错。<br>除非设置<code>-E</code>选项，分析中遇到任何一个不是描述<code>spec</code>的字符串都会停止。就算使用<code>-E</code>，分析中遇到<code>-</code>或者<code>--</code>的位置参数也会停止。<br><code>opt</code>描述必须下面中的一个。特殊字符能在前面加反斜杠显示在提供的选项名中。<br><code>name</code> <code>name+</code><br><code>name</code>是选项名去掉前缀<code>-</code>。GNU样式的长选项是特殊情况，<code>name</code>包含<code>--</code>中的一个；例如，<code>--file</code>选项的<code>name</code>相当于<code>-file</code>。<br>如果<code>name</code>后带<code>+</code>，位置参数中每次发现该选项都会添加到<code>array</code>，没有带<code>+</code>则只保存最后一个出现的选项。<br>使用这种格式，选项不带参数，所以分析时如果下一个位置参数不是以<code>-</code>开头将自动停止（除非使用<code>-E</code>选项）。<br><code>name:</code> <code>name:-</code> <code>name::</code><br>如果有<code>:</code>或者<code>::</code>，则选项带参数。一个冒号表示参数强制，两个冒号表示参数可选。<br><code>array</code>的第一个值是选项名，参数添加到选项名后。<br>可选参数和选项名放在同一个数组项（ <em>*注意</em></em> 这使得空字符串参数难以区分）。强制参数则添加到单独的数组项，除非使用<code>:-</code>才能和选项名放在同一个数组项。<br>上面描述的<code>+</code>可以出现在<code>name</code>和第一个冒号<code>:</code>中间。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p><strong>zparseopts选项:</strong><br><code>-a array</code><br>如上所述，指定默认数组名，保存识别出的选项。</p>
-<p><code>-A assoc</code><br>使用该选项可以把选项和值以选项名为键选项参数为值放到关联数组内。</p>
-<p><code>-D</code><br>使用该选项可以把所有找到的调用shell和shell方法的位置参数删除。最多但是不包括任何<code>spec</code>没描述的。这和使用内部命令<code>shift</code>类似。</p>
-<p><code>-K</code><br>使用该选项可以使<code>-a</code>选项指定和<code>=array</code>格式的数组在没有<code>spec</code>使用到时保持不变。另一方面，当任何<code>spec</code>使用到时替换整个数组。通过<code>-A</code>选项指定的关联数组单独项使用<code>-K</code>保存。这使得可以在调用<code>zparseopts</code>前指派默认值到数组里。</p>
-<p><code>-M</code><br>实现相同选项名之间映射的指派规则变化。任何使用<code>=array</code>格式来选择值保存在哪里的<code>spec</code>，字符串<code>array</code>被解释为另一个<code>spec</code>的名字。如果没有找到其他<code>spec</code>，选项值按往常保存。这只是选项值保存方法的变化，不是<code>$*</code>被解析的方法，所以如果<code>name+</code>指定不一致结果将不可预知。</p>
-<p><code>-E</code><br>这改变了分析规则，在遇到首个字符串不是按<code>spec</code>中的一个描述时不停止。它可用于测试或（如果和<code>-D</code>配合使用时）提取选项和他们的参数，忽略位置参数中的其他所有选项和参数。例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">set -- -a -bx -c y -cz baz -cend</div><div class="line">zparseopts a=foo b:=bar c+:=bar</div><div class="line">//结果：</div><div class="line">foo=(-a)</div><div class="line">bar=(-b x -c y -c z)</div></pre></td></tr></table></figure>
-<p>‘baz’后的参数将不会用到。</p>
-<p>使用<code>-E</code>选项后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">set -- -a x -b y -c z arg1 arg2</div><div class="line">zparseopts -E -D b:=bar</div><div class="line">//结果：</div><div class="line">bar=(-b y)</div><div class="line">set -- -a x -c z arg1 arg2</div></pre></td></tr></table></figure></p>
-<p>这就是说，选项<code>-b</code>和它的参数从位置参数提取到数组<code>bar</code>。</p>
-<p><code>-M</code>选项可以这样使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">set -- -a -bx -c y -cz baz -cend</div><div class="line">zparseopts -A bar -M a=foo b+: c:=b</div><div class="line">//结果：</div><div class="line">foo=(-a)</div><div class="line">bar=(-a &apos;&apos; -b xyz)</div></pre></td></tr></table></figure></p>
+        <p>当把man帮助文本输出到文件后多了很多不需要显示的控制字符，可以通过col过滤解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">man &#123;command&#125;|col -b&gt;&#123;output_file&#125;</div></pre></td></tr></table></figure></p>
+<p>下面是col命令的帮助：<br>COL(1)              BSD General Commands Manual            COL(1)</p>
+<p>NAME<br>     col – filter reverse line feeds from input<br>     col – 从输入过滤反向换行</p>
+<p>SYNOPSIS<br>     col [-bfhpx] [-l num]<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">DESCRIPTION</div><div class="line">     The col utility filters out reverse (and half reverse) line feeds so that the output is in the correct order with only forward and half forward line feeds, and replaces white-space characters with tabs where possible.</div><div class="line">     col实用程序过滤掉反向（和一半反向）换行，使得输出以正确的顺序，只有正向和半向前的换行，并在可能的情况下用制表符替换空格字符。</div><div class="line">     This can be useful in processing the output of nroff(1) and tbl(1).</div><div class="line">     这在处理nroff(1)和tbl(1)的输出时很有用。</div><div class="line"></div><div class="line">     The col utility reads from the standard input and writes to the standard output.</div><div class="line">     col实用程序从标准输入读取并写入标准输出。</div><div class="line"></div><div class="line">     The options are as follows:</div><div class="line">     选项如下：</div><div class="line"></div><div class="line">     -b      Do not output any backspaces, printing only the last character written to each column position.</div><div class="line">     -b      不输出任何后退格，只打印写入每个列位置的最后一个字符。</div><div class="line"></div><div class="line">     -f      Forward half line feeds are permitted (``fine&apos;&apos; mode).  Normally characters printed on a half line boundary are printed on the following line.</div><div class="line">     -f      允许前半换行（&quot;fine&quot;模式）。 通常，在半行边界上打印的字符打印在下一行上。</div><div class="line"></div><div class="line">     -h      Do not output multiple spaces instead of tabs (default).</div><div class="line">     -h      不要输出多个空格，而是用制表符替代（默认）。</div><div class="line"></div><div class="line">     -l num  Buffer at least num lines in memory.  By default, 128 lines are buffered.</div><div class="line">     -l num  至少缓冲内存中的num行。 默认情况下，128行被缓冲。</div><div class="line"></div><div class="line">     -p      Force unknown control sequences to be passed through unchanged. Normally, col will filter out any control sequences from the input other than those recognized and interpreted by itself, which are listed below.</div><div class="line">     -p      强制未知控制序列不变地传递。 通常，col将从输入中过滤出除本身识别和解释的以外的任何控制序列，如下所列。</div><div class="line"></div><div class="line">     -x      Output multiple spaces instead of tabs.</div><div class="line">     -x      输出多个空格而不是制表符。</div><div class="line"></div><div class="line">     The control sequences for carriage motion that col understands and their decimal values are listed in the following table:</div><div class="line">     col所了解的转运动作的控制序列及其十进制值列在下表中：</div><div class="line"></div><div class="line">     ESC-7	      reverse line feed (escape then 7)</div><div class="line">     ESC-8	      half reverse line feed (escape then 8)</div><div class="line">     ESC-9	      half forward line feed (escape then 9)</div><div class="line">     backspace	      moves back one column (8); ignored in the first column</div><div class="line">     carriage return  (13)</div><div class="line">     newline	      forward line feed (10); also does carriage return</div><div class="line">     shift in	      shift to normal character set (15)</div><div class="line">     shift out	      shift to alternate character set (14)</div><div class="line">     space	      moves forward one column (32)</div><div class="line">     tab	      moves forward to next tab stop (9)</div><div class="line">     vertical tab     reverse line feed (11)</div><div class="line"></div><div class="line">     All unrecognized control characters and escape sequences are discarded.</div><div class="line">     丢弃所有无法识别的控制字符和转义序列。</div><div class="line"></div><div class="line">     The col utility keeps track of the character set as characters are read and makes sure the character set is correct when they are output.</div><div class="line">     col实用程序在读取字符时跟踪字符集，并确保在输出时字符集是正确的。</div><div class="line"></div><div class="line">     If the input attempts to back up to the last flushed line, col will display a warning message.</div><div class="line">     如果输入尝试备份到最后一个刷新行，col将显示警告消息。</div><div class="line"></div><div class="line">ENVIRONMENT</div><div class="line">     The LANG, LC_ALL and LC_CTYPE environment variables affect the execution of col as described in environ(7).</div><div class="line">     LANG，LC_ALL和LC_CTYPE环境变量影响col的执行，如environ(7)中所述。</div><div class="line"></div><div class="line">EXIT STATUS</div><div class="line">     The col utility exits 0 on success, and &gt;0 if an error occurs.</div><div class="line">     col实用程序成功退出0，如果发生错误，则返回&gt;0。</div><div class="line"></div><div class="line">SEE ALSO</div><div class="line">     colcrt(1), expand(1), nroff(1), tbl(1)</div><div class="line"></div><div class="line">STANDARDS</div><div class="line">     The col utility conforms to Version 2 of the Single UNIX Specification</div><div class="line">     col实用程序符合单UNIX规范的版本2</div><div class="line">     (``SUSv2&apos;&apos;).</div><div class="line"></div><div class="line">HISTORY</div><div class="line">     A col command appeared in Version 6 AT&amp;T UNIX.</div><div class="line">     AT命令出现在版本6 AT＆T UNIX中。</div><div class="line"></div><div class="line">BSD				August 4, 2004				   BSD</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -416,11 +424,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/zsh/" rel="tag"># zsh</a>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
-            <a href="/tags/zparseopts/" rel="tag"># zparseopts</a>
+            <a href="/tags/col/" rel="tag"># col</a>
           
-            <a href="/tags/getopts/" rel="tag"># getopts</a>
+            <a href="/tags/mac/" rel="tag"># mac</a>
+          
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
           
         </div>
       
@@ -429,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/17/vim常用插件介绍/" rel="next" title="vim常用插件介绍">
-                <i class="fa fa-chevron-left"></i> vim常用插件介绍
+              <a href="/2016/12/29/trans_help/" rel="next" title="trans命令帮助">
+                <i class="fa fa-chevron-left"></i> trans命令帮助
               </a>
             
           </div>
@@ -438,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/09/14/ftp命令帮助/" rel="prev" title="ftp命令帮助">
-                ftp命令帮助 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,10 +462,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/09/10/zparseopts的使用帮助/"
-     data-title="zparseopts的使用帮助"
+        <div class="ds-share flat" data-thread-key="2016/12/30/col_help/"
+     data-title="col命令帮助"
      data-content=""
-     data-url="http://x8087.github.io/2015/09/10/zparseopts的使用帮助/">
+     data-url="http://x8087.github.io/2016/12/30/col_help/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -486,8 +492,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/09/10/zparseopts的使用帮助/"
-           data-title="zparseopts的使用帮助" data-url="http://x8087.github.io/2015/09/10/zparseopts的使用帮助/">
+      <div class="ds-thread" data-thread-key="2016/12/30/col_help/"
+           data-title="col命令帮助" data-url="http://x8087.github.io/2016/12/30/col_help/">
       </div>
     
   </div>
@@ -511,17 +517,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -607,22 +604,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
