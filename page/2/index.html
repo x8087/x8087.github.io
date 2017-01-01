@@ -267,6 +267,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2015/09/10/zparseopts的使用帮助/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="x8087">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="假如上帝不是程序员">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="假如上帝不是程序员" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/10/zparseopts的使用帮助/" itemprop="url">
+                  zparseopts的使用帮助
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-10T09:44:06+08:00">
+                2015-09-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-11-26T11:03:06+08:00">
+                2016-11-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2015/09/10/zparseopts的使用帮助/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/zparseopts的使用帮助/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/09/10/zparseopts的使用帮助/" class="leancloud_visitors" data-flag-title="zparseopts的使用帮助">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><code>zparseopts [ -DKME ] [ -a array ] [ -A assoc ] spec ...</code></p>
+<hr>
+<p>这个内部命令简化位置参数$<em>的分析。每个spec描述一个选项，且必须使用<code>opt[=array]</code>的格式。如果位置参数中包含<code>opt</code>描述的选项，该选项将复制到<code>-a array</code>指定和<code>opt</code>后<code>=array</code>指定的<code>array</code>中。<br><strong>注意：</strong>如果没用使用<code>-a</code>或<code>-A</code>选项指定<code>array</code>，且<code>spec</code>中也没有使用<code>=array</code>，命令会报错。<br>除非设置<code>-E</code>选项，分析中遇到任何一个不是描述<code>spec</code>的字符串都会停止。就算使用<code>-E</code>，分析中遇到<code>-</code>或者<code>--</code>的位置参数也会停止。<br><code>opt</code>描述必须下面中的一个。特殊字符能在前面加反斜杠显示在提供的选项名中。<br><code>name</code> <code>name+</code><br><code>name</code>是选项名去掉前缀<code>-</code>。GNU样式的长选项是特殊情况，<code>name</code>包含<code>--</code>中的一个；例如，<code>--file</code>选项的<code>name</code>相当于<code>-file</code>。<br>如果<code>name</code>后带<code>+</code>，位置参数中每次发现该选项都会添加到<code>array</code>，没有带<code>+</code>则只保存最后一个出现的选项。<br>使用这种格式，选项不带参数，所以分析时如果下一个位置参数不是以<code>-</code>开头将自动停止（除非使用<code>-E</code>选项）。<br><code>name:</code> <code>name:-</code> <code>name::</code><br>如果有<code>:</code>或者<code>::</code>，则选项带参数。一个冒号表示参数强制，两个冒号表示参数可选。<br><code>array</code>的第一个值是选项名，参数添加到选项名后。<br>可选参数和选项名放在同一个数组项（ <em>*注意</em></em> 这使得空字符串参数难以区分）。强制参数则添加到单独的数组项，除非使用<code>:-</code>才能和选项名放在同一个数组项。<br>上面描述的<code>+</code>可以出现在<code>name</code>和第一个冒号<code>:</code>中间。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/10/zparseopts的使用帮助/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://x8087.github.io/2015/08/17/vim常用插件介绍/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1837,7 +1987,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1854,7 +2004,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1927,7 +2077,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

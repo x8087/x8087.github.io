@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x8087.github.io/"/>
-  <updated>2016-12-30T15:58:23.000Z</updated>
+  <updated>2017-01-01T09:02:37.000Z</updated>
   <id>http://x8087.github.io/</id>
   
   <author>
@@ -16,11 +16,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>tee命令帮助</title>
+    <link href="http://x8087.github.io/2017/01/01/tee_help/"/>
+    <id>http://x8087.github.io/2017/01/01/tee_help/</id>
+    <published>2017-01-01T07:29:00.000Z</published>
+    <updated>2017-01-01T09:02:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>TEE(1)              BSD General Commands Manual            TEE(1)</p>
+<blockquote>
+<p>NAME<br>     tee – pipe fitting</p>
+<p>SYNOPSIS<br>   tee [-ai] [file …]</p>
+<p>DESCRIPTION<br>   The tee utility copies standard input to standard output, making a copy in zero or more files.  The output is unbuffered.<br>   tee实用程序将标准输入复制到标准输出，从而在零个或多个文件中复制。 输出未缓冲。</p>
+<p>   The following options are available:<br>   以下选项可用：</p>
+<p>   -a      Append the output to the files rather than overwriting them.<br>   -a      将输出附加到文件，而不是覆盖它们。</p>
+<p>   -i      Ignore the SIGINT signal.<br>   -i      忽略SIGINT信号。</p>
+<p>   The following operands are available:<br>   以下操作数可用：</p>
+<p>   file  A pathname of an output file.<br>   file  输出文件的路径名。</p>
+<p>   The tee utility takes the default action for all signals, except in the event of the -i option.<br>   tee实用程序对所有信号采用默认操作，但在-i选项的情况下除外。</p>
+<p>   The tee utility exits 0 on success, and &gt;0 if an error occurs.<br>   tee实用程序成功退出0，如果发生错误，则为&gt;0。</p>
+<p>STANDARDS<br>   The tee function is expected to be POSIX IEEE Std 1003.2 (``POSIX.2’’) compatible.<br>   tee功能预期为POSIX IEEE Std 1003.2（POSIX.2“）兼容。</p>
+<p>BSD                 June 6, 1993                   BSD</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;TEE(1)              BSD General Commands Manual            TEE(1)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NAME&lt;br&gt;     tee – pipe fitting&lt;/p&gt;
+&lt;p&gt;SYNOPSIS&lt;br&gt;
+    
+    </summary>
+    
+      <category term="shell" scheme="http://x8087.github.io/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://x8087.github.io/tags/shell/"/>
+    
+      <category term="mac" scheme="http://x8087.github.io/tags/mac/"/>
+    
+      <category term="翻译" scheme="http://x8087.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="tee" scheme="http://x8087.github.io/tags/tee/"/>
+    
+  </entry>
+  
+  <entry>
     <title>col命令帮助</title>
     <link href="http://x8087.github.io/2016/12/30/col_help/"/>
     <id>http://x8087.github.io/2016/12/30/col_help/</id>
     <published>2016-12-30T15:38:00.000Z</published>
-    <updated>2016-12-30T15:58:23.000Z</updated>
+    <updated>2016-12-30T16:00:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>当把man帮助文本输出到文件后多了很多不需要显示的控制字符，可以通过col过滤解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">man &#123;command&#125;|col -b&gt;&#123;output_file&#125;</div></pre></td></tr></table></figure></p>
 <p>下面是col命令的帮助：<br>COL(1)              BSD General Commands Manual            COL(1)</p>
@@ -2068,11 +2114,11 @@
     </summary>
     
     
-      <category term="问题" scheme="http://x8087.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+      <category term="hexo" scheme="http://x8087.github.io/tags/hexo/"/>
     
       <category term="bug" scheme="http://x8087.github.io/tags/bug/"/>
     
-      <category term="hexo" scheme="http://x8087.github.io/tags/hexo/"/>
+      <category term="问题" scheme="http://x8087.github.io/tags/%E9%97%AE%E9%A2%98/"/>
     
       <category term="publish" scheme="http://x8087.github.io/tags/publish/"/>
     
@@ -4730,9 +4776,9 @@
       <category term="问题" scheme="http://x8087.github.io/categories/bug/"/>
     
     
-      <category term="技术" scheme="http://x8087.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="问题" scheme="http://x8087.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="技术" scheme="http://x8087.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
       <category term="Bug" scheme="http://x8087.github.io/tags/Bug/"/>
     
@@ -4793,11 +4839,11 @@
     
       <category term="vim" scheme="http://x8087.github.io/tags/vim/"/>
     
-      <category term="技术" scheme="http://x8087.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="bug" scheme="http://x8087.github.io/tags/bug/"/>
     
       <category term="问题" scheme="http://x8087.github.io/tags/%E9%97%AE%E9%A2%98/"/>
     
-      <category term="bug" scheme="http://x8087.github.io/tags/bug/"/>
+      <category term="技术" scheme="http://x8087.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
       <category term="macbook" scheme="http://x8087.github.io/tags/macbook/"/>
     
