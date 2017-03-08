@@ -1,0 +1,831 @@
+{
+    "frames": {
+        "yoko0001.png": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 65,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 23,
+                "y": 8,
+                "w": 24,
+                "h": 65
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0002.png": {
+            "frame": {
+                "x": 26,
+                "y": 0,
+                "w": 25,
+                "h": 65,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 22,
+                "y": 8,
+                "w": 25,
+                "h": 65
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0003.png": {
+            "frame": {
+                "x": 0,
+                "y": 67,
+                "w": 24,
+                "h": 63,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 21,
+                "y": 10,
+                "w": 24,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0004.png": {
+            "frame": {
+                "x": 53,
+                "y": 0,
+                "w": 24,
+                "h": 61,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 19,
+                "y": 12,
+                "w": 24,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0005.png": {
+            "frame": {
+                "x": 26,
+                "y": 67,
+                "w": 25,
+                "h": 60,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 16,
+                "y": 14,
+                "w": 25,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0006.png": {
+            "frame": {
+                "x": 79,
+                "y": 0,
+                "w": 26,
+                "h": 58,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 14,
+                "y": 16,
+                "w": 26,
+                "h": 58
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0007.png": {
+            "frame": {
+                "x": 107,
+                "y": 0,
+                "w": 27,
+                "h": 56,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 13,
+                "y": 18,
+                "w": 27,
+                "h": 56
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0008.png": {
+            "frame": {
+                "x": 136,
+                "y": 0,
+                "w": 28,
+                "h": 55,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 12,
+                "y": 19,
+                "w": 28,
+                "h": 55
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0009.png": {
+            "frame": {
+                "x": 166,
+                "y": 0,
+                "w": 29,
+                "h": 56,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 11,
+                "y": 18,
+                "w": 29,
+                "h": 56
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0010.png": {
+            "frame": {
+                "x": 197,
+                "y": 0,
+                "w": 28,
+                "h": 58,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 12,
+                "y": 16,
+                "w": 28,
+                "h": 58
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0011.png": {
+            "frame": {
+                "x": 227,
+                "y": 0,
+                "w": 28,
+                "h": 60,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 12,
+                "y": 14,
+                "w": 28,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0012.png": {
+            "frame": {
+                "x": 257,
+                "y": 0,
+                "w": 28,
+                "h": 62,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 13,
+                "y": 11,
+                "w": 28,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0013.png": {
+            "frame": {
+                "x": 0,
+                "y": 132,
+                "w": 26,
+                "h": 64,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 15,
+                "y": 9,
+                "w": 26,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0014.png": {
+            "frame": {
+                "x": 0,
+                "y": 198,
+                "w": 25,
+                "h": 65,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 16,
+                "y": 8,
+                "w": 25,
+                "h": 65
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0015.png": {
+            "frame": {
+                "x": 53,
+                "y": 63,
+                "w": 24,
+                "h": 66,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 18,
+                "y": 7,
+                "w": 24,
+                "h": 66
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0016.png": {
+            "frame": {
+                "x": 79,
+                "y": 60,
+                "w": 25,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 19,
+                "y": 6,
+                "w": 25,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0017.png": {
+            "frame": {
+                "x": 106,
+                "y": 60,
+                "w": 24,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 22,
+                "y": 6,
+                "w": 24,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0018.png": {
+            "frame": {
+                "x": 132,
+                "y": 58,
+                "w": 24,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 24,
+                "y": 6,
+                "w": 24,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0019.png": {
+            "frame": {
+                "x": 158,
+                "y": 58,
+                "w": 25,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 26,
+                "y": 6,
+                "w": 25,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0020.png": {
+            "frame": {
+                "x": 185,
+                "y": 60,
+                "w": 26,
+                "h": 66,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 27,
+                "y": 7,
+                "w": 26,
+                "h": 66
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0021.png": {
+            "frame": {
+                "x": 213,
+                "y": 62,
+                "w": 29,
+                "h": 66,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 26,
+                "y": 7,
+                "w": 29,
+                "h": 66
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0022.png": {
+            "frame": {
+                "x": 244,
+                "y": 64,
+                "w": 32,
+                "h": 64,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 25,
+                "y": 9,
+                "w": 32,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0023.png": {
+            "frame": {
+                "x": 28,
+                "y": 131,
+                "w": 34,
+                "h": 63,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 25,
+                "y": 10,
+                "w": 34,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0024.png": {
+            "frame": {
+                "x": 64,
+                "y": 131,
+                "w": 38,
+                "h": 61,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 24,
+                "y": 12,
+                "w": 38,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0025.png": {
+            "frame": {
+                "x": 104,
+                "y": 129,
+                "w": 41,
+                "h": 60,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 23,
+                "y": 13,
+                "w": 41,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0026.png": {
+            "frame": {
+                "x": 147,
+                "y": 128,
+                "w": 42,
+                "h": 59,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 23,
+                "y": 14,
+                "w": 42,
+                "h": 59
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0027.png": {
+            "frame": {
+                "x": 191,
+                "y": 130,
+                "w": 44,
+                "h": 59,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 22,
+                "y": 14,
+                "w": 44,
+                "h": 59
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0028.png": {
+            "frame": {
+                "x": 0,
+                "y": 265,
+                "w": 45,
+                "h": 58,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 22,
+                "y": 15,
+                "w": 45,
+                "h": 58
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0029.png": {
+            "frame": {
+                "x": 237,
+                "y": 130,
+                "w": 45,
+                "h": 59,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 22,
+                "y": 14,
+                "w": 45,
+                "h": 59
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0030.png": {
+            "frame": {
+                "x": 27,
+                "y": 198,
+                "w": 44,
+                "h": 59,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 22,
+                "y": 14,
+                "w": 44,
+                "h": 59
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0031.png": {
+            "frame": {
+                "x": 73,
+                "y": 194,
+                "w": 42,
+                "h": 59,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 23,
+                "y": 14,
+                "w": 42,
+                "h": 59
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0032.png": {
+            "frame": {
+                "x": 117,
+                "y": 191,
+                "w": 42,
+                "h": 60,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 23,
+                "y": 13,
+                "w": 42,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0033.png": {
+            "frame": {
+                "x": 47,
+                "y": 259,
+                "w": 40,
+                "h": 61,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 24,
+                "y": 12,
+                "w": 40,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0034.png": {
+            "frame": {
+                "x": 89,
+                "y": 255,
+                "w": 38,
+                "h": 62,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 24,
+                "y": 11,
+                "w": 38,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0035.png": {
+            "frame": {
+                "x": 129,
+                "y": 253,
+                "w": 34,
+                "h": 62,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 26,
+                "y": 11,
+                "w": 34,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0036.png": {
+            "frame": {
+                "x": 165,
+                "y": 191,
+                "w": 32,
+                "h": 63,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 26,
+                "y": 10,
+                "w": 32,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0037.png": {
+            "frame": {
+                "x": 199,
+                "y": 191,
+                "w": 28,
+                "h": 64,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 27,
+                "y": 9,
+                "w": 28,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0038.png": {
+            "frame": {
+                "x": 229,
+                "y": 191,
+                "w": 24,
+                "h": 64,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 27,
+                "y": 9,
+                "w": 24,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "yoko0039.png": {
+            "frame": {
+                "x": 255,
+                "y": 191,
+                "w": 24,
+                "h": 65,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 25,
+                "y": 8,
+                "w": 24,
+                "h": 65
+            },
+            "sourceSize": {
+                "w": 70,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        }
+    },
+    "meta": {
+        "app": "http:\/\/www.layabox.com",
+        "version": "0.1.0 alpha",
+        "format": "json",
+        "scale": 1,
+        "image": "yoko.png",
+        "prefix": ""
+    }
+}
