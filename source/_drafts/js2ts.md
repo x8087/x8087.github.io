@@ -9,6 +9,27 @@ tags: [笔记, 技术, javascript, typescript]
 - Toplevel
   - Defun
   - Var
+    - *definitions*
+      - VarDef
+        - *name*
+          - SymbolVar
+            - *name*
+            - *init*
+            - *scope*
+            - *thedef*
+        - *value*
+          - Assign
+            - *left*
+              - Dot
+                - *expression*
+                  - SymbolRef
+                    - *fixed*
+                    - *name*
+                    - *scope*
+                    - *thedef*
+                - *property*
+            - *operator*
+            - *right*
   - SimpleStatement
     - *body*
       - Sequence
